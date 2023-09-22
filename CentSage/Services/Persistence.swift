@@ -31,3 +31,16 @@ struct PersistenceController {
     })
   }
 }
+
+extension PersistenceController {
+  func createSampleTransaction() -> Transaction {
+    let transaction = Transaction(context: container.viewContext)
+    transaction.name = "Sample Transaction"
+    transaction.category = "Food"
+    transaction.amount = 45.67
+    transaction.date = Date()
+    transaction.id = UUID()
+    transaction.type = 0
+    return transaction
+  }
+}

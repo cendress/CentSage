@@ -10,23 +10,14 @@ import CoreData
 
 struct TransactionsListView: View {
   @Environment(\.managedObjectContext) private var viewContext
-  @FetchRequest(
-    entity: Transaction.entity(),
-    sortDescriptors: [NSSortDescriptor(keyPath: \Transaction.date, ascending: false)]
-  ) private var transactions: FetchedResults<Transaction>
+  @ObservedObject var viewModel: TransactionsListViewModel
   
   @State private var isShowingNewTransactionView = false
   
   var body: some View {
     NavigationView {
-      List(transactions, id: \.self) { transaction in
-        VStack(alignment: .leading) {
-          Text(transaction.name ?? "Unknown Name")
-          Text(transaction.category ?? "Unknown Category")
-          Text(String(format: "$%.2f", transaction.amount))
-            .font(.headline)
-          Text(transaction.date != nil ? "\(transaction.date!)" : "Unknown Date")
-        }
+      List(viewModel.transactions, id: \.self) { transaction in
+        TransactionRow(transaction: transaction)
       }
       .navigationTitle("Transactions")
       .toolbar {
@@ -47,6 +38,6 @@ struct TransactionsListView: View {
 }
 
 #Preview {
-  TransactionsListView()
+  TransactionsListView(viewModel: TransactionsListViewModel(context: PersistenceController.preview.container.viewContext))
     .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }

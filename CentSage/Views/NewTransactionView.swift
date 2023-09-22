@@ -5,8 +5,8 @@
 //  Created by Christopher Endress on 9/22/23.
 //
 
-import SwiftUI
 import CoreData
+import SwiftUI
 
 struct NewTransactionView: View {
   @Environment(\.managedObjectContext) private var viewContext
@@ -14,9 +14,9 @@ struct NewTransactionView: View {
   
   @State private var name = ""
   @State private var amount = ""
-  
   @State private var selectedSegment = 0
   @State private var category = ""
+  @State private var note = ""
   
   @State private var showErrorAlert = false
   @State private var errorMessage = "There was a problem saving the transaction. Please try again."
@@ -39,6 +39,8 @@ struct NewTransactionView: View {
         .pickerStyle(SegmentedPickerStyle())
         
         TextField("Category", text: $category)
+        
+        TextField("Note", text: $note)
       }
       .navigationTitle("Add Transaction")
       .toolbar {
@@ -59,8 +61,8 @@ struct NewTransactionView: View {
   }
   
   private func saveTransaction() {
-    guard let amountDouble = Double(self.amount) else {
-      self.errorMessage = "Invalid amount. Please enter a numeric value."
+    guard let amountDouble = Double(self.amount), !self.name.isEmpty, !self.category.isEmpty else {
+      self.errorMessage = "Please fill out all fields correctly."
       self.showErrorAlert = true
       return
     }
@@ -70,7 +72,9 @@ struct NewTransactionView: View {
     newTransaction.amount = amountDouble
     newTransaction.type = Int16(self.selectedSegment)
     newTransaction.category = self.category
+    newTransaction.note = self.note
     newTransaction.date = Date()
+    newTransaction.id = UUID()
     
     do {
       try viewContext.save()
@@ -83,6 +87,7 @@ struct NewTransactionView: View {
     }
   }
 }
+
 
 #Preview {
     NewTransactionView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
