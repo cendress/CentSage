@@ -19,6 +19,7 @@
 		9DBBE9F82ABE226A000F1565 /* NewTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBE9F72ABE226A000F1565 /* NewTransactionView.swift */; };
 		9DBBE9FE2ABE30AF000F1565 /* TransactionsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBE9FD2ABE30AF000F1565 /* TransactionsListViewModel.swift */; };
 		9DBBEA012ABE3161000F1565 /* TransactionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBEA002ABE3161000F1565 /* TransactionRow.swift */; };
+		9DBBEA032ABE36D6000F1565 /* NewSavingsGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBEA022ABE36D6000F1565 /* NewSavingsGoal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		9DBBE9F72ABE226A000F1565 /* NewTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionView.swift; sourceTree = "<group>"; };
 		9DBBE9FD2ABE30AF000F1565 /* TransactionsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsListViewModel.swift; sourceTree = "<group>"; };
 		9DBBEA002ABE3161000F1565 /* TransactionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRow.swift; sourceTree = "<group>"; };
+		9DBBEA022ABE36D6000F1565 /* NewSavingsGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSavingsGoal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				9DBBE9F52ABE2236000F1565 /* TransactionsListView.swift */,
 				9DBBEA002ABE3161000F1565 /* TransactionRow.swift */,
 				9DBBE9F72ABE226A000F1565 /* NewTransactionView.swift */,
+				9DBBEA022ABE36D6000F1565 /* NewSavingsGoal.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				9DBBE9D52ABE19C3000F1565 /* ContentView.swift in Sources */,
 				9DBBE9F22ABE21A9000F1565 /* DashboardView.swift in Sources */,
 				9DBBE9F42ABE2204000F1565 /* OnboardingView.swift in Sources */,
+				9DBBEA032ABE36D6000F1565 /* NewSavingsGoal.swift in Sources */,
 				9DBBEA012ABE3161000F1565 /* TransactionRow.swift in Sources */,
 				9DBBE9FE2ABE30AF000F1565 /* TransactionsListViewModel.swift in Sources */,
 				9DBBE9D32ABE19C3000F1565 /* CentSageApp.swift in Sources */,
