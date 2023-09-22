@@ -8,11 +8,20 @@
 import SwiftUI
 
 struct DashboardView: View {
+  var logoutAction: () -> Void
+  
   var body: some View {
-    Text("Dashboard")
+    VStack {
+      Text("Dashboard")
+      Button("Logout") {
+        logoutAction()
+      }
+    }
   }
 }
 
 #Preview {
-  DashboardView()
+  DashboardView {
+    print("Logout action performed.")
+  }
 }

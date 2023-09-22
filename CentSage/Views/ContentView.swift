@@ -14,9 +14,13 @@ struct ContentView: View {
   var body: some View {
     Group {
       if isUserLoggedIn {
-        //DashboardView()
+        DashboardView {
+          isUserLoggedIn = false
+        }
       } else {
-        //OnboardingView()
+        OnboardingView {
+          isUserLoggedIn = true
+        }
       }
     }
   }

@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct OnboardingView: View {
+  var loginAction: () -> Void
+  
   var body: some View {
     Text("Onboarding/Login screen")
+    Button("Login") {
+      loginAction()
+    }
   }
 }
 
 #Preview {
-  OnboardingView()
+  OnboardingView {
+    print("Login action performed.")
+  }
 }
