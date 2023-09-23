@@ -6,10 +6,37 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct SavingsGoalsListView: View {
+  @Environment(\.managedObjectContext) private var viewContext
+  @FetchRequest(
+          entity: SavingsGoal.entity(),
+          sortDescriptors: [NSSortDescriptor(keyPath: \SavingsGoal.dueDate, ascending: true)]
+      ) private var goals: FetchedResults<SavingsGoal>
+  
+  @State private var isShowingNewGoalView = false
+  
   var body: some View {
-    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    NavigationView {
+      List(goals, id: \.self) { goal in
+        SavingsGoalRow(goal: goal)
+      }
+      .navigationTitle("Savings Goals")
+      .toolbar {
+        ToolbarItem(placement: .navigationBarTrailing) {
+          Button(action: {
+            isShowingNewGoalView = true
+          }, label: {
+            Image(systemName: "plus")
+          })
+        }
+      }
+      .sheet(isPresented: $isShowingNewGoalView) {
+        NewSavingsGoal()
+          .environment(\.managedObjectContext, self.viewContext)
+      }
+    }
   }
 }
 
