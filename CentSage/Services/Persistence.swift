@@ -53,5 +53,16 @@ extension PersistenceController {
     goal.id = UUID()
     return goal
   }
+  
+  func createSampleBudget() -> Budget {
+    let budget = Budget(context: container.viewContext)
+    budget.category = "Groceries"
+    budget.amount = 200.0
+    budget.usedAmount = 150.0
+    budget.startDate = Date()
+    budget.endDate = Calendar.current.date(byAdding: .month, value: 1, to: Date())
+    budget.id = UUID()
+    return budget
+  }
 }
 
