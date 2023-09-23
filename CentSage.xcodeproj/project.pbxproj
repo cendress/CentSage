@@ -23,6 +23,7 @@
 		9DBBEA072ABF68AA000F1565 /* SavingsGoalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBEA062ABF68AA000F1565 /* SavingsGoalRow.swift */; };
 		9DBBEA092ABF6FFF000F1565 /* BudgetRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBEA082ABF6FFF000F1565 /* BudgetRow.swift */; };
 		9DBBEA0B2ABF71E8000F1565 /* BudgetsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBEA0A2ABF71E8000F1565 /* BudgetsListView.swift */; };
+		9DBBEA0D2ABF7704000F1565 /* NewBudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBEA0C2ABF7704000F1565 /* NewBudgetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		9DBBEA062ABF68AA000F1565 /* SavingsGoalRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsGoalRow.swift; sourceTree = "<group>"; };
 		9DBBEA082ABF6FFF000F1565 /* BudgetRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetRow.swift; sourceTree = "<group>"; };
 		9DBBEA0A2ABF71E8000F1565 /* BudgetsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetsListView.swift; sourceTree = "<group>"; };
+		9DBBEA0C2ABF7704000F1565 /* NewBudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBudgetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				9DBBEA062ABF68AA000F1565 /* SavingsGoalRow.swift */,
 				9DBBEA082ABF6FFF000F1565 /* BudgetRow.swift */,
 				9DBBEA0A2ABF71E8000F1565 /* BudgetsListView.swift */,
+				9DBBEA0C2ABF7704000F1565 /* NewBudgetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				9DBBEA072ABF68AA000F1565 /* SavingsGoalRow.swift in Sources */,
 				9DBBE9D32ABE19C3000F1565 /* CentSageApp.swift in Sources */,
 				9DBBE9F82ABE226A000F1565 /* NewTransactionView.swift in Sources */,
+				9DBBEA0D2ABF7704000F1565 /* NewBudgetView.swift in Sources */,
 				9DBBE9DF2ABE19C5000F1565 /* CentSage.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
