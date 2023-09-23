@@ -42,4 +42,5 @@ struct SavingsGoalsListView: View {
 
 #Preview {
   SavingsGoalsListView()
+    .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }

@@ -10,13 +10,16 @@ import CoreData
 
 struct TransactionsListView: View {
   @Environment(\.managedObjectContext) private var viewContext
-  @ObservedObject var viewModel: TransactionsListViewModel
+  @FetchRequest(
+    entity: Transaction.entity(),
+    sortDescriptors: [NSSortDescriptor(keyPath: \Transaction.date, ascending: false)]
+  ) private var transactions: FetchedResults<Transaction>
   
   @State private var isShowingNewTransactionView = false
   
   var body: some View {
     NavigationView {
-      List(viewModel.transactions, id: \.self) { transaction in
+      List(transactions, id: \.self) { transaction in
         TransactionRow(transaction: transaction)
       }
       .navigationTitle("Transactions")
@@ -24,9 +27,9 @@ struct TransactionsListView: View {
         ToolbarItem(placement: .navigationBarTrailing) {
           Button(action: {
             isShowingNewTransactionView = true
-          }) {
+          }, label: {
             Image(systemName: "plus")
-          }
+          })
         }
       }
       .sheet(isPresented: $isShowingNewTransactionView) {
@@ -38,6 +41,7 @@ struct TransactionsListView: View {
 }
 
 #Preview {
-  TransactionsListView(viewModel: TransactionsListViewModel(context: PersistenceController.preview.container.viewContext))
+  TransactionsListView()
     .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }
+

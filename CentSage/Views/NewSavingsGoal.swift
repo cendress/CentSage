@@ -85,5 +85,5 @@ struct NewSavingsGoal: View {
 }
 
 #Preview {
-  NewSavingsGoal()
+  NewSavingsGoal().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }
