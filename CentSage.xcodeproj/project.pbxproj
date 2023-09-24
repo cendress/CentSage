@@ -24,6 +24,7 @@
 		9DBBEA092ABF6FFF000F1565 /* BudgetRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBEA082ABF6FFF000F1565 /* BudgetRow.swift */; };
 		9DBBEA0B2ABF71E8000F1565 /* BudgetsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBEA0A2ABF71E8000F1565 /* BudgetsListView.swift */; };
 		9DBBEA0D2ABF7704000F1565 /* NewBudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBEA0C2ABF7704000F1565 /* NewBudgetView.swift */; };
+		9DBBEA122AC0BEF7000F1565 /* DashboardTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBEA112AC0BEF7000F1565 /* DashboardTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		9DBBEA082ABF6FFF000F1565 /* BudgetRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetRow.swift; sourceTree = "<group>"; };
 		9DBBEA0A2ABF71E8000F1565 /* BudgetsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetsListView.swift; sourceTree = "<group>"; };
 		9DBBEA0C2ABF7704000F1565 /* NewBudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBudgetView.swift; sourceTree = "<group>"; };
+		9DBBEA112AC0BEF7000F1565 /* DashboardTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +82,6 @@
 				9DBBE9D22ABE19C3000F1565 /* CentSageApp.swift */,
 				9DBBE9F92ABE22BD000F1565 /* Model */,
 				9DBBE9FA2ABE22CD000F1565 /* Views */,
-				9DBBE9FF2ABE30EC000F1565 /* ViewModels */,
 				9DBBE9FB2ABE22D8000F1565 /* Services */,
 				9DBBE9FC2ABE22E7000F1565 /* Assets */,
 				9DBBE9D82ABE19C5000F1565 /* Preview Content */,
@@ -110,15 +111,10 @@
 				9DBBE9D42ABE19C3000F1565 /* ContentView.swift */,
 				9DBBE9F32ABE2204000F1565 /* OnboardingView.swift */,
 				9DBBE9F12ABE21A9000F1565 /* DashboardView.swift */,
-				9DBBE9F52ABE2236000F1565 /* TransactionsListView.swift */,
-				9DBBEA002ABE3161000F1565 /* TransactionRow.swift */,
-				9DBBE9F72ABE226A000F1565 /* NewTransactionView.swift */,
-				9DBBEA022ABE36D6000F1565 /* NewSavingsGoal.swift */,
-				9DBBEA042ABF6742000F1565 /* SavingsGoalsListView.swift */,
-				9DBBEA062ABF68AA000F1565 /* SavingsGoalRow.swift */,
-				9DBBEA082ABF6FFF000F1565 /* BudgetRow.swift */,
-				9DBBEA0A2ABF71E8000F1565 /* BudgetsListView.swift */,
-				9DBBEA0C2ABF7704000F1565 /* NewBudgetView.swift */,
+				9DBBEA112AC0BEF7000F1565 /* DashboardTabView.swift */,
+				9DBBEA0E2AC0BDAB000F1565 /* TransactionViews */,
+				9DBBEA0F2AC0BDC2000F1565 /* SavingsGoalViews */,
+				9DBBEA102AC0BDD9000F1565 /* BudgetViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -139,11 +135,34 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
-		9DBBE9FF2ABE30EC000F1565 /* ViewModels */ = {
+		9DBBEA0E2AC0BDAB000F1565 /* TransactionViews */ = {
 			isa = PBXGroup;
 			children = (
+				9DBBE9F52ABE2236000F1565 /* TransactionsListView.swift */,
+				9DBBEA002ABE3161000F1565 /* TransactionRow.swift */,
+				9DBBE9F72ABE226A000F1565 /* NewTransactionView.swift */,
 			);
-			path = ViewModels;
+			path = TransactionViews;
+			sourceTree = "<group>";
+		};
+		9DBBEA0F2AC0BDC2000F1565 /* SavingsGoalViews */ = {
+			isa = PBXGroup;
+			children = (
+				9DBBEA022ABE36D6000F1565 /* NewSavingsGoal.swift */,
+				9DBBEA042ABF6742000F1565 /* SavingsGoalsListView.swift */,
+				9DBBEA062ABF68AA000F1565 /* SavingsGoalRow.swift */,
+			);
+			path = SavingsGoalViews;
+			sourceTree = "<group>";
+		};
+		9DBBEA102AC0BDD9000F1565 /* BudgetViews */ = {
+			isa = PBXGroup;
+			children = (
+				9DBBEA082ABF6FFF000F1565 /* BudgetRow.swift */,
+				9DBBEA0A2ABF71E8000F1565 /* BudgetsListView.swift */,
+				9DBBEA0C2ABF7704000F1565 /* NewBudgetView.swift */,
+			);
+			path = BudgetViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,6 +246,7 @@
 				9DBBEA012ABE3161000F1565 /* TransactionRow.swift in Sources */,
 				9DBBEA0B2ABF71E8000F1565 /* BudgetsListView.swift in Sources */,
 				9DBBEA072ABF68AA000F1565 /* SavingsGoalRow.swift in Sources */,
+				9DBBEA122AC0BEF7000F1565 /* DashboardTabView.swift in Sources */,
 				9DBBE9D32ABE19C3000F1565 /* CentSageApp.swift in Sources */,
 				9DBBE9F82ABE226A000F1565 /* NewTransactionView.swift in Sources */,
 				9DBBEA0D2ABF7704000F1565 /* NewBudgetView.swift in Sources */,

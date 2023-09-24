@@ -33,8 +33,8 @@ struct BudgetsListView: View {
         }
       }
       .sheet(isPresented: $isShowingNewBudgetView) {
-        //NewBudgetView()
-        //.environment(\.managedObjectContext, self.viewContext)
+        NewBudgetView()
+          .environment(\.managedObjectContext, self.viewContext)
       }
     }
   }
