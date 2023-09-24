@@ -28,4 +28,17 @@ class BudgetsViewModel: ObservableObject {
       print("Failed to fetch budgets: \(error)")
     }
   }
+  
+  func deleteBudgets(at offsets: IndexSet) {
+    for index in offsets {
+      let budget = budgets[index]
+      viewContext.delete(budget)
+    }
+    
+    do {
+      try viewContext.save()
+    } catch {
+      print("Failed to save after deletion: \(error)")
+    }
+  }
 }

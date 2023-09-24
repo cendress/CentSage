@@ -33,5 +33,19 @@ class SavingsGoalsViewModel: ObservableObject {
       print("Failed to fetch goals: \(error)")
     }
   }
+  
+  func deleteGoals(at offsets: IndexSet) {
+    for index in offsets {
+      let goal = goals[index]
+      viewContext.delete(goal)
+    }
+    
+    do {
+      try viewContext.save()
+      fetchGoals() 
+    } catch {
+      print("Failed to save context after deletion: \(error)")
+    }
+  }
 }
 

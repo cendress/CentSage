@@ -35,4 +35,18 @@ class TransactionsViewModel: ObservableObject {
       print("Failed to fetch transactions: \(error)")
     }
   }
+  
+  func deleteTransactions(at offsets: IndexSet) {
+    for index in offsets {
+      let transaction = transactions[index]
+      viewContext.delete(transaction)
+    }
+    
+    do {
+      try viewContext.save()
+      fetchTransactions()
+    } catch {
+      print("Failed to save context after deletion: \(error)")
+    }
+  }
 }

@@ -32,15 +32,25 @@ struct TransactionsListView: View {
         }
         .pickerStyle(MenuPickerStyle())
         
-        List(viewModel.transactions, id: \.self) { transaction in
-          TransactionRow(transaction: transaction)
+        List {
+          ForEach(viewModel.transactions, id: \.self) { transaction in
+            TransactionRow(transaction: transaction)
+          }
+          .onDelete(perform: viewModel.deleteTransactions)
         }
         .navigationTitle("Transactions")
-        .navigationBarItems(trailing: Button(action: {
-          isShowingNewTransactionView = true
-        }) {
-          Image(systemName: "plus")
-        })
+        .toolbar {
+          ToolbarItem(placement: .topBarTrailing) {
+            Button(action: {
+              isShowingNewTransactionView = true
+            }, label: {
+              Image(systemName: "plus")
+            })
+          }
+          ToolbarItem(placement: .topBarLeading) {
+            EditButton()
+          }
+        }
         .sheet(isPresented: $isShowingNewTransactionView) {
           NewTransactionView()
             .environment(\.managedObjectContext, viewContext)

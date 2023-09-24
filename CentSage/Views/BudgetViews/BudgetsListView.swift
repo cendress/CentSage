@@ -20,15 +20,25 @@ struct BudgetsListView: View {
   
   var body: some View {
     NavigationView {
-      List(viewModel.budgets, id: \.self) { budget in
-        BudgetRow(budget: budget)
+      List {
+        ForEach(viewModel.budgets, id: \.self) { budget in
+          BudgetRow(budget: budget)
+        }
+        .onDelete(perform: viewModel.deleteBudgets)
       }
       .navigationTitle("Budgets")
-      .navigationBarItems(trailing: Button(action: {
-        isShowingNewBudgetView = true
-      }) {
-        Image(systemName: "plus")
-      })
+      .toolbar {
+        ToolbarItem(placement: .topBarTrailing) {
+          Button(action: {
+            isShowingNewBudgetView = true
+          }, label: {
+            Image(systemName: "plus")
+          })
+        }
+        ToolbarItem(placement: .topBarLeading) {
+          EditButton()
+        }
+      }
       .sheet(isPresented: $isShowingNewBudgetView) {
         NewBudgetView()
           .environment(\.managedObjectContext, viewContext)

@@ -20,26 +20,36 @@ struct SavingsGoalsListView: View {
   
   var body: some View {
     NavigationView {
-      List(viewModel.goals, id: \.self) { goal in
-        SavingsGoalRow(goal: goal)
+      List {
+        ForEach(viewModel.goals, id: \.self) { goal in
+          SavingsGoalRow(goal: goal)
+        }
+        .onDelete(perform: viewModel.deleteGoals)
       }
-      .navigationTitle("Savings Goals")
-      .navigationBarItems(trailing: Button(action: {
-        isShowingNewGoalView = true
-      }) {
-        Image(systemName: "plus")
-      })
-      .sheet(isPresented: $isShowingNewGoalView) {
-        NewSavingsGoal()
-          .environment(\.managedObjectContext, viewContext)
-      }
-      .onAppear {
-        viewModel.fetchGoals()
+        .navigationTitle("Savings Goals")
+        .toolbar {
+          ToolbarItem(placement: .topBarTrailing) {
+            Button(action: {
+              isShowingNewGoalView = true
+            }, label: {
+              Image(systemName: "plus")
+            })
+          }
+          ToolbarItem(placement: .topBarLeading) {
+            EditButton()
+          }
+        }
+        .sheet(isPresented: $isShowingNewGoalView) {
+          NewSavingsGoal()
+            .environment(\.managedObjectContext, viewContext)
+        }
+        .onAppear {
+          viewModel.fetchGoals()
+        }
       }
     }
   }
-}
-
-#Preview {
-  SavingsGoalsListView(context: PersistenceController.preview.container.viewContext)
-}
+  
+  #Preview {
+    SavingsGoalsListView(context: PersistenceController.preview.container.viewContext)
+  }
