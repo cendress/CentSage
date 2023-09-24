@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DashboardTabView: View {
+  @Environment(\.managedObjectContext) private var viewContext
   var logoutAction: () -> Void
   
   var body: some View {
@@ -18,19 +19,19 @@ struct DashboardTabView: View {
           Text("Home")
         }
       
-      TransactionsListView()
+      TransactionsListView(context: viewContext)
         .tabItem {
           Image(systemName: "list.dash")
           Text("Transactions")
         }
       
-      SavingsGoalsListView()
+      SavingsGoalsListView(context: viewContext)
         .tabItem {
           Image(systemName: "star.fill")
           Text("Savings Goals")
         }
       
-      BudgetsListView()
+      BudgetsListView(context: viewContext)
         .tabItem {
           Image(systemName: "dollarsign.circle.fill")
           Text("Budget")

@@ -5,42 +5,41 @@
 //  Created by Christopher Endress on 9/23/23.
 //
 
-import SwiftUI
 import CoreData
+import SwiftUI
 
 struct SavingsGoalsListView: View {
   @Environment(\.managedObjectContext) private var viewContext
-  @FetchRequest(
-          entity: SavingsGoal.entity(),
-          sortDescriptors: [NSSortDescriptor(keyPath: \SavingsGoal.dueDate, ascending: true)]
-      ) private var goals: FetchedResults<SavingsGoal>
+  @StateObject private var viewModel: SavingsGoalsViewModel
   
   @State private var isShowingNewGoalView = false
   
+  init(context: NSManagedObjectContext) {
+    _viewModel = StateObject(wrappedValue: SavingsGoalsViewModel(context: context))
+  }
+  
   var body: some View {
     NavigationView {
-      List(goals, id: \.self) { goal in
+      List(viewModel.goals, id: \.self) { goal in
         SavingsGoalRow(goal: goal)
       }
       .navigationTitle("Savings Goals")
-      .toolbar {
-        ToolbarItem(placement: .navigationBarTrailing) {
-          Button(action: {
-            isShowingNewGoalView = true
-          }, label: {
-            Image(systemName: "plus")
-          })
-        }
-      }
+      .navigationBarItems(trailing: Button(action: {
+        isShowingNewGoalView = true
+      }) {
+        Image(systemName: "plus")
+      })
       .sheet(isPresented: $isShowingNewGoalView) {
         NewSavingsGoal()
-          .environment(\.managedObjectContext, self.viewContext)
+          .environment(\.managedObjectContext, viewContext)
+      }
+      .onAppear {
+        viewModel.fetchGoals()
       }
     }
   }
 }
 
 #Preview {
-  SavingsGoalsListView()
-    .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+  SavingsGoalsListView(context: PersistenceController.preview.container.viewContext)
 }

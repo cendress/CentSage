@@ -14,7 +14,7 @@ struct ContentView: View {
   var body: some View {
     Group {
       if isUserLoggedIn {
-        DashboardView {
+        DashboardTabView {
           isUserLoggedIn = false
         }
       } else {

@@ -10,24 +10,18 @@ import CoreData
 
 struct TransactionsListView: View {
   @Environment(\.managedObjectContext) private var viewContext
+  @StateObject private var viewModel: TransactionsViewModel
   
-  @State private var selectedCategory = "All"
   @State private var isShowingNewTransactionView = false
   
-  var fetchRequest: FetchRequest<Transaction> {
-    FetchRequest(
-      entity: Transaction.entity(),
-      sortDescriptors: [NSSortDescriptor(keyPath: \Transaction.date, ascending: false)],
-      predicate: selectedCategory == "All" ? nil : NSPredicate(format: "category == %@", selectedCategory)
-    )
+  init(context: NSManagedObjectContext) {
+    _viewModel = StateObject(wrappedValue: TransactionsViewModel(context: context))
   }
-  
-  var transactions: FetchedResults<Transaction> { fetchRequest.wrappedValue }
   
   var body: some View {
     NavigationView {
       VStack {
-        Picker("Category", selection: $selectedCategory) {
+        Picker("Category", selection: $viewModel.selectedCategory) {
           Text("All").tag("All")
           Text("Food").tag("Food")
           Text("Home").tag("Home")
@@ -38,22 +32,18 @@ struct TransactionsListView: View {
         }
         .pickerStyle(MenuPickerStyle())
         
-        List(transactions, id: \.self) { transaction in
+        List(viewModel.transactions, id: \.self) { transaction in
           TransactionRow(transaction: transaction)
         }
         .navigationTitle("Transactions")
-        .toolbar {
-          ToolbarItem(placement: .navigationBarTrailing) {
-            Button(action: {
-              isShowingNewTransactionView = true
-            }, label: {
-              Image(systemName: "plus")
-            })
-          }
-        }
+        .navigationBarItems(trailing: Button(action: {
+          isShowingNewTransactionView = true
+        }) {
+          Image(systemName: "plus")
+        })
         .sheet(isPresented: $isShowingNewTransactionView) {
           NewTransactionView()
-            .environment(\.managedObjectContext, self.viewContext)
+            .environment(\.managedObjectContext, viewContext)
         }
       }
     }
@@ -61,8 +51,7 @@ struct TransactionsListView: View {
 }
 
 #Preview {
-  TransactionsListView()
-    .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+  TransactionsListView(context: PersistenceController.preview.container.viewContext)
 }
 
 
