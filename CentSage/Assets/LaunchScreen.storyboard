@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CentSageIcon" translatesAutoresizingMaskIntoConstraints="NO" id="xgY-d6-Mwn">
+                                <rect key="frame" x="0.0" y="84.666666666666686" width="393" height="683"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="CentSageBlue"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="xgY-d6-Mwn" secondAttribute="trailing" id="WJa-33-VXt"/>
+                            <constraint firstItem="xgY-d6-Mwn" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="fQj-cl-ee3"/>
+                            <constraint firstItem="xgY-d6-Mwn" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="lBb-fI-fVR"/>
+                            <constraint firstItem="xgY-d6-Mwn" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="wQf-JS-ChW"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-59" y="-29"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CentSageIcon" width="682.66668701171875" height="682.66668701171875"/>
+        <namedColor name="CentSageBlue">
+            <color red="0.098039215686274508" green="0.24705882352941178" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

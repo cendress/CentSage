@@ -11,7 +11,7 @@ struct ColoredTitleView: View {
   var body: some View {
     HStack {
       Text("Welcome to")
-      Text("CentSage").foregroundColor(Color.green)
+      Text("CentSage").foregroundColor(Color("CentSageGreen"))
     }
     .font(.largeTitle)
     .bold()
