@@ -20,13 +20,16 @@ struct SettingsView: View {
           Text("Dark").tag(1)
         }
         .pickerStyle(SegmentedPickerStyle())
-        Section(header: Text("Legal")) {
+        
+        Section {
           NavigationLink(destination: Text("Terms of Service")) {
             Text("Terms of Service")
           }
           NavigationLink(destination: Text("Privacy Policy")) {
             Text("Privacy Policy")
           }
+        } header: {
+          Text("Legal")
         }
       }
       .navigationTitle("Settings")

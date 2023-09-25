@@ -36,6 +36,12 @@ struct DashboardTabView: View {
           Image(systemName: "dollarsign.circle.fill")
           Text("Budget")
         }
+      
+      SettingsView()
+        .tabItem {
+          Image(systemName: "gearshape")
+          Text("Settings")
+        }
     }
   }
 }

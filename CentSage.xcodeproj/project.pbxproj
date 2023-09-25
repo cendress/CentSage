@@ -12,6 +12,8 @@
 		9D57B0332AC0CDE6005EEBC2 /* SavingsGoalsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57B0322AC0CDE6005EEBC2 /* SavingsGoalsViewModel.swift */; };
 		9D57B0352AC0CFFC005EEBC2 /* BudgetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57B0342AC0CFFC005EEBC2 /* BudgetsViewModel.swift */; };
 		9D57B0372AC1DCBC005EEBC2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57B0362AC1DCBC005EEBC2 /* SettingsView.swift */; };
+		9D57B0392AC1DFA1005EEBC2 /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57B0382AC1DFA1005EEBC2 /* OnboardingScreen.swift */; };
+		9D57B03B2AC1E5CB005EEBC2 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57B03A2AC1E5CB005EEBC2 /* PageControl.swift */; };
 		9DBBE9D32ABE19C3000F1565 /* CentSageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBE9D22ABE19C3000F1565 /* CentSageApp.swift */; };
 		9DBBE9D52ABE19C3000F1565 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBE9D42ABE19C3000F1565 /* ContentView.swift */; };
 		9DBBE9D72ABE19C5000F1565 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DBBE9D62ABE19C5000F1565 /* Assets.xcassets */; };
@@ -38,6 +40,8 @@
 		9D57B0322AC0CDE6005EEBC2 /* SavingsGoalsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsGoalsViewModel.swift; sourceTree = "<group>"; };
 		9D57B0342AC0CFFC005EEBC2 /* BudgetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetsViewModel.swift; sourceTree = "<group>"; };
 		9D57B0362AC1DCBC005EEBC2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		9D57B0382AC1DFA1005EEBC2 /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
+		9D57B03A2AC1E5CB005EEBC2 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		9DBBE9CF2ABE19C3000F1565 /* CentSage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CentSage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DBBE9D22ABE19C3000F1565 /* CentSageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentSageApp.swift; sourceTree = "<group>"; };
 		9DBBE9D42ABE19C3000F1565 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -84,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				9D57B02F2AC0CB55005EEBC2 /* DateFormatter.swift */,
+				9D57B03A2AC1E5CB005EEBC2 /* PageControl.swift */,
 			);
 			path = "Helper Code";
 			sourceTree = "<group>";
@@ -131,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				9DBBE9DD2ABE19C5000F1565 /* CentSage.xcdatamodeld */,
+				9D57B0382AC1DFA1005EEBC2 /* OnboardingScreen.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -266,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D57B0392AC1DFA1005EEBC2 /* OnboardingScreen.swift in Sources */,
 				9D57B0372AC1DCBC005EEBC2 /* SettingsView.swift in Sources */,
 				9D57B0302AC0CB55005EEBC2 /* DateFormatter.swift in Sources */,
 				9DBBE9DC2ABE19C5000F1565 /* Persistence.swift in Sources */,
@@ -274,6 +281,7 @@
 				9DBBEA092ABF6FFF000F1565 /* BudgetRow.swift in Sources */,
 				9DBBE9D52ABE19C3000F1565 /* ContentView.swift in Sources */,
 				9DBBE9F22ABE21A9000F1565 /* DashboardView.swift in Sources */,
+				9D57B03B2AC1E5CB005EEBC2 /* PageControl.swift in Sources */,
 				9D57B0352AC0CFFC005EEBC2 /* BudgetsViewModel.swift in Sources */,
 				9DBBE9F42ABE2204000F1565 /* OnboardingView.swift in Sources */,
 				9D57B02D2AC0CAEE005EEBC2 /* TransactionsViewModel.swift in Sources */,
