@@ -10,6 +10,7 @@ import SwiftUI
 
 class TransactionsViewModel: ObservableObject {
   @Published var transactions: [Transaction] = []
+  @Published var recentTransactions: [Transaction] = []
   
   var selectedCategory = "All" {
     didSet { fetchTransactions() }
@@ -20,6 +21,7 @@ class TransactionsViewModel: ObservableObject {
   init(context: NSManagedObjectContext) {
     self.viewContext = context
     fetchTransactions()
+    fetchRecentTransactions(limit: 5)
   }
   
   private func fetchTransactions() {
@@ -33,6 +35,18 @@ class TransactionsViewModel: ObservableObject {
       self.transactions = try viewContext.fetch(fetchRequest)
     } catch {
       print("Failed to fetch transactions: \(error)")
+    }
+  }
+  
+  func fetchRecentTransactions(limit: Int) {
+    let fetchRequest: NSFetchRequest<Transaction> = Transaction.fetchRequest()
+    fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \Transaction.date, ascending: false)]
+    fetchRequest.fetchLimit = limit
+    
+    do {
+      self.recentTransactions = try viewContext.fetch(fetchRequest)
+    } catch {
+      print("Failed to fetch recent transactions: \(error)")
     }
   }
   

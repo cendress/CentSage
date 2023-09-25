@@ -14,6 +14,8 @@
 		9D57B0372AC1DCBC005EEBC2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57B0362AC1DCBC005EEBC2 /* SettingsView.swift */; };
 		9D57B0392AC1DFA1005EEBC2 /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57B0382AC1DFA1005EEBC2 /* OnboardingScreen.swift */; };
 		9D57B03D2AC1ED31005EEBC2 /* DotsIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57B03C2AC1ED31005EEBC2 /* DotsIndicator.swift */; };
+		9D57B03F2AC202AD005EEBC2 /* RecentTransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57B03E2AC202AD005EEBC2 /* RecentTransactionsView.swift */; };
+		9D57B0412AC2034A005EEBC2 /* RecentTransactionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57B0402AC2034A005EEBC2 /* RecentTransactionRow.swift */; };
 		9DBBE9D32ABE19C3000F1565 /* CentSageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBE9D22ABE19C3000F1565 /* CentSageApp.swift */; };
 		9DBBE9D52ABE19C3000F1565 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBE9D42ABE19C3000F1565 /* ContentView.swift */; };
 		9DBBE9D72ABE19C5000F1565 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DBBE9D62ABE19C5000F1565 /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 		9D57B0362AC1DCBC005EEBC2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9D57B0382AC1DFA1005EEBC2 /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 		9D57B03C2AC1ED31005EEBC2 /* DotsIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotsIndicator.swift; sourceTree = "<group>"; };
+		9D57B03E2AC202AD005EEBC2 /* RecentTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransactionsView.swift; sourceTree = "<group>"; };
+		9D57B0402AC2034A005EEBC2 /* RecentTransactionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransactionRow.swift; sourceTree = "<group>"; };
 		9DBBE9CF2ABE19C3000F1565 /* CentSage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CentSage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DBBE9D22ABE19C3000F1565 /* CentSageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentSageApp.swift; sourceTree = "<group>"; };
 		9DBBE9D42ABE19C3000F1565 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -178,6 +182,8 @@
 				9DBBE9F52ABE2236000F1565 /* TransactionsListView.swift */,
 				9DBBEA002ABE3161000F1565 /* TransactionRow.swift */,
 				9DBBE9F72ABE226A000F1565 /* NewTransactionView.swift */,
+				9D57B03E2AC202AD005EEBC2 /* RecentTransactionsView.swift */,
+				9D57B0402AC2034A005EEBC2 /* RecentTransactionRow.swift */,
 			);
 			path = TransactionViews;
 			sourceTree = "<group>";
@@ -275,6 +281,7 @@
 				9D57B0392AC1DFA1005EEBC2 /* OnboardingScreen.swift in Sources */,
 				9D57B0372AC1DCBC005EEBC2 /* SettingsView.swift in Sources */,
 				9D57B0302AC0CB55005EEBC2 /* DateFormatter.swift in Sources */,
+				9D57B0412AC2034A005EEBC2 /* RecentTransactionRow.swift in Sources */,
 				9DBBE9DC2ABE19C5000F1565 /* Persistence.swift in Sources */,
 				9DBBEA052ABF6742000F1565 /* SavingsGoalsListView.swift in Sources */,
 				9DBBE9F62ABE2236000F1565 /* TransactionsListView.swift in Sources */,
@@ -284,6 +291,7 @@
 				9D57B0352AC0CFFC005EEBC2 /* BudgetsViewModel.swift in Sources */,
 				9DBBE9F42ABE2204000F1565 /* OnboardingView.swift in Sources */,
 				9D57B02D2AC0CAEE005EEBC2 /* TransactionsViewModel.swift in Sources */,
+				9D57B03F2AC202AD005EEBC2 /* RecentTransactionsView.swift in Sources */,
 				9D57B03D2AC1ED31005EEBC2 /* DotsIndicator.swift in Sources */,
 				9DBBEA032ABE36D6000F1565 /* NewSavingsGoal.swift in Sources */,
 				9DBBEA012ABE3161000F1565 /* TransactionRow.swift in Sources */,
