@@ -19,16 +19,6 @@ struct DashboardView: View {
             .font(.largeTitle)
             .padding()
           
-          // Assume BudgetSummary is a custom view you create to show budget information
-          //BudgetSummary()
-            .padding()
-          
-          // Assume RecentTransactions is a custom view you create to show recent transactions
-          RecentTransactionsView(viewModel: viewModel)
-            .padding()
-          
-          // ... Other dashboard elements
-          
           Button("Logout", action: logoutAction)
             .padding()
             .background(Color.red)
