@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct OnboardingScreen: Identifiable {
-  var id = UUID()
+struct OnboardingScreen {
   var title: String
+  var isColoredTitle: Bool
   var description: String
   var image: String
 }

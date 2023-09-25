@@ -16,7 +16,7 @@ struct DotsIndicator: View {
       ForEach(0..<numberOfPages, id: \.self) { index in
         Circle()
           .frame(width: 10, height: 10)
-          .foregroundColor(index == currentPage ? .blue : .gray)
+          .foregroundColor(index == currentPage ? Color("CentSageGreen") : .gray)
           .overlay(Circle().stroke(Color.black, lineWidth: 1))
           .padding(.horizontal, 4)
       }
