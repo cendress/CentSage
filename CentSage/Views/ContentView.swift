@@ -9,17 +9,18 @@ import CoreData
 import SwiftUI
 
 struct ContentView: View {
-  @State private var isUserLoggedIn = false
+  @State private var hasCompletedOnboarding: Bool = UserDefaults.standard.bool(forKey: "HasCompletedOnboarding")
   
   var body: some View {
     Group {
-      if isUserLoggedIn {
+      if hasCompletedOnboarding {
         DashboardTabView {
-          isUserLoggedIn = false
+          hasCompletedOnboarding = false 
         }
       } else {
         OnboardingView {
-          isUserLoggedIn = true
+          UserDefaults.standard.set(true, forKey: "HasCompletedOnboarding")
+          hasCompletedOnboarding = true
         }
       }
     }
@@ -27,5 +28,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+  ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }

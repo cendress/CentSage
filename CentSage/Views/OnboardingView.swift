@@ -11,33 +11,38 @@ struct OnboardingView: View {
   var onCompletion: () -> Void
   
   @State private var selectedPage = 0
+  
   let onboardingScreens = [
     OnboardingScreen(title: "Welcome to CentSage", description: "Wisdom in every cent.", image: "apple.logo"),
     OnboardingScreen(title: "Track Expenses", description: "Keep track of your spending easily.", image: "dollarsign.circle.fill"),
-    OnboardingScreen(title: "Set Budgets", description: "Set budgets to avoid overspending.", image: "chart.bar.fill"),
-    OnboardingScreen(title: "Achieve Goals", description: "Save money for your goals.", image: "star.fill")
+    OnboardingScreen(title: "Achieve Goals", description: "Save money for your goals.", image: "star.fill"),
+    OnboardingScreen(title: "Set Budgets", description: "Set budgets to avoid overspending.", image: "chart.bar.fill")
   ]
   
   var body: some View {
     VStack {
       HStack {
         Button(action: {
-          if selectedPage == onboardingScreens.count - 1 {
-            onCompletion()
-          } else {
+          if selectedPage < onboardingScreens.count - 1 {
             withAnimation {
               selectedPage += 1
             }
           }
         }) {
-          Text(selectedPage == onboardingScreens.count - 1 ? "Get Started" : "Next")
+          Text("Next")
         }
+        .opacity(selectedPage == onboardingScreens.count - 1 ? 0 : 1)
+        
         Spacer()
+        
         Button(action: onCompletion) {
           Text("Skip")
         }
+        .opacity(selectedPage == onboardingScreens.count - 1 ? 0 : 1)
       }
       .padding()
+      
+      Spacer()
       
       TabView(selection: $selectedPage) {
         ForEach(0..<onboardingScreens.count, id: \.self) { index in
@@ -57,9 +62,22 @@ struct OnboardingView: View {
           .tag(index)
         }
       }
-      .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+      .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
       
-      PageControl(numberOfPages: onboardingScreens.count, currentPage: $selectedPage)
+      DotsIndicator(numberOfPages: onboardingScreens.count, currentPage: selectedPage)
+        .padding(.bottom)
+        .opacity(selectedPage == onboardingScreens.count - 1 ? 0 : 1)
+      
+      if selectedPage == onboardingScreens.count - 1 {
+        Button("Get Started", action: onCompletion)
+          .padding()
+          .background(Color.blue)
+          .foregroundColor(.white)
+          .cornerRadius(10)
+          .padding()
+      }
+      
+      Spacer()
     }
     .padding()
   }
