@@ -8,27 +8,37 @@
 import SwiftUI
 import CoreData
 
-class SavingsGoalsViewModel: ObservableObject {
+class SavingsGoalsViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
   
-  var goals: [SavingsGoal] = [] {
-    willSet {
-      objectWillChange.send()
-    }
-  }
+  @Published var goals: [SavingsGoal] = []
   
   private var viewContext: NSManagedObjectContext
+  private var fetchedResultsController: NSFetchedResultsController<SavingsGoal>
   
   init(context: NSManagedObjectContext) {
     self.viewContext = context
+    
+    let request: NSFetchRequest<SavingsGoal> = SavingsGoal.fetchRequest()
+    request.sortDescriptors = [NSSortDescriptor(keyPath: \SavingsGoal.dueDate, ascending: true)]
+    
+    self.fetchedResultsController = NSFetchedResultsController(
+      fetchRequest: request,
+      managedObjectContext: context,
+      sectionNameKeyPath: nil,
+      cacheName: nil
+    )
+    
+    super.init()
+    
+    self.fetchedResultsController.delegate = self
+    
     fetchGoals()
   }
   
   func fetchGoals() {
-    let request: NSFetchRequest<SavingsGoal> = SavingsGoal.fetchRequest()
-    request.sortDescriptors = [NSSortDescriptor(keyPath: \SavingsGoal.dueDate, ascending: true)]
-    
     do {
-      self.goals = try viewContext.fetch(request)
+      try fetchedResultsController.performFetch()
+      goals = fetchedResultsController.fetchedObjects ?? []
     } catch {
       print("Failed to fetch goals: \(error)")
     }
@@ -42,10 +52,15 @@ class SavingsGoalsViewModel: ObservableObject {
     
     do {
       try viewContext.save()
-      fetchGoals() 
     } catch {
       print("Failed to save context after deletion: \(error)")
     }
   }
+  
+  func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+    guard let updatedGoals = controller.fetchedObjects as? [SavingsGoal] else { return }
+    goals = updatedGoals
+  }
 }
+
 
