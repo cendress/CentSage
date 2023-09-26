@@ -23,9 +23,9 @@ struct SavingsGoalForm: View {
   var goal: SavingsGoal?
   var isEditMode: Bool
   
-  init(goal: SavingsGoal? = nil, isEditMode: Bool = false) {
+  init(goal: SavingsGoal? = nil) {
     self.goal = goal
-    self.isEditMode = isEditMode
+    self.isEditMode = goal != nil
     _goalName = State(initialValue: goal?.goalName ?? "")
     _targetAmount = State(initialValue: String(goal?.targetAmount ?? 0))
     _currentAmount = State(initialValue: String(goal?.currentAmount ?? 0))
@@ -51,7 +51,7 @@ struct SavingsGoalForm: View {
         
         DatePicker("Due Date", selection: $dueDate, displayedComponents: .date)
       }
-      .navigationTitle(goal == nil ? "Add Savings Goal" : "Edit Goal")
+      .navigationTitle(isEditMode ? "Edit Goal" : "Add Savings Goal")
       .toolbar {
         ToolbarItem(placement: .navigationBarTrailing) {
           Button("Save") {
@@ -84,10 +84,6 @@ struct SavingsGoalForm: View {
     savingGoal.currentAmount = currentAmountDouble
     savingGoal.dueDate = dueDate
     
-    if goal == nil {
-      savingGoal.id = UUID()
-    }
-    
     do {
       try viewContext.save()
       dismiss()
@@ -100,6 +96,3 @@ struct SavingsGoalForm: View {
   }
 }
 
-#Preview {
-  SavingsGoalForm()
-}

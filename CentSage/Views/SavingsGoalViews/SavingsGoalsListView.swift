@@ -12,8 +12,6 @@ struct SavingsGoalsListView: View {
   @Environment(\.managedObjectContext) private var viewContext
   @StateObject private var viewModel: SavingsGoalsViewModel
   
-  @State private var isShowingNewGoalView = false
-  @State private var isShowingEditGoalView = false
   @State private var selectedGoal: SavingsGoal?
   
   init(context: NSManagedObjectContext) {
@@ -26,11 +24,10 @@ struct SavingsGoalsListView: View {
         ForEach(viewModel.goals, id: \.self) { goal in
           Button(action: {
             selectedGoal = goal
-            isShowingEditGoalView = true
           }) {
             SavingsGoalRow(goal: goal)
           }
-          .buttonStyle(PlainButtonStyle()) 
+          .buttonStyle(PlainButtonStyle())
         }
         .onDelete(perform: viewModel.deleteGoals)
       }
@@ -38,7 +35,7 @@ struct SavingsGoalsListView: View {
       .toolbar {
         ToolbarItem(placement: .navigationBarTrailing) {
           Button(action: {
-            isShowingNewGoalView = true
+            selectedGoal = SavingsGoal(context: viewContext)
           }, label: {
             Image(systemName: "plus")
           })
@@ -47,17 +44,15 @@ struct SavingsGoalsListView: View {
           EditButton()
         }
       }
-      .sheet(isPresented: $isShowingNewGoalView) {
-        SavingsGoalForm()
-          .environment(\.managedObjectContext, viewContext)
-      }
-      .sheet(isPresented: $isShowingEditGoalView, onDismiss: {
-        selectedGoal = nil
-      }) {
-        if let goal = selectedGoal {
-          SavingsGoalForm(goal: goal)
-            .environment(\.managedObjectContext, viewContext)
+      .sheet(item: $selectedGoal, onDismiss: {
+        viewModel.fetchGoals()
+        if viewContext.hasChanges {
+          try? viewContext.save()
         }
+        selectedGoal = nil
+      }) { goal in
+        SavingsGoalForm(goal: goal)
+          .environment(\.managedObjectContext, viewContext)
       }
       .onAppear {
         viewModel.fetchGoals()
