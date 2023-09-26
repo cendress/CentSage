@@ -11,13 +11,13 @@ struct SavingsGoalRow: View {
   var goal: SavingsGoal
   
   var body: some View {
-    VStack(alignment: .leading) {
-      Text(goal.goalName ?? "Unknown goal name")
-      Text(String(format: "Target: $%.2f", goal.targetAmount))
-        .font(.subheadline)
-      Text(String(format: "Current: $%.2f", goal.currentAmount))
-        .font(.subheadline)
-      Text(goal.dueDate != nil ? "Due: \(DateFormatter.shortDate.string(from: goal.dueDate!))" : "Unknown due date")
+      VStack(alignment: .leading) {
+        Text(goal.goalName ?? "Unknown goal name")
+        Text(String(format: "Target: $%.2f", goal.targetAmount))
+          .font(.subheadline)
+        Text(String(format: "Current: $%.2f", goal.currentAmount))
+          .font(.subheadline)
+        Text(goal.dueDate != nil ? "Due: \(DateFormatter.shortDate.string(from: goal.dueDate!))" : "Unknown due date")
     }
   }
 }
