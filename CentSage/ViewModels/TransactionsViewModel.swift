@@ -8,7 +8,7 @@
 import CoreData
 import SwiftUI
 
-class TransactionsViewModel: ObservableObject {
+class TransactionsViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
   @Published var transactions: [Transaction] = []
   
   var selectedCategory = "All" {
@@ -16,21 +16,38 @@ class TransactionsViewModel: ObservableObject {
   }
   
   private var viewContext: NSManagedObjectContext
+  private var fetchedResultsController: NSFetchedResultsController<Transaction>
   
   init(context: NSManagedObjectContext) {
     self.viewContext = context
+    
+    let fetchRequest: NSFetchRequest<Transaction> = Transaction.fetchRequest()
+    fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \Transaction.date, ascending: false)]
+    
+    self.fetchedResultsController = NSFetchedResultsController(
+      fetchRequest: fetchRequest,
+      managedObjectContext: context,
+      sectionNameKeyPath: nil,
+      cacheName: nil
+    )
+    
+    super.init()
+    
+    self.fetchedResultsController.delegate = self
+    
     fetchTransactions()
   }
   
   private func fetchTransactions() {
-    let fetchRequest: NSFetchRequest<Transaction> = Transaction.fetchRequest()
-    fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \Transaction.date, ascending: false)]
     if selectedCategory != "All" {
-      fetchRequest.predicate = NSPredicate(format: "category == %@", selectedCategory)
+      fetchedResultsController.fetchRequest.predicate = NSPredicate(format: "category == %@", selectedCategory)
+    } else {
+      fetchedResultsController.fetchRequest.predicate = nil
     }
     
     do {
-      self.transactions = try viewContext.fetch(fetchRequest)
+      try fetchedResultsController.performFetch()
+      transactions = fetchedResultsController.fetchedObjects ?? []
     } catch {
       print("Failed to fetch transactions: \(error)")
     }
@@ -44,9 +61,14 @@ class TransactionsViewModel: ObservableObject {
     
     do {
       try viewContext.save()
-      fetchTransactions()
     } catch {
       print("Failed to save context after deletion: \(error)")
     }
   }
+  
+  func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+    guard let updatedTransactions = controller.fetchedObjects as? [Transaction] else { return }
+    transactions = updatedTransactions
+  }
 }
+
