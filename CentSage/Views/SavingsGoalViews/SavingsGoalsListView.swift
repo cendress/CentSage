@@ -13,6 +13,7 @@ struct SavingsGoalsListView: View {
   @StateObject private var viewModel: SavingsGoalsViewModel
   
   @State private var selectedGoal: SavingsGoal?
+  @State private var showingNewGoalView = false
   
   init(context: NSManagedObjectContext) {
     _viewModel = StateObject(wrappedValue: SavingsGoalsViewModel(context: context))
@@ -35,7 +36,7 @@ struct SavingsGoalsListView: View {
       .toolbar {
         ToolbarItem(placement: .navigationBarTrailing) {
           Button(action: {
-            selectedGoal = SavingsGoal(context: viewContext)
+            showingNewGoalView = true
           }, label: {
             Image(systemName: "plus")
           })
@@ -43,6 +44,10 @@ struct SavingsGoalsListView: View {
         ToolbarItem(placement: .navigationBarLeading) {
           EditButton()
         }
+      }
+      .sheet(isPresented: $showingNewGoalView) {
+        NewSavingsGoal()
+          .environment(\.managedObjectContext, viewContext)
       }
       .sheet(item: $selectedGoal, onDismiss: {
         viewModel.fetchGoals()

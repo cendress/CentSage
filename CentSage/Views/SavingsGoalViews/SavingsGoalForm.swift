@@ -14,6 +14,7 @@ struct SavingsGoalForm: View {
   
   @State private var goalName: String
   @State private var targetAmount: String
+  
   @State private var currentAmount: String
   @State private var dueDate: Date
   

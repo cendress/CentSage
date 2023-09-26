@@ -14,6 +14,7 @@ struct NewSavingsGoal: View {
   
   @State private var goalName = ""
   @State private var targetAmount = ""
+  
   @State private var currentAmount = ""
   @State private var dueDate = Date()
   
