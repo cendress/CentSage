@@ -14,9 +14,10 @@ struct TransactionRow: View {
     VStack(alignment: .leading) {
       Text(transaction.name ?? "Unknown name")
       Text(transaction.category ?? "Unknown category")
-      Text(String(format: "$.2f", transaction.amount))
+      Text(String(format: "$%.2f", transaction.amount))
         .font(.headline)
-      Text(transaction.date != nil ? "\(transaction.date!)" : "Unknown date")
+      Text(transaction.date != nil ? "\(DateFormatter.shortDate.string(from: transaction.date!))" : "Unknown date")
+
     }
   }
 }
