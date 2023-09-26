@@ -15,11 +15,13 @@ struct NewTransactionView: View {
   @State private var name = ""
   @State private var amount = ""
   @State private var selectedSegment = 0
-  @State private var category = ""
+  @State private var selectedCategoryIndex = 0
   @State private var note = ""
   
   @State private var showErrorAlert = false
   @State private var errorMessage = "There was a problem saving the transaction. Please try again."
+  
+  let categories = ["Food", "Home", "Transportation", "Entertainment", "Health", "Shopping", "Other"]
   
   var body: some View {
     NavigationView {
@@ -38,7 +40,11 @@ struct NewTransactionView: View {
         }
         .pickerStyle(SegmentedPickerStyle())
         
-        TextField("Category", text: $category)
+        Picker("Category", selection: $selectedCategoryIndex) {
+          ForEach(Array(categories.indices), id: \.self) { index in
+            Text(self.categories[index]).tag(index)
+          }
+        }
         
         TextField("Note", text: $note)
       }
@@ -61,7 +67,7 @@ struct NewTransactionView: View {
   }
   
   private func saveTransaction() {
-    guard let amountDouble = Double(self.amount), !self.name.isEmpty, !self.category.isEmpty else {
+    guard let amountDouble = Double(self.amount), !self.name.isEmpty else {
       self.errorMessage = "Please fill out all fields correctly."
       self.showErrorAlert = true
       return
@@ -71,7 +77,7 @@ struct NewTransactionView: View {
     newTransaction.name = self.name
     newTransaction.amount = amountDouble
     newTransaction.type = Int16(self.selectedSegment)
-    newTransaction.category = self.category
+    newTransaction.category = self.categories[selectedCategoryIndex]
     newTransaction.note = self.note
     newTransaction.date = Date()
     newTransaction.id = UUID()
@@ -90,5 +96,5 @@ struct NewTransactionView: View {
 
 
 #Preview {
-    NewTransactionView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+  NewTransactionView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }

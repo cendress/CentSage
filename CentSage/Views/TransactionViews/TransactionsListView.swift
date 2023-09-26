@@ -25,10 +25,11 @@ struct TransactionsListView: View {
           Text("All").tag("All")
           Text("Food").tag("Food")
           Text("Home").tag("Home")
-          Text("Transport").tag("Transport")
+          Text("Transportation").tag("Transportation")
           Text("Entertainment").tag("Entertainment")
           Text("Health").tag("Health")
           Text("Shopping").tag("Shopping")
+          Text("Other").tag("Other")
         }
         .pickerStyle(MenuPickerStyle())
         
