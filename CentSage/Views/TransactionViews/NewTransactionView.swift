@@ -94,7 +94,6 @@ struct NewTransactionView: View {
   }
 }
 
-
 #Preview {
   NewTransactionView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }

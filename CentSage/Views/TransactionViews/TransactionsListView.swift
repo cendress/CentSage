@@ -43,7 +43,7 @@ struct TransactionsListView: View {
           .onDelete(perform: viewModel.deleteTransactions)
           
           if !viewModel.transactions.isEmpty {
-            Text("Total: $\(viewModel.totalAmount, specifier: "%.2f")")
+            Text("Total: \(viewModel.totalAmount < 0 ? "-" : "")$\((abs(viewModel.totalAmount)), specifier: "%.2f")")
               .font(.headline)
               .padding(.top, 10)
           }
