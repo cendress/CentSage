@@ -8,22 +8,37 @@
 import SwiftUI
 import CoreData
 
-class BudgetsViewModel: ObservableObject {
+class BudgetsViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
+  
   @Published var budgets: [Budget] = []
   
   private var viewContext: NSManagedObjectContext
+  private var fetchedResultsController: NSFetchedResultsController<Budget>
   
   init(context: NSManagedObjectContext) {
     self.viewContext = context
+    
+    let fetchRequest: NSFetchRequest<Budget> = Budget.fetchRequest()
+    fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \Budget.startDate, ascending: false)]
+    
+    self.fetchedResultsController = NSFetchedResultsController(
+      fetchRequest: fetchRequest,
+      managedObjectContext: context,
+      sectionNameKeyPath: nil,
+      cacheName: nil
+    )
+    
+    super.init()
+    
+    self.fetchedResultsController.delegate = self
+    
     fetchBudgets()
   }
   
   func fetchBudgets() {
-    let fetchRequest: NSFetchRequest<Budget> = Budget.fetchRequest()
-    fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \Budget.startDate, ascending: false)]
-    
     do {
-      self.budgets = try viewContext.fetch(fetchRequest)
+      try fetchedResultsController.performFetch()
+      budgets = fetchedResultsController.fetchedObjects ?? []
     } catch {
       print("Failed to fetch budgets: \(error)")
     }
@@ -41,4 +56,10 @@ class BudgetsViewModel: ObservableObject {
       print("Failed to save after deletion: \(error)")
     }
   }
+  
+  func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+    guard let updatedBudgets = controller.fetchedObjects as? [Budget] else { return }
+    budgets = updatedBudgets
+  }
 }
+
