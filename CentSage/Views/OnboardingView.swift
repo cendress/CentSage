@@ -10,6 +10,7 @@ import SwiftUI
 struct OnboardingView: View {
   var onCompletion: () -> Void
   
+  @Namespace private var animation
   @State private var selectedPage = 0
   
   let onboardingScreens = [
@@ -22,25 +23,25 @@ struct OnboardingView: View {
   var body: some View {
     VStack {
       HStack {
-        Button(action: {
-          if selectedPage < onboardingScreens.count - 1 {
+        if selectedPage < onboardingScreens.count - 1 {
+          Button(action: {
             withAnimation {
               selectedPage += 1
             }
+          }) {
+            Text("Next")
+              .foregroundStyle(Color("CentSageGreen"))
           }
-        }) {
-          Text("Next")
-            .foregroundStyle(Color("CentSageGreen"))
+          
+          Spacer()
+          
+          Button(action: onCompletion) {
+            Text("Skip")
+              .foregroundStyle(Color("CentSageGreen"))
+          }
+        } else {
+          Spacer()
         }
-        .opacity(selectedPage == onboardingScreens.count - 1 ? 0 : 1)
-        
-        Spacer()
-        
-        Button(action: onCompletion) {
-          Text("Skip")
-            .foregroundStyle(Color("CentSageGreen"))
-        }
-        .opacity(selectedPage == onboardingScreens.count - 1 ? 0 : 1)
       }
       .padding()
       
@@ -80,6 +81,8 @@ struct OnboardingView: View {
           .background(Capsule().fill(Color("CentSageGreen")))
           .foregroundColor(.white)
           .padding()
+          .transition(.slide)
+          .matchedGeometryEffect(id: "getStartedButton", in: animation)
       }
       
       Spacer()
