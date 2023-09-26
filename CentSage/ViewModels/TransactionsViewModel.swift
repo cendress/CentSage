@@ -15,6 +15,10 @@ class TransactionsViewModel: NSObject, ObservableObject, NSFetchedResultsControl
     didSet { fetchTransactions() }
   }
   
+  var totalAmount: Double {
+    return transactions.reduce(0) { $0 + $1.amount }
+  }
+  
   private var viewContext: NSManagedObjectContext
   private var fetchedResultsController: NSFetchedResultsController<Transaction>
   

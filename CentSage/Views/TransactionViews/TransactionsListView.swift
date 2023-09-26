@@ -25,10 +25,13 @@ struct TransactionsListView: View {
           Text("All").tag("All")
           Text("Food").tag("Food")
           Text("Home").tag("Home")
+          Text("Work").tag("Work")
           Text("Transportation").tag("Transportation")
           Text("Entertainment").tag("Entertainment")
           Text("Health").tag("Health")
+          Text("Gift").tag("Gift")
           Text("Shopping").tag("Shopping")
+          Text("Investment").tag("Investment")
           Text("Other").tag("Other")
         }
         .pickerStyle(MenuPickerStyle())
@@ -38,6 +41,12 @@ struct TransactionsListView: View {
             TransactionRow(transaction: transaction)
           }
           .onDelete(perform: viewModel.deleteTransactions)
+          
+          if !viewModel.transactions.isEmpty {
+            Text("Total: $\(viewModel.totalAmount, specifier: "%.2f")")
+              .font(.headline)
+              .padding(.top, 10)
+          }
         }
         .navigationTitle("Transactions")
         .toolbar {

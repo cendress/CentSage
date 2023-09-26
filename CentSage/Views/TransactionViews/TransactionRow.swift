@@ -16,6 +16,7 @@ struct TransactionRow: View {
       Text(transaction.category ?? "Unknown category")
       Text(String(format: "$%.2f", transaction.amount))
         .font(.headline)
+        .foregroundColor(transaction.type == 0 ? .green : .red)
       Text(transaction.date != nil ? "\(DateFormatter.shortDate.string(from: transaction.date!))" : "Unknown date")
 
     }
