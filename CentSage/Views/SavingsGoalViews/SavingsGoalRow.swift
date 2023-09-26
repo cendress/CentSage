@@ -17,7 +17,7 @@ struct SavingsGoalRow: View {
         .font(.subheadline)
       Text(String(format: "Current: $%.2f", goal.currentAmount))
         .font(.subheadline)
-      Text(goal.dueDate != nil ? "\(goal.dueDate!)" : "Unknown due date")
+      Text(goal.dueDate != nil ? "Due: \(DateFormatter.shortDate.string(from: goal.dueDate!))" : "Unknown due date")
     }
   }
 }
