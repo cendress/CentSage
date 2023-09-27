@@ -15,7 +15,6 @@ struct SavingsGoalRow: View {
       return max(0, min(rawProgress, 1))
   }
 
-  
   var body: some View {
     VStack(alignment: .leading, spacing: 10) {
       HStack {
