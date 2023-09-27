@@ -12,6 +12,10 @@ struct BudgetRow: View {
   
   @State private var showAlertIcon = false
   
+  var remainingAmount: Double {
+    budget.amount - budget.usedAmount
+  }
+  
   var body: some View {
     HStack {
       VStack(alignment: .leading) {
@@ -22,8 +26,11 @@ struct BudgetRow: View {
             .font(.headline)
             .fontWeight(.medium)
         }
-        Text(String(format: "$%.2f / $%.2f", budget.usedAmount, budget.amount))
+        Text(String(format: "Used: $%.2f / Total: $%.2f", budget.usedAmount, budget.amount))
           .font(.subheadline)
+        Text(String(format: "Remaining: $%.2f", remainingAmount))
+          .font(.subheadline)
+          .foregroundColor(remainingAmount < 0 ? .red : .primary)
         Text("From \(budget.startDate?.formatted(date: .abbreviated, time: .omitted) ?? "N/A") to \(budget.endDate?.formatted(date: .abbreviated, time: .omitted) ?? "N/A")")
           .font(.footnote)
           .foregroundStyle(.gray)
