@@ -34,7 +34,7 @@ struct BudgetRow: View {
   }
   
   var body: some View {
-    VStack(spacing: 10) {
+    VStack(spacing: 15) {
       HStack {
         Image(systemName: "dollarsign.circle.fill")
           .foregroundStyle(Color("CentSageGreen"))
@@ -59,12 +59,15 @@ struct BudgetRow: View {
       VStack {
         Text(String(format: "Total Budget: $%.2f", budget.amount))
           .font(.subheadline)
+          .fontWeight(.semibold)
         
         ProgressView(value: min(usedAmount, budget.amount), total: budget.amount)
           .progressViewStyle(CustomProgressView())
+          .padding(.vertical)
         
         Text(remainingAmountString)
           .font(.subheadline)
+          .fontWeight(.semibold)
           .foregroundStyle(remainingAmount < 0 ? .red : .primary)
       }
       .padding(.horizontal)

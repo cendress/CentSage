@@ -26,7 +26,7 @@ struct NewBudgetView: View {
         TextField("Name", text: $name)
         HStack {
           Text("$")
-          TextField("Amount", text: $amount)
+          TextField("Budget Amount", text: $amount)
             .keyboardType(.decimalPad)
         }
         DatePicker("Start Date", selection: $startDate, displayedComponents: .date)
