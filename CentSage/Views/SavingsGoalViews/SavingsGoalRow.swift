@@ -10,15 +10,41 @@ import SwiftUI
 struct SavingsGoalRow: View {
   var goal: SavingsGoal
   
+  var progress: Double {
+      let rawProgress = goal.currentAmount / goal.targetAmount
+      return max(0, min(rawProgress, 1))
+  }
+
+  
   var body: some View {
-      VStack(alignment: .leading) {
+    VStack(alignment: .leading, spacing: 10) {
+      HStack {
         Text(goal.goalName ?? "Unknown goal name")
+          .font(.headline)
+        Spacer()
+        if let dueDate = goal.dueDate {
+          Text("Due: \(DateFormatter.shortDate.string(from: dueDate))")
+            .font(.subheadline)
+            .foregroundColor(.gray)
+        }
+      }
+      
+      ProgressView(value: progress)
+        .progressViewStyle(LinearProgressViewStyle(tint: Color("CentSageGreen")))
+      
+      HStack {
         Text(String(format: "Target: $%.2f", goal.targetAmount))
-          .font(.subheadline)
+        Spacer()
         Text(String(format: "Current: $%.2f", goal.currentAmount))
-          .font(.subheadline)
-        Text(goal.dueDate != nil ? "Due: \(DateFormatter.shortDate.string(from: goal.dueDate!))" : "Unknown due date")
+          .fontWeight(.bold)
+      }
+      .font(.subheadline)
+      
     }
+    .padding()
+    .background(Color(UIColor.systemBackground))
+    .cornerRadius(10)
+    .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2)
   }
 }
 
