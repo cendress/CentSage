@@ -14,21 +14,35 @@ struct InputSpendingView: View {
   var onSave: () -> Void
   
   var body: some View {
-    VStack {
-      TextField("Amount", text: $inputAmount)
-        .keyboardType(.decimalPad)
-        .padding()
-      
-      Button("Submit") {
-        if let inputDouble = Double(inputAmount) {
-          usedAmount += inputDouble
-          onSave()  
-          presentationMode.wrappedValue.dismiss()
+    NavigationView {
+      VStack {
+        Text("How much did you spend?")
+          .font(.largeTitle)
+        
+        HStack {
+          Text("$")
+          TextField("Amount", text: $inputAmount)
+            .keyboardType(.decimalPad)
+            .padding()
+            .textFieldStyle(RoundedBorderTextFieldStyle())
         }
+        
+        Button("Submit") {
+          if let inputDouble = Double(inputAmount) {
+            usedAmount += inputDouble
+            onSave()
+            presentationMode.wrappedValue.dismiss()
+          }
+        }
+        .padding()
+        .background(Color("CentSageGreen"))
+        .foregroundColor(.white)
+        .cornerRadius(8)
       }
       .padding()
+      .navigationBarTitle("Input Spending", displayMode: .inline)
     }
-    .navigationBarTitle("How much did you spend?")
   }
 }
+
 

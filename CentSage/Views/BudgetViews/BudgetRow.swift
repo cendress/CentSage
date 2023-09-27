@@ -48,7 +48,7 @@ struct BudgetRow: View {
             Text("To: \(budget.endDate?.formatted(date: .abbreviated, time: .omitted) ?? "N/A")")
           }
           .font(.subheadline)
-          .foregroundColor(.gray)
+          .foregroundStyle(.gray)
         }
         Spacer()
       }
@@ -65,7 +65,7 @@ struct BudgetRow: View {
         
         Text(remainingAmountString)
           .font(.subheadline)
-          .foregroundColor(remainingAmount < 0 ? .red : .primary)
+          .foregroundStyle(remainingAmount < 0 ? .red : .primary)
       }
       .padding(.horizontal)
     }
