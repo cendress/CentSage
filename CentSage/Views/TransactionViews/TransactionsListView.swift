@@ -37,35 +37,63 @@ struct TransactionsListView: View {
         }
         .pickerStyle(MenuPickerStyle())
         
-        List {
-          ForEach(viewModel.transactions, id: \.self) { transaction in
-            TransactionRow(transaction: transaction)
-          }
-          .onDelete(perform: viewModel.deleteTransactions)
-          
-          if !viewModel.transactions.isEmpty {
-            Text("Total: \(viewModel.totalAmount < 0 ? "-" : "")$\((abs(viewModel.totalAmount)), specifier: "%.2f")")
-              .font(.headline)
-              .padding(.top, 10)
-          }
+        Spacer()
+        
+        if viewModel.transactions.isEmpty {
+          emptyTransactionsView
+          Spacer()
+        } else {
+          transactionListView
         }
-        .navigationTitle("Transactions")
-        .toolbar {
-          ToolbarItem(placement: .topBarTrailing) {
-            Button(action: {
-              isShowingNewTransactionView = true
-            }, label: {
-              Image(systemName: "plus")
-            })
-          }
-          ToolbarItem(placement: .topBarLeading) {
-            EditButton()
-          }
+      }
+      .navigationTitle("Transactions")
+      .toolbar {
+        ToolbarItem(placement: .topBarTrailing) {
+          Button(action: {
+            isShowingNewTransactionView = true
+          }, label: {
+            Image(systemName: "plus")
+          })
         }
-        .sheet(isPresented: $isShowingNewTransactionView) {
-          NewTransactionView()
-            .environment(\.managedObjectContext, viewContext)
+        ToolbarItem(placement: .topBarLeading) {
+          EditButton()
         }
+      }
+      .sheet(isPresented: $isShowingNewTransactionView) {
+        NewTransactionView()
+          .environment(\.managedObjectContext, viewContext)
+      }
+    }
+  }
+  
+  var emptyTransactionsView: some View {
+    VStack {
+      Image(systemName: "plus.circle.fill")
+        .resizable()
+        .scaledToFit()
+        .frame(width: 100, height: 100)
+        .foregroundColor(.gray)
+        .padding()
+      Text("No transactions yet!")
+        .font(.headline)
+      Text("Tap on the + button to add a new transaction.")
+        .font(.subheadline)
+        .foregroundColor(.gray)
+    }
+    .padding()
+  }
+  
+  var transactionListView: some View {
+    List {
+      ForEach(viewModel.transactions, id: \.self) { transaction in
+        TransactionRow(transaction: transaction)
+      }
+      .onDelete(perform: viewModel.deleteTransactions)
+      
+      if !viewModel.transactions.isEmpty {
+        Text("Total: \(viewModel.totalAmount < 0 ? "-" : "")$\((abs(viewModel.totalAmount)), specifier: "%.2f")")
+          .font(.headline)
+          .padding(.top, 10)
       }
     }
   }
