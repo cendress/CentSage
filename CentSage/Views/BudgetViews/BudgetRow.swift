@@ -17,7 +17,7 @@ struct BudgetRow: View {
       VStack(alignment: .leading) {
         HStack {
           Image(systemName: "dollarsign.circle.fill")
-            .foregroundColor(.green)
+            .foregroundStyle(Color("CentSageGreen"))
           Text(budget.name ?? "Unknown name")
             .font(.headline)
             .fontWeight(.medium)
@@ -26,7 +26,7 @@ struct BudgetRow: View {
           .font(.subheadline)
         Text("From \(budget.startDate?.formatted(date: .abbreviated, time: .omitted) ?? "N/A") to \(budget.endDate?.formatted(date: .abbreviated, time: .omitted) ?? "N/A")")
           .font(.footnote)
-          .foregroundColor(.gray)
+          .foregroundStyle(.gray)
       }
       Spacer()
       if budget.usedAmount > budget.amount {
@@ -36,11 +36,6 @@ struct BudgetRow: View {
       }
     }
     .padding()
-    .background(
-      RoundedRectangle(cornerRadius: 10, style: .continuous)
-        .fill(Color(.systemGray6))
-        .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 5)
-    )
     .padding(.horizontal)
     .onAppear {
       withAnimation(.easeIn(duration: 0.5)) {
