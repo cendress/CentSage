@@ -11,10 +11,10 @@ struct SavingsGoalRow: View {
   var goal: SavingsGoal
   
   var progress: Double {
-      let rawProgress = goal.currentAmount / goal.targetAmount
-      return max(0, min(rawProgress, 1))
+    let rawProgress = goal.currentAmount / goal.targetAmount
+    return max(0, min(rawProgress, 1))
   }
-
+  
   var body: some View {
     VStack(alignment: .leading, spacing: 10) {
       HStack {
@@ -28,8 +28,9 @@ struct SavingsGoalRow: View {
         }
       }
       
-      ProgressView(value: progress)
-        .progressViewStyle(LinearProgressViewStyle(tint: Color("CentSageGreen")))
+      SavingProgressView(value: progress, total: 1)
+        .frame(height: 20)
+        .padding(.vertical, 8)
       
       HStack {
         Text(String(format: "Target: $%.2f", goal.targetAmount))
@@ -40,7 +41,7 @@ struct SavingsGoalRow: View {
       .font(.subheadline)
       
     }
-    .padding()
+    .padding(15)
     .background(Color(UIColor.systemBackground))
     .cornerRadius(10)
     .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2)

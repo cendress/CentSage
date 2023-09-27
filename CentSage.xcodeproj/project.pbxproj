@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9D3D060F2AC4C2B300EFE54D /* InputSpendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3D060E2AC4C2B300EFE54D /* InputSpendingView.swift */; };
 		9D3D06112AC4CA5300EFE54D /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3D06102AC4CA5300EFE54D /* CustomProgressView.swift */; };
+		9D3D06172AC4D89700EFE54D /* SavingProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3D06162AC4D89700EFE54D /* SavingProgressView.swift */; };
 		9D57B02D2AC0CAEE005EEBC2 /* TransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57B02C2AC0CAED005EEBC2 /* TransactionsViewModel.swift */; };
 		9D57B0302AC0CB55005EEBC2 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57B02F2AC0CB55005EEBC2 /* DateFormatter.swift */; };
 		9D57B0332AC0CDE6005EEBC2 /* SavingsGoalsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57B0322AC0CDE6005EEBC2 /* SavingsGoalsViewModel.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		9D3D060E2AC4C2B300EFE54D /* InputSpendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputSpendingView.swift; sourceTree = "<group>"; };
 		9D3D06102AC4CA5300EFE54D /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
+		9D3D06162AC4D89700EFE54D /* SavingProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingProgressView.swift; sourceTree = "<group>"; };
 		9D57B02C2AC0CAED005EEBC2 /* TransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModel.swift; sourceTree = "<group>"; };
 		9D57B02F2AC0CB55005EEBC2 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		9D57B0322AC0CDE6005EEBC2 /* SavingsGoalsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsGoalsViewModel.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				9D57B02F2AC0CB55005EEBC2 /* DateFormatter.swift */,
 				9D3D06102AC4CA5300EFE54D /* CustomProgressView.swift */,
+				9D3D06162AC4D89700EFE54D /* SavingProgressView.swift */,
 			);
 			path = "Helper Code";
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				9DBBEA072ABF68AA000F1565 /* SavingsGoalRow.swift in Sources */,
 				9DBBEA122AC0BEF7000F1565 /* DashboardTabView.swift in Sources */,
 				9DBBE9D32ABE19C3000F1565 /* CentSageApp.swift in Sources */,
+				9D3D06172AC4D89700EFE54D /* SavingProgressView.swift in Sources */,
 				9DBBE9F82ABE226A000F1565 /* NewTransactionView.swift in Sources */,
 				9DBBEA0D2ABF7704000F1565 /* NewBudgetView.swift in Sources */,
 				9DBBE9DF2ABE19C5000F1565 /* CentSage.xcdatamodeld in Sources */,
