@@ -17,17 +17,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CentSageIcon" translatesAutoresizingMaskIntoConstraints="NO" id="xgY-d6-Mwn">
-                                <rect key="frame" x="0.0" y="84.666666666666686" width="393" height="683"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CentSageIconCropped" translatesAutoresizingMaskIntoConstraints="NO" id="RWk-W6-m2N">
+                                <rect key="frame" x="46.666666666666657" y="276" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="7WV-y9-Rjs"/>
+                                    <constraint firstAttribute="height" constant="300" id="hvK-Jz-YF7"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" name="CentSageBlue"/>
+                        <color key="backgroundColor" name="UniversalBlue"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="xgY-d6-Mwn" secondAttribute="trailing" id="WJa-33-VXt"/>
-                            <constraint firstItem="xgY-d6-Mwn" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="fQj-cl-ee3"/>
-                            <constraint firstItem="xgY-d6-Mwn" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="lBb-fI-fVR"/>
-                            <constraint firstItem="xgY-d6-Mwn" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="wQf-JS-ChW"/>
+                            <constraint firstItem="RWk-W6-m2N" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="74x-EW-YqG"/>
+                            <constraint firstItem="RWk-W6-m2N" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="aNu-aE-BJ8"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -37,8 +39,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CentSageIcon" width="682.66668701171875" height="682.66668701171875"/>
-        <namedColor name="CentSageBlue">
+        <image name="CentSageIconCropped" width="575.66668701171875" height="567"/>
+        <namedColor name="UniversalBlue">
             <color red="0.098039215686274508" green="0.24705882352941178" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>

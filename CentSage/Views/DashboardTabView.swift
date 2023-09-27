@@ -34,7 +34,7 @@ struct DashboardTabView: View {
       BudgetsListView(context: viewContext)
         .tabItem {
           Image(systemName: "dollarsign.circle.fill")
-          Text("Budget")
+          Text("Budgets")
         }
       
       SettingsView()

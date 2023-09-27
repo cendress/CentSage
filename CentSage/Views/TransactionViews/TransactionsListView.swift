@@ -28,6 +28,7 @@ struct TransactionsListView: View {
           Text("Work").tag("Work")
           Text("Transportation").tag("Transportation")
           Text("Entertainment").tag("Entertainment")
+          Text("Leisure").tag("Leisure")
           Text("Health").tag("Health")
           Text("Gift").tag("Gift")
           Text("Shopping").tag("Shopping")

@@ -95,4 +95,5 @@ struct OnboardingView: View {
   OnboardingView {
     print("Login action performed.")
   }
+  .preferredColorScheme(.dark)
 }

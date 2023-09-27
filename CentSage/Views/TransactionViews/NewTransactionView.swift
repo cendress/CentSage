@@ -21,7 +21,7 @@ struct NewTransactionView: View {
   @State private var showErrorAlert = false
   @State private var errorMessage = "There was a problem saving the transaction. Please try again."
   
-  let categories = ["Food", "Home", "Work", "Transportation", "Entertainment", "Health", "Gift", "Shopping", "Investment", "Other"]
+  let categories = ["Food", "Home", "Work", "Transportation", "Entertainment", "Leisure", "Health", "Gift", "Shopping", "Investment", "Other"]
   
   var body: some View {
     NavigationView {
