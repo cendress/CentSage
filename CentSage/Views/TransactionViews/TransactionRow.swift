@@ -11,14 +11,32 @@ struct TransactionRow: View {
   var transaction: Transaction
   
   var body: some View {
-    VStack(alignment: .leading) {
-      Text(transaction.name ?? "Unknown name")
-      Text(transaction.category ?? "Unknown category")
-      Text(String(format: "$%.2f", transaction.amount))
-        .font(.headline)
-        .foregroundColor(transaction.type == 0 ? .green : .red)
-      Text(transaction.date != nil ? "\(DateFormatter.shortDate.string(from: transaction.date!))" : "Unknown date")
-
+    HStack {
+      VStack(alignment: .leading) {
+        Text(transaction.name ?? "Unknown name")
+          .font(.headline)
+        Text(transaction.category ?? "Unknown category")
+        
+        Text(transaction.date != nil ? "\(DateFormatter.shortDate.string(from: transaction.date!))" : "Unknown date")
+          .font(.subheadline)
+      }
+      
+      Spacer()
+  
+        Text(String(format: "$%.2f", transaction.amount))
+          .font(.headline)
+          .foregroundColor(transaction.type == 0 ? .green : .red)
+          .font(amountFont(for: transaction.amount))
+    }
+  }
+  
+  func amountFont(for amount: Double) -> Font {
+    if amount < 10 {
+      return .system(size: 14, weight: .regular)
+    } else if amount < 100 {
+      return .system(size: 16, weight: .medium)
+    } else {
+      return .system(size: 18, weight: .bold)
     }
   }
 }
