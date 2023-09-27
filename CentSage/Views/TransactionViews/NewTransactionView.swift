@@ -16,7 +16,6 @@ struct NewTransactionView: View {
   @State private var amount = ""
   @State private var selectedSegment = 0
   @State private var selectedCategoryIndex = 0
-  @State private var note = ""
   
   @State private var showErrorAlert = false
   @State private var errorMessage = "There was a problem saving the transaction. Please try again."
@@ -45,8 +44,6 @@ struct NewTransactionView: View {
             Text(self.categories[index]).tag(index)
           }
         }
-        
-        TextField("Note", text: $note)
       }
       .navigationTitle("Add Transaction")
       .toolbar {
@@ -78,7 +75,6 @@ struct NewTransactionView: View {
     newTransaction.amount = amountDouble
     newTransaction.type = Int16(self.selectedSegment)
     newTransaction.category = self.categories[selectedCategoryIndex]
-    newTransaction.note = self.note
     newTransaction.date = Date()
     newTransaction.id = UUID()
     
