@@ -28,7 +28,8 @@ struct SavingsGoalRow: View {
         }
       }
       
-      SavingProgressView(value: progress, total: 1)
+      ProgressView(value: progress)
+        .progressViewStyle(CustomProgressView())
         .frame(height: 20)
         .padding(.vertical, 8)
       
