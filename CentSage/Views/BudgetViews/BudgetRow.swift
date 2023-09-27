@@ -15,7 +15,7 @@ struct BudgetRow: View {
       Text(budget.category ?? "Unknown category")
       Text(String(format: "$%.2f / $%.2f", budget.usedAmount, budget.amount))
         .font(.headline)
-      Text("From \(budget.startDate ?? Date()) to \(budget.endDate ?? Date())")
+      Text("From \(budget.startDate?.formatted(date: .abbreviated, time: .omitted) ?? "N/A") to \(budget.endDate?.formatted(date: .abbreviated, time: .omitted) ?? "N/A")")
     }
   }
 }
