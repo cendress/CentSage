@@ -21,16 +21,13 @@ struct SavingsGoalsListView: View {
   
   var body: some View {
     NavigationView {
-      List {
-        ForEach(viewModel.goals, id: \.self) { goal in
-          Button(action: {
-            selectedGoal = goal
-          }) {
-            SavingsGoalRow(goal: goal)
-          }
-          .buttonStyle(PlainButtonStyle())
+      VStack {
+        if viewModel.goals.isEmpty {
+          emptyGoalsView
+          Spacer()
+        } else {
+          goalsListView
         }
-        .onDelete(perform: viewModel.deleteGoals)
       }
       .navigationTitle("Savings Goals")
       .toolbar {
@@ -62,6 +59,41 @@ struct SavingsGoalsListView: View {
       .onAppear {
         viewModel.fetchGoals()
       }
+    }
+  }
+  
+  var emptyGoalsView: some View {
+    VStack {
+      Spacer()
+      
+      Image(systemName: "plus.circle.fill")
+        .resizable()
+        .scaledToFit()
+        .frame(width: 100, height: 100)
+        .foregroundColor(.gray)
+        .padding()
+      Text("No goals yet!")
+        .font(.headline)
+      Text("Tap on the + button to add a new goal.")
+        .font(.subheadline)
+        .foregroundColor(.gray)
+      
+      Spacer()
+    }
+    .padding()
+  }
+  
+  var goalsListView: some View {
+    List {
+      ForEach(viewModel.goals, id: \.self) { goal in
+        Button(action: {
+          selectedGoal = goal
+        }) {
+          SavingsGoalRow(goal: goal)
+        }
+        .buttonStyle(PlainButtonStyle())
+      }
+      .onDelete(perform: viewModel.deleteGoals)
     }
   }
 }
