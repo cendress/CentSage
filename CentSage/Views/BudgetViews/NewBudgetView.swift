@@ -13,7 +13,6 @@ struct NewBudgetView: View {
   @Environment(\.dismiss) private var dismiss
   
   @State private var name = ""
-  @State private var category = ""
   @State private var amount = ""
   @State private var startDate = Date()
   @State private var endDate = Date()
@@ -25,7 +24,6 @@ struct NewBudgetView: View {
     NavigationView {
       Form {
         TextField("Name", text: $name)
-        TextField("Category", text: $category)
         HStack {
           Text("$")
           TextField("Amount", text: $amount)
@@ -61,7 +59,6 @@ struct NewBudgetView: View {
     
     let newBudget = Budget(context: viewContext)
     newBudget.name = self.name
-    newBudget.category = self.category
     newBudget.amount = amountDouble
     newBudget.startDate = self.startDate
     newBudget.endDate = self.endDate
