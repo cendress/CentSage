@@ -9,13 +9,14 @@ import CoreData
 import SwiftUI
 
 struct ContentView: View {
+  @EnvironmentObject var themeProvider: ThemeProvider
   @State private var hasCompletedOnboarding: Bool = UserDefaults.standard.bool(forKey: "HasCompletedOnboarding")
   
   var body: some View {
     Group {
       if hasCompletedOnboarding {
         DashboardTabView {
-          hasCompletedOnboarding = false 
+          hasCompletedOnboarding = false
         }
       } else {
         OnboardingView {
@@ -24,6 +25,7 @@ struct ContentView: View {
         }
       }
     }
+    .colorScheme(themeProvider.isDarkMode ? .dark : .light)
   }
 }
 

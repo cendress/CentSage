@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct SettingsView: View {
+  @EnvironmentObject var themeProvider: ThemeProvider
   @State private var notificationsEnabled = true
-  @State private var themeSelection = 0
   
   var body: some View {
     NavigationView {
       Form {
         Toggle("Notifications", isOn: $notificationsEnabled)
-        Picker("Theme", selection: $themeSelection) {
-          Text("Light").tag(0)
-          Text("Dark").tag(1)
+        
+        Picker("Theme", selection: $themeProvider.isDarkMode) {
+          Text("Light").tag(false)
+          Text("Dark").tag(true)
         }
         .pickerStyle(SegmentedPickerStyle())
         
@@ -36,7 +37,6 @@ struct SettingsView: View {
     }
   }
 }
-
 
 #Preview {
   SettingsView()
