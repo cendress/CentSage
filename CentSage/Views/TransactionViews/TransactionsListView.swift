@@ -41,7 +41,6 @@ struct TransactionsListView: View {
         
         if viewModel.transactions.isEmpty {
           emptyTransactionsView
-          Spacer()
         } else {
           transactionListView
         }
@@ -68,6 +67,8 @@ struct TransactionsListView: View {
   
   var emptyTransactionsView: some View {
     VStack {
+      Spacer()
+      
       Image(systemName: "plus.circle.fill")
         .resizable()
         .scaledToFit()
@@ -79,6 +80,8 @@ struct TransactionsListView: View {
       Text("Tap on the + button to add a new transaction.")
         .font(.subheadline)
         .foregroundColor(.gray)
+      
+      Spacer()
     }
     .padding()
   }

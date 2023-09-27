@@ -20,11 +20,12 @@ struct BudgetsListView: View {
   
   var body: some View {
     NavigationView {
-      List {
-        ForEach(viewModel.budgets, id: \.self) { budget in
-          BudgetRow(budget: budget)
+      VStack {
+        if viewModel.budgets.isEmpty {
+          emptyBudgetsView
+        } else {
+          budgetsListView
         }
-        .onDelete(perform: viewModel.deleteBudgets)
       }
       .navigationTitle("Budgets")
       .toolbar {
@@ -46,6 +47,36 @@ struct BudgetsListView: View {
       .onAppear {
         viewModel.fetchBudgets()
       }
+    }
+  }
+  
+  var emptyBudgetsView: some View {
+    VStack {
+      Spacer()
+      
+      Image(systemName: "plus.circle.fill")
+        .resizable()
+        .scaledToFit()
+        .frame(width: 100, height: 100)
+        .foregroundColor(.gray)
+        .padding()
+      Text("No budgets yet!")
+        .font(.headline)
+      Text("Tap on the + button to add a new budget.")
+        .font(.subheadline)
+        .foregroundColor(.gray)
+      
+      Spacer()
+    }
+    .padding()
+  }
+  
+  var budgetsListView: some View {
+    List {
+      ForEach(viewModel.budgets, id: \.self) { budget in
+        BudgetRow(budget: budget)
+      }
+      .onDelete(perform: viewModel.deleteBudgets)
     }
   }
 }

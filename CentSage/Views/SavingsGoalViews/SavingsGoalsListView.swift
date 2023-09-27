@@ -24,7 +24,6 @@ struct SavingsGoalsListView: View {
       VStack {
         if viewModel.goals.isEmpty {
           emptyGoalsView
-          Spacer()
         } else {
           goalsListView
         }
