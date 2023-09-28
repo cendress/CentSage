@@ -11,6 +11,7 @@ import SwiftUI
 struct NewTransactionView: View {
   @Environment(\.managedObjectContext) private var viewContext
   @Environment(\.dismiss) private var dismiss
+  @EnvironmentObject var themeProvider: ThemeProvider
   
   @State private var name = ""
   @State private var amount = ""
@@ -62,6 +63,7 @@ struct NewTransactionView: View {
         )
       }
     }
+    .colorScheme(themeProvider.isDarkMode ? .dark : .light)
   }
   
   private func saveTransaction() {
