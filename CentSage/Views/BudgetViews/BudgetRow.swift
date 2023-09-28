@@ -36,8 +36,8 @@ struct BudgetRow: View {
   var body: some View {
     ZStack {
       RoundedRectangle(cornerRadius: 15)
-        .fill(Color.white)
-        .shadow(color: .gray, radius: 5, x: 0, y: 5)
+        .fill(LinearGradient(gradient: Gradient(colors: [Color.white, Color.gray.opacity(0.1)]), startPoint: .top, endPoint: .bottom))
+        .shadow(color: .gray.opacity(0.4), radius: 5, x: 0, y: 5)
       
       VStack(spacing: 15) {
         HStack {
