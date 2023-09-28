@@ -37,7 +37,10 @@ struct BudgetsListView: View {
         trailing: Button(action: {
           isShowingNewBudgetView = true
         }) {
-          Image(systemName: "plus")
+          Image(systemName: "plus.circle.fill")
+            .resizable()
+            .frame(width: 24, height: 24)
+            .foregroundColor(.accentColor)
         }
       )
       .sheet(isPresented: $isShowingNewBudgetView) {
@@ -63,6 +66,7 @@ struct BudgetsListView: View {
         .padding()
       Text("No budgets yet!")
         .font(.headline)
+        .padding(.bottom, 1)
       Text("Tap on the + button to add a new budget.")
         .font(.subheadline)
         .foregroundColor(.gray)

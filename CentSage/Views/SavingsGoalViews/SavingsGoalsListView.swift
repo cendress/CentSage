@@ -29,18 +29,17 @@ struct SavingsGoalsListView: View {
         }
       }
       .navigationTitle("Savings Goals")
-      .toolbar {
-        ToolbarItem(placement: .navigationBarTrailing) {
-          Button(action: {
-            showingNewGoalView = true
-          }, label: {
-            Image(systemName: "plus")
-          })
+      .navigationBarItems(
+        leading: EditButton(),
+        trailing: Button(action: {
+          showingNewGoalView = true
+        }) {
+          Image(systemName: "plus.circle.fill")
+            .resizable()
+            .frame(width: 24, height: 24)
+            .foregroundColor(.accentColor)
         }
-        ToolbarItem(placement: .navigationBarLeading) {
-          EditButton()
-        }
-      }
+      )
       .sheet(isPresented: $showingNewGoalView) {
         NewSavingsGoal()
           .environment(\.managedObjectContext, viewContext)
@@ -73,6 +72,7 @@ struct SavingsGoalsListView: View {
         .padding()
       Text("No goals yet!")
         .font(.headline)
+        .padding(.bottom, 1)
       Text("Tap on the + button to add a new goal.")
         .font(.subheadline)
         .foregroundColor(.gray)
@@ -89,6 +89,7 @@ struct SavingsGoalsListView: View {
           selectedGoal = goal
         }) {
           SavingsGoalRow(goal: goal)
+            .padding()
         }
         .buttonStyle(PlainButtonStyle())
       }
