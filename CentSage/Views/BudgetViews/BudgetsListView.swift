@@ -20,26 +20,26 @@ struct BudgetsListView: View {
   
   var body: some View {
     NavigationView {
-      VStack {
-        if viewModel.budgets.isEmpty {
-          emptyBudgetsView
-        } else {
-          budgetsListView
+      ZStack {
+        Color("Background")
+          .ignoresSafeArea()
+        VStack {
+          if viewModel.budgets.isEmpty {
+            emptyBudgetsView
+          } else {
+            budgetsListView
+          }
         }
       }
       .navigationTitle("Budgets")
-      .toolbar {
-        ToolbarItem(placement: .topBarTrailing) {
-          Button(action: {
-            isShowingNewBudgetView = true
-          }, label: {
-            Image(systemName: "plus")
-          })
+      .navigationBarItems(
+        leading: EditButton(),
+        trailing: Button(action: {
+          isShowingNewBudgetView = true
+        }) {
+          Image(systemName: "plus")
         }
-        ToolbarItem(placement: .topBarLeading) {
-          EditButton()
-        }
-      }
+      )
       .sheet(isPresented: $isShowingNewBudgetView) {
         NewBudgetView()
           .environment(\.managedObjectContext, viewContext)
@@ -48,6 +48,7 @@ struct BudgetsListView: View {
         viewModel.fetchBudgets()
       }
     }
+    .accentColor(Color("CentSageGreen"))
   }
   
   var emptyBudgetsView: some View {
@@ -75,9 +76,11 @@ struct BudgetsListView: View {
     List {
       ForEach(viewModel.budgets, id: \.self) { budget in
         BudgetRow(budget: budget)
+          .listRowBackground(Color("RowBackground"))
       }
       .onDelete(perform: viewModel.deleteBudgets)
     }
+    .listStyle(InsetGroupedListStyle())
   }
 }
 
