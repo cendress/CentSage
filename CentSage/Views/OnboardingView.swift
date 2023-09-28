@@ -14,7 +14,7 @@ struct OnboardingView: View {
   @State private var selectedPage = 0
   
   let onboardingScreens = [
-    OnboardingScreen(title: "Welcome to CentSage", isColoredTitle: true, description: "Wisdom in every cent.", image: "apple.logo"),
+    OnboardingScreen(title: "Welcome to CentSage", isColoredTitle: true, description: "Wisdom in every cent.", image: "Screenshot"),
     OnboardingScreen(title: "Track Expenses", isColoredTitle: false, description: "Keep track of your spending easily.", image: "dollarsign.circle.fill"),
     OnboardingScreen(title: "Achieve Goals", isColoredTitle: false, description: "Save money for your goals.", image: "star.fill"),
     OnboardingScreen(title: "Set Budgets", isColoredTitle: false, description: "Set budgets to avoid overspending.", image: "chart.bar.fill")

@@ -14,6 +14,7 @@ struct SettingsView: View {
   
   @State private var showingAlert = false
   @State private var showErrorAlert = false
+  
   @State private var errorTitle = ""
   @State private var errorMessage = ""
   
@@ -27,9 +28,8 @@ struct SettingsView: View {
         .pickerStyle(SegmentedPickerStyle())
         
         Section {
-          Link("Support", destination: URL(string: "https://sites.google.com/view/centsage/home")!)
-          
-          Link("Privacy Policy", destination: URL(string: "https://sites.google.com/view/centsageprivacypolicy/home")!)
+          customLink(title: "Support", url: "https://sites.google.com/view/centsage/home")
+          customLink(title: "Privacy Policy", url: "https://sites.google.com/view/centsageprivacypolicy/home")
         } header: {
           Text("Legal")
         }
@@ -57,6 +57,21 @@ struct SettingsView: View {
       .navigationTitle("Settings")
       .alert(isPresented: $showErrorAlert) {
         Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
+      }
+    }
+  }
+  
+  func customLink(title: String, url: String) -> some View {
+    HStack {
+      Text(title)
+      Spacer()
+      Image(systemName: "arrow.up.right")
+        .foregroundColor(.gray)
+    }
+    .contentShape(Rectangle())
+    .onTapGesture {
+      if let url = URL(string: url) {
+        UIApplication.shared.open(url)
       }
     }
   }
