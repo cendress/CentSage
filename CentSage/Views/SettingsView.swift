@@ -13,6 +13,9 @@ struct SettingsView: View {
   @EnvironmentObject var themeProvider: ThemeProvider
   
   @State private var showingAlert = false
+  @State private var showErrorAlert = false
+  @State private var errorTitle = ""
+  @State private var errorMessage = ""
   
   var body: some View {
     NavigationView {
@@ -55,6 +58,9 @@ struct SettingsView: View {
         }
       }
       .navigationTitle("Settings")
+      .alert(isPresented: $showErrorAlert) {
+        Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
+      }
     }
   }
   
@@ -67,14 +73,19 @@ struct SettingsView: View {
       do {
         try viewContext.execute(batchDeleteRequest)
       } catch {
-        
+        self.errorTitle = "Delete Error"
+        self.errorMessage = "There was a problem deleting your data."
+        self.showErrorAlert = true
+        return
       }
     }
     
     do {
       try viewContext.save()
     } catch {
-     
+      self.errorTitle = "Save Error"
+      self.errorMessage = "There was a problem saving the changes."
+      self.showErrorAlert = true
     }
   }
 }
