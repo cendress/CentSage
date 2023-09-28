@@ -34,62 +34,64 @@ struct BudgetRow: View {
   }
   
   var body: some View {
-    VStack(spacing: 15) {
-      HStack {
-        Image(systemName: "dollarsign.circle.fill")
-          .foregroundStyle(Color("CentSageGreen"))
-          .font(.largeTitle)
-        VStack(alignment: .leading) {
-          Text(budget.name ?? "Unknown name")
-            .font(.headline)
-            .fontWeight(.medium)
+    ZStack {
+      RoundedRectangle(cornerRadius: 15)
+        .fill(Color.white)
+        .shadow(color: .gray, radius: 5, x: 0, y: 5)
+      
+      VStack(spacing: 15) {
+        HStack {
+          Image(systemName: "dollarsign.circle.fill")
+            .foregroundStyle(Color("CentSageGreen"))
+            .font(.largeTitle)
           VStack(alignment: .leading) {
-            Text("From: \(budget.startDate?.formatted(date: .abbreviated, time: .omitted) ?? "N/A")")
-            Text("To: \(budget.endDate?.formatted(date: .abbreviated, time: .omitted) ?? "N/A")")
+            Text(budget.name ?? "Unknown name")
+              .font(.headline)
+              .fontWeight(.medium)
+            VStack(alignment: .leading) {
+              Text("From: \(budget.startDate?.formatted(date: .abbreviated, time: .omitted) ?? "N/A")")
+              Text("To: \(budget.endDate?.formatted(date: .abbreviated, time: .omitted) ?? "N/A")")
+            }
+            .font(.subheadline)
+            .foregroundStyle(.gray)
           }
-          .font(.subheadline)
-          .foregroundStyle(.gray)
+          Spacer()
         }
+        .padding(.horizontal)
+        
+        Divider().padding(.horizontal)
+        
+        VStack {
+          Text(String(format: "Total Budget: $%.2f", budget.amount))
+            .font(.subheadline)
+            .fontWeight(.semibold)
+          
+          ProgressView(value: min(usedAmount, budget.amount), total: budget.amount)
+            .progressViewStyle(CustomProgressView())
+            .padding(.vertical)
+          
+          Text(remainingAmountString)
+            .font(.subheadline)
+            .fontWeight(.semibold)
+            .foregroundStyle(remainingAmount < 0 ? .red : .primary)
+        }
+        .padding(.horizontal)
+        
         Spacer()
+          .frame(height: 10)
       }
-      .padding(.horizontal)
-      
-      Divider().padding(.horizontal)
-      
-      VStack {
-        Text(String(format: "Total Budget: $%.2f", budget.amount))
-          .font(.subheadline)
-          .fontWeight(.semibold)
-        
-        ProgressView(value: min(usedAmount, budget.amount), total: budget.amount)
-          .progressViewStyle(CustomProgressView())
-          .padding(.vertical)
-        
-        Text(remainingAmountString)
-          .font(.subheadline)
-          .fontWeight(.semibold)
-          .foregroundStyle(remainingAmount < 0 ? .red : .primary)
+      .padding()
+      .onAppear {
+        withAnimation(.easeIn(duration: 0.5)) {
+          showAlertIcon = budget.usedAmount > budget.amount
+        }
       }
-      .padding(.horizontal)
-      
-      Spacer()
-        .frame(height: 10)
-    }
-    .padding()
-    .overlay(
-      RoundedRectangle(cornerRadius: 8)
-        .stroke(Color.gray, lineWidth: 1)
-    )
-    .onAppear {
-      withAnimation(.easeIn(duration: 0.5)) {
-        showAlertIcon = budget.usedAmount > budget.amount
+      .onTapGesture {
+        showingInputSheet = true
       }
-    }
-    .onTapGesture {
-      showingInputSheet = true
-    }
-    .sheet(isPresented: $showingInputSheet) {
-      InputSpendingView(usedAmount: $usedAmount, onSave: saveChanges)
+      .sheet(isPresented: $showingInputSheet) {
+        InputSpendingView(usedAmount: $usedAmount, onSave: saveChanges)
+      }
     }
     .padding(.horizontal)
   }
