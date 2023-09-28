@@ -14,10 +14,30 @@ struct OnboardingView: View {
   @State private var selectedPage = 0
   
   let onboardingScreens = [
-    OnboardingScreen(title: "Welcome to CentSage", isColoredTitle: true, description: "Wisdom in every cent.", image: "Screenshot"),
-    OnboardingScreen(title: "Track Expenses", isColoredTitle: false, description: "Keep track of your spending easily.", image: "dollarsign.circle.fill"),
-    OnboardingScreen(title: "Achieve Goals", isColoredTitle: false, description: "Save money for your goals.", image: "star.fill"),
-    OnboardingScreen(title: "Set Budgets", isColoredTitle: false, description: "Set budgets to avoid overspending.", image: "chart.bar.fill")
+    OnboardingScreen(
+      title: "Welcome to CentSage",
+      isColoredTitle: true,
+      description: "Wisdom in every cent.",
+      image: Image("Screenshot")
+    ),
+    OnboardingScreen(
+      title: "Track Expenses",
+      isColoredTitle: false,
+      description: "Keep track of your spending easily.",
+      image: Image(systemName: "dollarsign.circle.fill")
+    ),
+    OnboardingScreen(
+      title: "Achieve Goals",
+      isColoredTitle: false,
+      description: "Save money for your goals.",
+      image: Image(systemName: "star.fill")
+    ),
+    OnboardingScreen(
+      title: "Set Budgets",
+      isColoredTitle: false,
+      description: "Set budgets to avoid overspending.",
+      image: Image(systemName: "chart.bar.fill")
+    )
   ]
   
   var body: some View {
@@ -51,7 +71,7 @@ struct OnboardingView: View {
         ForEach(0..<onboardingScreens.count, id: \.self) { index in
           let screen = onboardingScreens[index]
           VStack {
-            Image(systemName: screen.image)
+            screen.image
               .resizable()
               .scaledToFit()
               .frame(width: 200, height: 200)
