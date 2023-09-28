@@ -74,7 +74,7 @@ struct OnboardingView: View {
             screen.image
               .resizable()
               .scaledToFit()
-              .frame(width: 200, height: 200)
+              .frame(width: UIScreen.main.bounds.width * 0.50)
             if screen.isColoredTitle {
               ColoredTitleView()
             } else {
