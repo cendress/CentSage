@@ -88,6 +88,7 @@ struct OnboardingView: View {
       Spacer()
     }
     .padding()
+    .background(Color(UIColor.systemBackground).ignoresSafeArea())
   }
 }
 
