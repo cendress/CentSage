@@ -71,8 +71,15 @@ struct BudgetRow: View {
           .foregroundStyle(remainingAmount < 0 ? .red : .primary)
       }
       .padding(.horizontal)
+      
+      Spacer()
+        .frame(height: 10)
     }
     .padding()
+    .overlay(
+      RoundedRectangle(cornerRadius: 8)
+        .stroke(Color.gray, lineWidth: 1)
+    )
     .onAppear {
       withAnimation(.easeIn(duration: 0.5)) {
         showAlertIcon = budget.usedAmount > budget.amount
@@ -84,6 +91,7 @@ struct BudgetRow: View {
     .sheet(isPresented: $showingInputSheet) {
       InputSpendingView(usedAmount: $usedAmount, onSave: saveChanges)
     }
+    .padding(.horizontal)
   }
   
   func saveChanges() {
