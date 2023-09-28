@@ -29,9 +29,7 @@ struct SettingsView: View {
         Section {
           Link("Support", destination: URL(string: "https://sites.google.com/view/centsage/home")!)
           
-          NavigationLink(destination: Text("Privacy Policy")) {
-            Text("Privacy Policy")
-          }
+          Link("Privacy Policy", destination: URL(string: "https://sites.google.com/view/centsageprivacypolicy/home")!)
         } header: {
           Text("Legal")
         }
