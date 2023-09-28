@@ -31,7 +31,9 @@ struct NewBudgetView: View {
             .keyboardType(.decimalPad)
         }
         DatePicker("Start Date", selection: $startDate, displayedComponents: .date)
+          .accentColor(Color("CentSageGreen"))
         DatePicker("End Date", selection: $endDate, displayedComponents: .date)
+          .accentColor(Color("CentSageGreen"))
       }
       .navigationTitle("Add Budget")
       .toolbar {

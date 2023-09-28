@@ -40,6 +40,7 @@ struct NewSavingsGoal: View {
         }
         
         DatePicker("Due Date", selection: $dueDate, displayedComponents: .date)
+          .accentColor(Color("CentSageGreen"))
       }
       .navigationTitle("Add Savings Goal")
       .toolbar {
