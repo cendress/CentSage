@@ -20,9 +20,6 @@ struct BudgetsListView: View {
   
   var body: some View {
     NavigationView {
-      ZStack {
-        Color("Background")
-          .ignoresSafeArea()
         VStack {
           if viewModel.budgets.isEmpty {
             emptyBudgetsView
@@ -30,7 +27,6 @@ struct BudgetsListView: View {
             budgetsListView
           }
         }
-      }
       .navigationTitle("Budgets")
       .navigationBarItems(
         leading: EditButton(),
@@ -80,7 +76,7 @@ struct BudgetsListView: View {
     List {
       ForEach(viewModel.budgets, id: \.self) { budget in
         BudgetRow(budget: budget)
-          .listRowBackground(Color("RowBackground"))
+          .listRowBackground(Color.clear)
       }
       .onDelete(perform: viewModel.deleteBudgets)
     }
