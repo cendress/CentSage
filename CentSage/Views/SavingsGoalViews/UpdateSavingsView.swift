@@ -14,7 +14,7 @@ struct UpdateSavingsView: View {
   @State private var savedAmount: String = ""
   
   var goal: SavingsGoal
-  var onSave: () -> Void = {}  // Add this if you need to call something on save, otherwise ignore
+  var onSave: () -> Void = {} 
   
   @State private var showingAlert = false
   @State private var alertMessage = ""

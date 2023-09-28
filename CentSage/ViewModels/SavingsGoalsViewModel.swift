@@ -62,5 +62,3 @@ class SavingsGoalsViewModel: NSObject, ObservableObject, NSFetchedResultsControl
     goals = updatedGoals
   }
 }
-
-
