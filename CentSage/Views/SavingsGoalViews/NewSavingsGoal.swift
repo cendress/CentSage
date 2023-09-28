@@ -11,6 +11,7 @@ import CoreData
 struct NewSavingsGoal: View {
   @Environment(\.managedObjectContext) private var viewContext
   @Environment(\.dismiss) private var dismiss
+  @EnvironmentObject var themeProvider: ThemeProvider
   
   @State private var goalName = ""
   @State private var targetAmount = ""
@@ -57,6 +58,7 @@ struct NewSavingsGoal: View {
         )
       }
     }
+    .colorScheme(themeProvider.isDarkMode ? .dark : .light)
   }
   private func saveGoal() {
     guard let targetAmountDouble = Double(targetAmount),

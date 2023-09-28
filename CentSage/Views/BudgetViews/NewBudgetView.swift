@@ -11,6 +11,7 @@ import CoreData
 struct NewBudgetView: View {
   @Environment(\.managedObjectContext) private var viewContext
   @Environment(\.dismiss) private var dismiss
+  @EnvironmentObject var themeProvider: ThemeProvider
   
   @State private var name = ""
   @State private var amount = ""
@@ -49,6 +50,7 @@ struct NewBudgetView: View {
         )
       }
     }
+    .colorScheme(themeProvider.isDarkMode ? .dark : .light)
   }
   
   private func saveBudget() {

@@ -10,7 +10,9 @@ import SwiftUI
 struct InputSpendingView: View {
   @Binding var usedAmount: Double
   @State private var inputAmount: String = ""
+  
   @Environment(\.presentationMode) var presentationMode
+  @EnvironmentObject var themeProvider: ThemeProvider
   var onSave: () -> Void
   
   @State private var showingAlert = false
@@ -55,6 +57,7 @@ struct InputSpendingView: View {
         Alert(title: Text("Invalid Input"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
       }
     }
+    .colorScheme(themeProvider.isDarkMode ? .dark : .light)
   }
 }
 

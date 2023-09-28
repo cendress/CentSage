@@ -11,6 +11,7 @@ import CoreData
 struct SavingsGoalForm: View {
   @Environment(\.managedObjectContext) private var viewContext
   @Environment(\.dismiss) private var dismiss
+  @EnvironmentObject var themeProvider: ThemeProvider
   
   @State private var goalName: String
   @State private var targetAmount: String
@@ -69,6 +70,7 @@ struct SavingsGoalForm: View {
         )
       }
     }
+    .colorScheme(themeProvider.isDarkMode ? .dark : .light)
   }
   
   private func saveGoal() {
