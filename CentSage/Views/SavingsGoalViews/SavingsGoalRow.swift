@@ -29,7 +29,6 @@ struct SavingsGoalRow: View {
       }
       
       ProgressView(value: progress)
-        .progressViewStyle(CustomProgressView())
         .frame(height: 20)
         .padding(.vertical, 8)
       

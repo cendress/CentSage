@@ -15,7 +15,6 @@ struct NewSavingsGoal: View {
   
   @State private var goalName = ""
   @State private var targetAmount = ""
-  
   @State private var currentAmount = ""
   @State private var dueDate = Date()
   
@@ -61,6 +60,7 @@ struct NewSavingsGoal: View {
     }
     .colorScheme(themeProvider.isDarkMode ? .dark : .light)
   }
+  
   private func saveGoal() {
     guard let targetAmountDouble = Double(targetAmount),
           let currentAmountDouble = Double(currentAmount),

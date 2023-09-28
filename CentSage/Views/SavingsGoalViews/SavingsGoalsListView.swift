@@ -14,6 +14,7 @@ struct SavingsGoalsListView: View {
   
   @State private var selectedGoal: SavingsGoal?
   @State private var showingNewGoalView = false
+  @State private var showingUpdateView = false
   
   init(context: NSManagedObjectContext) {
     _viewModel = StateObject(wrappedValue: SavingsGoalsViewModel(context: context))
@@ -42,16 +43,6 @@ struct SavingsGoalsListView: View {
       )
       .sheet(isPresented: $showingNewGoalView) {
         NewSavingsGoal()
-          .environment(\.managedObjectContext, viewContext)
-      }
-      .sheet(item: $selectedGoal, onDismiss: {
-        viewModel.fetchGoals()
-        if viewContext.hasChanges {
-          try? viewContext.save()
-        }
-        selectedGoal = nil
-      }) { goal in
-        SavingsGoalForm(goal: goal)
           .environment(\.managedObjectContext, viewContext)
       }
       .onAppear {
@@ -87,6 +78,7 @@ struct SavingsGoalsListView: View {
       ForEach(viewModel.goals, id: \.self) { goal in
         Button(action: {
           selectedGoal = goal
+          showingUpdateView = true
         }) {
           SavingsGoalRow(goal: goal)
             .padding()
@@ -94,6 +86,12 @@ struct SavingsGoalsListView: View {
         .buttonStyle(PlainButtonStyle())
       }
       .onDelete(perform: viewModel.deleteGoals)
+    }
+    .sheet(isPresented: $showingUpdateView) {
+      if let goal = selectedGoal {
+        UpdateSavingsView(goal: goal)
+          .environment(\.managedObjectContext, viewContext)
+      }
     }
   }
 }
