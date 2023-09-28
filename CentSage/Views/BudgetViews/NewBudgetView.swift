@@ -38,6 +38,7 @@ struct NewBudgetView: View {
           Button("Save") {
             saveBudget()
           }
+          .accentColor(Color("CentSageGreen"))
         }
       }
       .alert(isPresented: $showErrorAlert) {

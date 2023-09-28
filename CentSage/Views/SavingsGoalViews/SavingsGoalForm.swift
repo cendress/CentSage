@@ -58,6 +58,7 @@ struct SavingsGoalForm: View {
           Button("Save") {
             saveGoal()
           }
+          .accentColor(Color("CentSageGreen"))
         }
       }
       .alert(isPresented: $showErrorAlert) {

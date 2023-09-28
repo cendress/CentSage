@@ -51,6 +51,7 @@ struct NewTransactionView: View {
           Button("Save") {
             saveTransaction()
           }
+          .accentColor(Color("CentSageGreen"))
         }
       }
       .alert(isPresented: $showErrorAlert) {
