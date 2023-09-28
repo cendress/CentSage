@@ -27,9 +27,8 @@ struct SettingsView: View {
         .pickerStyle(SegmentedPickerStyle())
         
         Section {
-          NavigationLink(destination: Text("Terms of Service")) {
-            Text("Terms of Service")
-          }
+          Link("Support", destination: URL(string: "https://sites.google.com/view/centsage/home")!)
+          
           NavigationLink(destination: Text("Privacy Policy")) {
             Text("Privacy Policy")
           }
