@@ -36,6 +36,7 @@ struct TransactionsListView: View {
           Text("Other").tag("Other")
         }
         .pickerStyle(MenuPickerStyle())
+        .padding([.horizontal, .top])
         
         Spacer()
         
@@ -46,21 +47,17 @@ struct TransactionsListView: View {
         }
       }
       .navigationTitle("Transactions")
-      .toolbar {
-        ToolbarItem(placement: .topBarTrailing) {
-          Button(action: {
-            isShowingNewTransactionView = true
-          }, label: {
-            Image(systemName: "plus.circle.fill")
-              .resizable()
-              .frame(width: 24, height: 24)
-              .foregroundColor(.accentColor)
-          })
+      .navigationBarItems(
+        leading: EditButton(),
+        trailing: Button(action: {
+          isShowingNewTransactionView = true
+        }) {
+          Image(systemName: "plus.circle.fill")
+            .resizable()
+            .frame(width: 24, height: 24)
+            .foregroundColor(.accentColor)
         }
-        ToolbarItem(placement: .topBarLeading) {
-          EditButton()
-        }
-      }
+      )
       .sheet(isPresented: $isShowingNewTransactionView) {
         NewTransactionView()
           .environment(\.managedObjectContext, viewContext)
