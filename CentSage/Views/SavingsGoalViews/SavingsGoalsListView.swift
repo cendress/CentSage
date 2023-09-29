@@ -18,6 +18,8 @@ struct SavingsGoalsListView: View {
   @State private var showingUpdateView = false
   @State private var refreshTrigger = false
   
+  @State private var displayedGoal: SavingsGoal?
+  
   init(context: NSManagedObjectContext) {
     _viewModel = StateObject(wrappedValue: SavingsGoalsViewModel(context: context))
   }
@@ -50,6 +52,19 @@ struct SavingsGoalsListView: View {
       .onAppear {
         viewModel.fetchGoals()
       }
+      .sheet(isPresented: $showingUpdateView, onDismiss: {
+        displayedGoal = nil
+      }) {
+        if let goal = displayedGoal {
+          UpdateSavingsView(viewModel: viewModel, refreshTrigger: $refreshTrigger, goal: goal)
+            .environment(\.managedObjectContext, viewContext)
+        }
+      }
+    }
+    .onChange(of: showingUpdateView) { newValue in
+      if newValue {
+        displayedGoal = selectedGoal
+      }
     }
   }
   
@@ -77,7 +92,7 @@ struct SavingsGoalsListView: View {
   
   var goalsListView: some View {
     List {
-      ForEach(viewModel.goals, id: \.self) { goal in
+      ForEach(viewModel.goals) { goal in
         Button(action: {
           selectedGoal = goal
           showingUpdateView = true
@@ -90,12 +105,6 @@ struct SavingsGoalsListView: View {
       .onDelete(perform: viewModel.deleteGoals)
     }
     .id(refreshTrigger)
-    .sheet(isPresented: $showingUpdateView) {
-      if let goal = selectedGoal {
-        UpdateSavingsView(viewModel: viewModel, refreshTrigger: $refreshTrigger, goal: goal)
-          .environment(\.managedObjectContext, viewContext)
-      }
-    }
   }
 }
 
