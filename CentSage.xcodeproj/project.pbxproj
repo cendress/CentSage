@@ -26,7 +26,6 @@
 		9DBBE9DA2ABE19C5000F1565 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DBBE9D92ABE19C5000F1565 /* Preview Assets.xcassets */; };
 		9DBBE9DC2ABE19C5000F1565 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBE9DB2ABE19C5000F1565 /* Persistence.swift */; };
 		9DBBE9DF2ABE19C5000F1565 /* CentSage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBE9DD2ABE19C5000F1565 /* CentSage.xcdatamodeld */; };
-		9DBBE9F22ABE21A9000F1565 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBE9F12ABE21A9000F1565 /* DashboardView.swift */; };
 		9DBBE9F42ABE2204000F1565 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBE9F32ABE2204000F1565 /* OnboardingView.swift */; };
 		9DBBE9F62ABE2236000F1565 /* TransactionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBE9F52ABE2236000F1565 /* TransactionsListView.swift */; };
 		9DBBE9F82ABE226A000F1565 /* NewTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBE9F72ABE226A000F1565 /* NewTransactionView.swift */; };
@@ -61,7 +60,6 @@
 		9DBBE9D92ABE19C5000F1565 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9DBBE9DB2ABE19C5000F1565 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		9DBBE9DE2ABE19C5000F1565 /* CentSage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CentSage.xcdatamodel; sourceTree = "<group>"; };
-		9DBBE9F12ABE21A9000F1565 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		9DBBE9F32ABE2204000F1565 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		9DBBE9F52ABE2236000F1565 /* TransactionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsListView.swift; sourceTree = "<group>"; };
 		9DBBE9F72ABE226A000F1565 /* NewTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionView.swift; sourceTree = "<group>"; };
@@ -159,7 +157,6 @@
 				9DBBE9D42ABE19C3000F1565 /* ContentView.swift */,
 				9DBBE9F32ABE2204000F1565 /* OnboardingView.swift */,
 				9D57B03C2AC1ED31005EEBC2 /* DotsIndicator.swift */,
-				9DBBE9F12ABE21A9000F1565 /* DashboardView.swift */,
 				9DBBEA112AC0BEF7000F1565 /* DashboardTabView.swift */,
 				9D57B0422AC229F9005EEBC2 /* ColoredTitleView.swift */,
 				9DBBEA0E2AC0BDAB000F1565 /* TransactionViews */,
@@ -302,7 +299,6 @@
 				9DBBEA092ABF6FFF000F1565 /* BudgetRow.swift in Sources */,
 				9D3D060F2AC4C2B300EFE54D /* InputSpendingView.swift in Sources */,
 				9DBBE9D52ABE19C3000F1565 /* ContentView.swift in Sources */,
-				9DBBE9F22ABE21A9000F1565 /* DashboardView.swift in Sources */,
 				9D3D06112AC4CA5300EFE54D /* CustomProgressView.swift in Sources */,
 				9D57B0352AC0CFFC005EEBC2 /* BudgetsViewModel.swift in Sources */,
 				9DBBE9F42ABE2204000F1565 /* OnboardingView.swift in Sources */,

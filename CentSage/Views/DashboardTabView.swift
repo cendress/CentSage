@@ -13,12 +13,6 @@ struct DashboardTabView: View {
   
   var body: some View {
       TabView {
-        DashboardView(logoutAction: logoutAction)
-          .tabItem {
-            Image(systemName: "house.fill")
-            Text("Home")
-          }
-        
         TransactionsListView(context: viewContext)
           .tabItem {
             Image(systemName: "list.dash")
