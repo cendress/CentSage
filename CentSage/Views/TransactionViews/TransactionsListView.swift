@@ -46,6 +46,7 @@ struct TransactionsListView: View {
           transactionListView
         }
       }
+      .navigationViewStyle(StackNavigationViewStyle()) 
       .navigationTitle("Transactions")
       .navigationBarItems(
         leading: EditButton(),
