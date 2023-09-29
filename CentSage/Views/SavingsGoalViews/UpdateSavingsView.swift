@@ -11,10 +11,11 @@ struct UpdateSavingsView: View {
   @Environment(\.managedObjectContext) private var viewContext
   @Environment(\.presentationMode) var presentationMode
   
+  @ObservedObject var viewModel: SavingsGoalsViewModel
+  
   @State private var savedAmount: String = ""
   
   var goal: SavingsGoal
-  var onSave: () -> Void = {} 
   
   @State private var showingAlert = false
   @State private var alertMessage = ""
@@ -30,7 +31,7 @@ struct UpdateSavingsView: View {
     
     do {
       try viewContext.save()
-      onSave()
+      viewModel.fetchGoals()
       presentationMode.wrappedValue.dismiss()
     } catch {
       alertMessage = "Failed to save changes: \(error.localizedDescription)"

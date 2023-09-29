@@ -89,7 +89,7 @@ struct SavingsGoalsListView: View {
     }
     .sheet(isPresented: $showingUpdateView) {
       if let goal = selectedGoal {
-        UpdateSavingsView(goal: goal)
+        UpdateSavingsView(viewModel: viewModel, goal: goal)
           .environment(\.managedObjectContext, viewContext)
       }
     }
