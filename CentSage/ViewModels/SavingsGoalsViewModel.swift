@@ -38,6 +38,7 @@ class SavingsGoalsViewModel: NSObject, ObservableObject, NSFetchedResultsControl
   func fetchGoals() {
     do {
       try fetchedResultsController.performFetch()
+      objectWillChange.send()
       goals = fetchedResultsController.fetchedObjects ?? []
     } catch {
       print("Failed to fetch goals: \(error)")

@@ -13,12 +13,13 @@ struct UpdateSavingsView: View {
   
   @ObservedObject var viewModel: SavingsGoalsViewModel
   
-  @State private var savedAmount: String = ""
-  
-  var goal: SavingsGoal
+  @Binding var refreshTrigger: Bool
   
   @State private var showingAlert = false
   @State private var alertMessage = ""
+  @State private var savedAmount: String = ""
+  
+  var goal: SavingsGoal
   
   func updateSavings() {
     guard let savedAmountDouble = Double(savedAmount), savedAmountDouble >= 0 else {
@@ -32,6 +33,7 @@ struct UpdateSavingsView: View {
     do {
       try viewContext.save()
       viewModel.fetchGoals()
+      refreshTrigger.toggle()
       presentationMode.wrappedValue.dismiss()
     } catch {
       alertMessage = "Failed to save changes: \(error.localizedDescription)"
@@ -56,7 +58,7 @@ struct UpdateSavingsView: View {
         Button("Submit", action: updateSavings)
           .font(.headline)
           .padding()
-          .background(Color("CentSageGreen")) 
+          .background(Color("CentSageGreen"))
           .foregroundColor(.white)
           .cornerRadius(8)
       }

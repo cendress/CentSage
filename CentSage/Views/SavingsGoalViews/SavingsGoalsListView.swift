@@ -14,7 +14,9 @@ struct SavingsGoalsListView: View {
   
   @State private var selectedGoal: SavingsGoal?
   @State private var showingNewGoalView = false
+  
   @State private var showingUpdateView = false
+  @State private var refreshTrigger = false
   
   init(context: NSManagedObjectContext) {
     _viewModel = StateObject(wrappedValue: SavingsGoalsViewModel(context: context))
@@ -87,9 +89,10 @@ struct SavingsGoalsListView: View {
       }
       .onDelete(perform: viewModel.deleteGoals)
     }
+    .id(refreshTrigger)
     .sheet(isPresented: $showingUpdateView) {
       if let goal = selectedGoal {
-        UpdateSavingsView(viewModel: viewModel, goal: goal)
+        UpdateSavingsView(viewModel: viewModel, refreshTrigger: $refreshTrigger, goal: goal)
           .environment(\.managedObjectContext, viewContext)
       }
     }
