@@ -57,7 +57,7 @@ struct NewBudgetView: View {
   
   private func saveBudget() {
     guard let amountDouble = Double(self.amount), amountDouble > 0 else {
-      self.errorMessage = "Invalid amount. Please enter a positive numeric value."
+      self.errorMessage = "Please fill out all fields correctly."
       self.showErrorAlert = true
       return
     }
