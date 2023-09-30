@@ -37,7 +37,7 @@ I would love for you to contribute to **CentSage**. Feel free to open an issue o
 
 ## 📧 Contact
 
-Christopher Endress – [chrisendress9@gmail.com](mailto:chrisendress9@gmail.com)
+Christopher Endress – [centsageapp@gmail.com](mailto:centsageapp@gmail.com)
 
 [https://github.com/cendress/CentSage](https://github.com/cendress/CentSage)
 
