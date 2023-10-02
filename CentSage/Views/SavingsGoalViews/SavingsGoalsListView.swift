@@ -11,6 +11,7 @@ import CoreData
 struct SavingsGoalsListView: View {
   @Environment(\.managedObjectContext) private var viewContext
   @StateObject private var viewModel: SavingsGoalsViewModel
+  @EnvironmentObject var themeProvider: ThemeProvider
   
   @State private var showingNewGoalView = false
   @State private var selectedGoal: SavingsGoal?
@@ -80,6 +81,7 @@ struct SavingsGoalsListView: View {
       }) { selectedGoal in
         UpdateSavingsView(viewModel: viewModel, refreshTrigger: $refreshTrigger, goal: selectedGoal)
           .environment(\.managedObjectContext, viewContext)
+          .environment(\.colorScheme, themeProvider.isDarkMode ? .dark : .light)
       }
     }
   }
