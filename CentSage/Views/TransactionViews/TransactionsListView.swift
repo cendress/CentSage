@@ -55,7 +55,7 @@ struct TransactionsListView: View {
         }) {
           Image(systemName: "plus.circle.fill")
             .resizable()
-            .frame(width: 24, height: 24)
+            .frame(width: 30, height: 30)
             .foregroundColor(.accentColor)
         }
       )
