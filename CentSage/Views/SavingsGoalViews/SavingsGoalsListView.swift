@@ -48,7 +48,7 @@ struct SavingsGoalsListView: View {
               Button(action: {
                 selectedGoal = goal
               }) {
-                SavingsGoalRow(goal: goal)
+                  SavingsGoalRow(goal: $viewModel.goals[viewModel.goals.firstIndex(of: goal)!])
                   .padding()
               }
               .buttonStyle(PlainButtonStyle())

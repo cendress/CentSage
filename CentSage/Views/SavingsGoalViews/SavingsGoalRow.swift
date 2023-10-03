@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SavingsGoalRow: View {
-  var goal: SavingsGoal
+  @Binding var goal: SavingsGoal
   
   var progress: Double {
     let rawProgress = goal.currentAmount / goal.targetAmount
@@ -49,8 +49,8 @@ struct SavingsGoalRow: View {
   }
 }
 
-#Preview {
-  SavingsGoalRow(goal: PersistenceController.preview.createSampleSavingsGoal())
-    .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-}
+//#Preview {
+//  SavingsGoalRow(goal: PersistenceController.preview.createSampleSavingsGoal())
+//    .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+//}
 
