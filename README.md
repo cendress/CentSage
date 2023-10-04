@@ -33,7 +33,7 @@ Simply use the toolbar to navigate through the app. Press on a savings goal or b
 
 ## 👥 Contribute
 
-I would love for you to contribute to **CentSage**. Feel free to open an issue or create a pull request to contribute.
+I would love for you to contribute to **CentSage**. Feel free to open an issue or create a pull request.
 
 ## 📧 Contact
 
