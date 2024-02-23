@@ -36,8 +36,8 @@ struct BudgetRow: View {
   var body: some View {
     ZStack {
       RoundedRectangle(cornerRadius: 15)
-        .fill(Color(UIColor.systemBackground))
-        .shadow(color: .gray.opacity(0.4), radius: 5, x: 0, y: 5)
+        .fill((Color(UIColor(named: "RowBackgroundColor") ?? .systemBackground)))
+        .shadow(color: .black.opacity(0.5), radius: 3, x: 0, y: 3)
       
       VStack(spacing: 15) {
         HStack {
