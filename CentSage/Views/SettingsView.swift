@@ -23,8 +23,8 @@ struct SettingsView: View {
       Form {
         Section {
           Picker("Theme", selection: $themeProvider.isDarkMode) {
-            Text("Light").tag(false)
-            Text("Dark").tag(true)
+              Image(systemName: "sun.max.fill").tag(false)
+              Image(systemName: "moon.fill").tag(true)
           }
           .pickerStyle(SegmentedPickerStyle())
         } header: {
