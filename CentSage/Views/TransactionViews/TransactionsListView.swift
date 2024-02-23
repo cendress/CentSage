@@ -90,16 +90,16 @@ struct TransactionsListView: View {
   
   var transactionListView: some View {
     List {
+      if !viewModel.transactions.isEmpty {
+        Text("Total: \(viewModel.totalAmount < 0 ? "-" : "")$\((abs(viewModel.totalAmount)), specifier: "%.2f")")
+          .font(.headline)
+          .padding(.bottom, 10)
+      }
+      
       ForEach(viewModel.transactions, id: \.self) { transaction in
         TransactionRow(transaction: transaction)
       }
       .onDelete(perform: viewModel.deleteTransactions)
-      
-      if !viewModel.transactions.isEmpty {
-        Text("Total: \(viewModel.totalAmount < 0 ? "-" : "")$\((abs(viewModel.totalAmount)), specifier: "%.2f")")
-          .font(.headline)
-          .padding(.top, 10)
-      }
     }
   }
 }
