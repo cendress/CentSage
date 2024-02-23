@@ -93,7 +93,7 @@ struct TransactionsListView: View {
       if !viewModel.transactions.isEmpty {
         Text("Total: \(viewModel.totalAmount < 0 ? "-" : "")$\((abs(viewModel.totalAmount)), specifier: "%.2f")")
           .font(.headline)
-          .padding(.bottom, 10)
+          .padding(5)
       }
       
       ForEach(viewModel.transactions, id: \.self) { transaction in
