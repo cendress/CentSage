@@ -21,11 +21,15 @@ struct SettingsView: View {
   var body: some View {
     NavigationView {
       Form {
-        Picker("Theme", selection: $themeProvider.isDarkMode) {
-          Text("Light").tag(false)
-          Text("Dark").tag(true)
+        Section {
+          Picker("Theme", selection: $themeProvider.isDarkMode) {
+            Text("Light").tag(false)
+            Text("Dark").tag(true)
+          }
+          .pickerStyle(SegmentedPickerStyle())
+        } header: {
+          Text("Appearance")
         }
-        .pickerStyle(SegmentedPickerStyle())
         
         Section {
           customLink(title: "Support", url: "https://sites.google.com/view/centsage/home")
