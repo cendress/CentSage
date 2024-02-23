@@ -52,6 +52,7 @@ struct SavingsGoalsListView: View {
                   .padding()
               }
               .buttonStyle(PlainButtonStyle())
+              .listRowBackground(Color(UIColor(named: "FormBackgroundColor") ?? UIColor.systemBackground))
             }
             .onDelete(perform: viewModel.deleteGoals)
           }
