@@ -16,7 +16,8 @@ struct NewSavingsGoal: View {
   @State private var goalName = ""
   @State private var targetAmount = ""
   @State private var currentAmount = ""
-  @State private var dueDate = Date()
+  @State private var dueDate: Date? = nil
+  @State private var includeDueDate = false
   
   @State private var showErrorAlert = false
   @State private var errorMessage = "There was a problem saving the goal. Please try again."
@@ -38,8 +39,14 @@ struct NewSavingsGoal: View {
             .keyboardType(.decimalPad)
         }
         
-        DatePicker("Due Date", selection: $dueDate, displayedComponents: .date)
-          .accentColor(Color("CentSageGreen"))
+        Toggle(isOn: $includeDueDate) {
+          Text("Include Due Date")
+        }
+        
+        if includeDueDate {
+          DatePicker("Due Date", selection: Binding($dueDate, replacingWith: Date()), displayedComponents: .date)
+            .accentColor(Color("CentSageGreen"))
+        }
       }
       .navigationTitle("Add Savings Goal")
       .toolbar {
@@ -74,7 +81,7 @@ struct NewSavingsGoal: View {
     newGoal.goalName = goalName
     newGoal.targetAmount = targetAmountDouble
     newGoal.currentAmount = currentAmountDouble
-    newGoal.dueDate = dueDate
+    newGoal.dueDate = includeDueDate ? dueDate : nil
     newGoal.id = UUID()
     
     do {
@@ -91,4 +98,15 @@ struct NewSavingsGoal: View {
 
 #Preview {
   NewSavingsGoal().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+}
+
+extension Binding {
+  init(_ source: Binding<Value?>, replacingWith defaultValue: Value) {
+    self.init(
+      get: { source.wrappedValue ?? defaultValue },
+      set: { newValue in
+        source.wrappedValue = newValue
+      }
+    )
+  }
 }
