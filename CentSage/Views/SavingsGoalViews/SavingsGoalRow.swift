@@ -45,7 +45,7 @@ struct SavingsGoalRow: View {
     .padding(15)
     .background(Color(UIColor.systemBackground))
     .cornerRadius(10)
-    .shadow(color: Color.black.opacity(0.2), radius: 5, x: 0, y: 2)
+    .shadow(color: Color.black.opacity(0.3), radius: 5, x: 0, y: 2)
   }
 }
 
