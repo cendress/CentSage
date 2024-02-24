@@ -50,6 +50,15 @@ struct NewSavingsGoal: View {
       }
       .navigationTitle("Add Savings Goal")
       .toolbar {
+        ToolbarItem(placement: .topBarLeading) {
+          Button(action: {
+            dismiss()
+          }) {
+            Image(systemName: "x.circle.fill")
+          }
+          .accentColor(.primary)
+        }
+        
         ToolbarItem(placement: .navigationBarTrailing) {
           Button("Save") {
             saveGoal()
