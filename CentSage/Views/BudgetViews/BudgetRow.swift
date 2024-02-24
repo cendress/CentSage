@@ -49,8 +49,14 @@ struct BudgetRow: View {
               .font(.headline)
               .fontWeight(.medium)
             VStack(alignment: .leading) {
-              Text("From: \(budget.startDate?.formatted(date: .abbreviated, time: .omitted) ?? "N/A")")
-              Text("To: \(budget.endDate?.formatted(date: .abbreviated, time: .omitted) ?? "N/A")")
+              // Only show date if it isn't nil
+              if let startDate = budget.startDate {
+                Text("From: \(startDate.formatted(date: .abbreviated, time: .omitted))")
+              }
+              
+              if let endDate = budget.endDate {
+                Text("To: \(endDate.formatted(date: .abbreviated, time: .omitted))")
+              }
             }
             .font(.subheadline)
             .foregroundStyle(.gray)
