@@ -17,6 +17,7 @@ struct NewBudgetView: View {
   @State private var amount = ""
   @State private var startDate = Date()
   @State private var endDate = Date()
+  @State private var includeDates = false
   
   @State private var showErrorAlert = false
   @State private var errorMessage = "There was a problem saving the budget. Please try again."
