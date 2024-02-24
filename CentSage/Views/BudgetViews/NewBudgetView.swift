@@ -36,10 +36,12 @@ struct NewBudgetView: View {
           Text("Include Dates")
         }
         
-        DatePicker("Start Date", selection: $startDate, displayedComponents: .date)
-          .accentColor(Color("CentSageGreen"))
-        DatePicker("End Date", selection: $endDate, displayedComponents: .date)
-          .accentColor(Color("CentSageGreen"))
+        if includeDates {
+          DatePicker("Start Date", selection: $startDate, displayedComponents: .date)
+            .accentColor(Color("CentSageGreen"))
+          DatePicker("End Date", selection: $endDate, displayedComponents: .date)
+            .accentColor(Color("CentSageGreen"))
+        }
       }
       .navigationTitle("Add Budget")
       .toolbar {
@@ -80,8 +82,15 @@ struct NewBudgetView: View {
     let newBudget = Budget(context: viewContext)
     newBudget.name = self.name
     newBudget.amount = amountDouble
-    newBudget.startDate = self.startDate
-    newBudget.endDate = self.endDate
+    
+    if includeDates {
+      newBudget.startDate = self.startDate
+      newBudget.endDate = self.endDate
+    } else {
+      newBudget.startDate = nil
+      newBudget.endDate = nil
+    }
+    
     newBudget.id = UUID()
     newBudget.usedAmount = 0
     
