@@ -31,6 +31,11 @@ struct NewBudgetView: View {
           TextField("Budget Amount", text: $amount)
             .keyboardType(.decimalPad)
         }
+        
+        Toggle(isOn: $includeDates) {
+          Text("Include Dates")
+        }
+        
         DatePicker("Start Date", selection: $startDate, displayedComponents: .date)
           .accentColor(Color("CentSageGreen"))
         DatePicker("End Date", selection: $endDate, displayedComponents: .date)
