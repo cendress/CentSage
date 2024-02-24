@@ -48,6 +48,15 @@ struct NewTransactionView: View {
       }
       .navigationTitle("Add Transaction")
       .toolbar {
+        ToolbarItem(placement: .topBarLeading) {
+          Button(action: {
+            dismiss()
+          }) {
+            Text("Exit")
+          }
+          .accentColor(.red)
+        }
+        
         ToolbarItem(placement: .navigationBarTrailing) {
           Button("Save") {
             saveTransaction()

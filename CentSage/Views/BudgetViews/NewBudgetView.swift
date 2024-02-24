@@ -37,6 +37,15 @@ struct NewBudgetView: View {
       }
       .navigationTitle("Add Budget")
       .toolbar {
+        ToolbarItem(placement: .topBarLeading) {
+          Button(action: {
+            dismiss()
+          }) {
+            Text("Exit")
+          }
+          .accentColor(.red)
+        }
+        
         ToolbarItem(placement: .navigationBarTrailing) {
           Button("Save") {
             saveBudget()
