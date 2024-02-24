@@ -54,9 +54,9 @@ struct NewSavingsGoal: View {
           Button(action: {
             dismiss()
           }) {
-            Image(systemName: "x.circle.fill")
+            Text("Exit")
           }
-          .accentColor(.primary)
+          .accentColor(.red)
         }
         
         ToolbarItem(placement: .navigationBarTrailing) {
