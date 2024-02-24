@@ -100,6 +100,7 @@ struct BudgetRow: View {
       }
     }
     .padding(.horizontal)
+    .padding(.vertical, 25)
   }
   
   func saveChanges() {
