@@ -10,6 +10,7 @@ import SwiftUI
 struct UpdateSavingsView: View {
   @Environment(\.managedObjectContext) private var viewContext
   @Environment(\.presentationMode) var presentationMode
+  @Environment(\.dismiss) private var dismiss
   
   @ObservedObject var viewModel: SavingsGoalsViewModel
   
@@ -66,6 +67,16 @@ struct UpdateSavingsView: View {
       .navigationBarTitle("Update Savings", displayMode: .inline)
       .alert(isPresented: $showingAlert) {
         Alert(title: Text("Invalid Input"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+      }
+      .toolbar {
+        ToolbarItem(placement: .topBarLeading) {
+          Button(action: {
+            dismiss()
+          }) {
+            Text("Exit")
+          }
+          .accentColor(.red)
+        }
       }
     }
   }
