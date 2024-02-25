@@ -13,6 +13,7 @@ struct InputSpendingView: View {
   
   @Environment(\.presentationMode) var presentationMode
   @EnvironmentObject var themeProvider: ThemeProvider
+  @Environment(\.dismiss) private var dismiss
   var onSave: () -> Void
   
   @State private var showingAlert = false
@@ -55,6 +56,16 @@ struct InputSpendingView: View {
       .navigationBarTitle("Input Spending", displayMode: .inline)
       .alert(isPresented: $showingAlert) {
         Alert(title: Text("Invalid Input"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+      }
+      .toolbar {
+        ToolbarItem(placement: .topBarLeading) {
+          Button(action: {
+            dismiss()
+          }) {
+            Text("Exit")
+          }
+          .accentColor(.red)
+        }
       }
     }
     .colorScheme(themeProvider.isDarkMode ? .dark : .light)
