@@ -23,8 +23,8 @@ struct SettingsView: View {
       Form {
         Section {
           Picker("Theme", selection: $themeProvider.isDarkMode) {
-              Image(systemName: "sun.max.fill").tag(false)
-              Image(systemName: "moon.fill").tag(true)
+            Image(systemName: "sun.max.fill").tag(false)
+            Image(systemName: "moon.fill").tag(true)
           }
           .pickerStyle(SegmentedPickerStyle())
         } header: {
@@ -86,22 +86,22 @@ struct SettingsView: View {
     for entity in entities {
       let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
       let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+      batchDeleteRequest.resultType = .resultTypeObjectIDs
+      
       do {
-        try viewContext.execute(batchDeleteRequest)
+        let deleteResult = try viewContext.execute(batchDeleteRequest) as? NSBatchDeleteResult
+        if let objectIDs = deleteResult?.result as? [NSManagedObjectID] {
+          print("found objectIDs and merging changes")
+          NSManagedObjectContext.mergeChanges(fromRemoteContextSave: [NSDeletedObjectsKey: objectIDs], into: [viewContext])
+        } else {
+          print("Found no objectIDs and not merging changes.")
+        }
       } catch {
         self.errorTitle = "Delete Error"
         self.errorMessage = "There was a problem deleting your data."
         self.showErrorAlert = true
         return
       }
-    }
-    
-    do {
-      try viewContext.save()
-    } catch {
-      self.errorTitle = "Save Error"
-      self.errorMessage = "There was a problem saving the changes."
-      self.showErrorAlert = true
     }
   }
 }
