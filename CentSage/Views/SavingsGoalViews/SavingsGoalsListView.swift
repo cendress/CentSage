@@ -9,7 +9,6 @@ import SwiftUI
 import CoreData
 
 struct SavingsGoalsListView: View {
-  @Environment(\.managedObjectContext) private var viewContext
   @StateObject private var viewModel: SavingsGoalsViewModel
   @EnvironmentObject var themeProvider: ThemeProvider
   
@@ -72,7 +71,6 @@ struct SavingsGoalsListView: View {
       )
       .sheet(isPresented: $showingNewGoalView) {
         NewSavingsGoal()
-          .environment(\.managedObjectContext, viewContext)
       }
       .onAppear {
         viewModel.fetchGoals()
@@ -81,7 +79,6 @@ struct SavingsGoalsListView: View {
         viewModel.fetchGoals()
       }) { selectedGoal in
         UpdateSavingsView(viewModel: viewModel, refreshTrigger: $refreshTrigger, goal: selectedGoal)
-          .environment(\.managedObjectContext, viewContext)
           .environment(\.colorScheme, themeProvider.isDarkMode ? .dark : .light)
       }
     }

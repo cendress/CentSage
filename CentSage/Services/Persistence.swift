@@ -33,8 +33,8 @@ struct PersistenceController {
 }
 
 extension PersistenceController {
-  func createSampleTransaction() -> Transaction {
-    let transaction = Transaction(context: container.viewContext)
+  static func createSampleTransaction(context: NSManagedObjectContext) -> Transaction {
+    let transaction = Transaction(context: context)
     transaction.name = "Sample Transaction"
     transaction.category = "Food"
     transaction.amount = 45.67

@@ -9,7 +9,6 @@ import SwiftUI
 import CoreData
 
 struct TransactionsListView: View {
-  @Environment(\.managedObjectContext) private var viewContext
   @StateObject private var viewModel: TransactionsViewModel
   
   @State private var isShowingNewTransactionView = false
@@ -61,7 +60,6 @@ struct TransactionsListView: View {
       )
       .sheet(isPresented: $isShowingNewTransactionView) {
         NewTransactionView()
-          .environment(\.managedObjectContext, viewContext)
       }
     }
   }

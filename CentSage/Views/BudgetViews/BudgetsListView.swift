@@ -9,7 +9,6 @@ import SwiftUI
 import CoreData
 
 struct BudgetsListView: View {
-  @Environment(\.managedObjectContext) private var viewContext
   @StateObject private var viewModel: BudgetsViewModel
   
   @State private var isShowingNewBudgetView = false
@@ -41,7 +40,6 @@ struct BudgetsListView: View {
       )
       .sheet(isPresented: $isShowingNewBudgetView) {
         NewBudgetView()
-          .environment(\.managedObjectContext, viewContext)
       }
       .onAppear {
         viewModel.fetchBudgets()
