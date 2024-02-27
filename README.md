@@ -12,9 +12,9 @@ CentSage is a personal finance management app designed to assist users in managi
 
 ## 📸 Screenshots
 
-![01](https://github.com/cendress/CentSage/assets/95492688/d9108741-8a9f-42e9-a94d-ddccb315abf9)
-![02](https://github.com/cendress/CentSage/assets/95492688/ba47733d-1415-4a63-aeb2-3904a693a9f3)
-![03](https://github.com/cendress/CentSage/assets/95492688/7125a19c-56a7-462b-9b0a-939a5ff9d100)
+![transactionPic](https://github.com/cendress/CentSage/assets/95492688/37f4cecd-fd82-4e03-af64-4ee2244766c6)
+![savingsGoalPic](https://github.com/cendress/CentSage/assets/95492688/d466337f-5a16-4888-a11b-349ff6c27000)
+![budgetPic](https://github.com/cendress/CentSage/assets/95492688/879a80d1-863f-4ab9-a5b3-fa230c5d9cc0)
 
 ## 🛠 Installation
 
