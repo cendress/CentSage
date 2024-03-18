@@ -35,8 +35,8 @@ struct NewTransactionView: View {
         }
         
         Picker("Type", selection: $selectedSegment) {
-          Text("Income").tag(0)
-          Text("Expense").tag(1)
+          Text("Income").tag(1)
+          Text("Expense").tag(0)
         }
         .pickerStyle(SegmentedPickerStyle())
         
