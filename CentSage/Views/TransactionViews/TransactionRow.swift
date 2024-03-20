@@ -45,7 +45,7 @@ struct TransactionRow: View {
       
       Text(formatter.string(from: NSNumber(value: transaction.amount)) ?? "$0.00")
         .font(.headline)
-        .foregroundColor(transaction.type == 0 ? .green : .red)
+        .foregroundColor(transaction.type == 0 ? .red : .green)
         .font(amountFont(for: transaction.amount))
     }
     .padding(10)
