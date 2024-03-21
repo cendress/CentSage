@@ -17,7 +17,7 @@ class TransactionsViewModel: NSObject, ObservableObject, NSFetchedResultsControl
   
   var totalAmount: Double {
     return transactions.reduce(0) { total, transaction in
-      total + (transaction.type == 0 ? transaction.amount : -transaction.amount)
+      total + (transaction.type == 1 ? transaction.amount : -transaction.amount)
     }
   }
   
