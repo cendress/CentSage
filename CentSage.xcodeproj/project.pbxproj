@@ -7,6 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C5A100012D00000100000002 /* CSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000001 /* CSColor.swift */; };
+		C5A100012D00000100000004 /* CSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000003 /* CSFont.swift */; };
+		C5A100012D00000100000006 /* CSTextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000005 /* CSTextStyle.swift */; };
+		C5A100012D00000100000008 /* CSSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000007 /* CSSpacing.swift */; };
+		C5A100012D0000010000000A /* CSRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000009 /* CSRadius.swift */; };
+		C5A100012D0000010000000C /* CSShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D0000010000000B /* CSShadow.swift */; };
+		C5A100012D0000010000000E /* CSAmountText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D0000010000000D /* CSAmountText.swift */; };
+		C5A100012D00000100000010 /* CSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D0000010000000F /* CSButton.swift */; };
+		C5A100012D00000100000012 /* CSCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000011 /* CSCard.swift */; };
+		C5A100012D00000100000014 /* CSCategoryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000013 /* CSCategoryPicker.swift */; };
+		C5A100012D00000100000016 /* CSEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000015 /* CSEmptyStateView.swift */; };
+		C5A100012D00000100000018 /* CSProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000017 /* CSProgressBar.swift */; };
+		C5A100012D0000010000001A /* CSSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000019 /* CSSectionHeader.swift */; };
+		C5A100012D0000010000001C /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D0000010000001B /* Color+Hex.swift */; };
+		C5A100012D0000010000001E /* Date+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D0000010000001D /* Date+Formatting.swift */; };
+		C5A100012D00000100000020 /* Double+Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D0000010000001F /* Double+Currency.swift */; };
+		C5A100012D00000100000022 /* View+Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000021 /* View+Modifiers.swift */; };
+		C5A100012D00000100000024 /* AppDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000023 /* AppDateFormatter.swift */; };
+		C5A100012D00000100000026 /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000025 /* CurrencyFormatter.swift */; };
 		9D3D060F2AC4C2B300EFE54D /* InputSpendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3D060E2AC4C2B300EFE54D /* InputSpendingView.swift */; };
 		9D3D06112AC4CA5300EFE54D /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3D06102AC4CA5300EFE54D /* CustomProgressView.swift */; };
 		9D3D06192AC4DE3D00EFE54D /* ThemeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3D06182AC4DE3D00EFE54D /* ThemeProvider.swift */; };
@@ -40,6 +59,25 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C5A100012D00000100000001 /* CSColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSColor.swift; sourceTree = "<group>"; };
+		C5A100012D00000100000003 /* CSFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSFont.swift; sourceTree = "<group>"; };
+		C5A100012D00000100000005 /* CSTextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSTextStyle.swift; sourceTree = "<group>"; };
+		C5A100012D00000100000007 /* CSSpacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSSpacing.swift; sourceTree = "<group>"; };
+		C5A100012D00000100000009 /* CSRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSRadius.swift; sourceTree = "<group>"; };
+		C5A100012D0000010000000B /* CSShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSShadow.swift; sourceTree = "<group>"; };
+		C5A100012D0000010000000D /* CSAmountText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSAmountText.swift; sourceTree = "<group>"; };
+		C5A100012D0000010000000F /* CSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSButton.swift; sourceTree = "<group>"; };
+		C5A100012D00000100000011 /* CSCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSCard.swift; sourceTree = "<group>"; };
+		C5A100012D00000100000013 /* CSCategoryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSCategoryPicker.swift; sourceTree = "<group>"; };
+		C5A100012D00000100000015 /* CSEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSEmptyStateView.swift; sourceTree = "<group>"; };
+		C5A100012D00000100000017 /* CSProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSProgressBar.swift; sourceTree = "<group>"; };
+		C5A100012D00000100000019 /* CSSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSSectionHeader.swift; sourceTree = "<group>"; };
+		C5A100012D0000010000001B /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
+		C5A100012D0000010000001D /* Date+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatting.swift"; sourceTree = "<group>"; };
+		C5A100012D0000010000001F /* Double+Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Currency.swift"; sourceTree = "<group>"; };
+		C5A100012D00000100000021 /* View+Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Modifiers.swift"; sourceTree = "<group>"; };
+		C5A100012D00000100000023 /* AppDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDateFormatter.swift; sourceTree = "<group>"; };
+		C5A100012D00000100000025 /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
 		9D3D060E2AC4C2B300EFE54D /* InputSpendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputSpendingView.swift; sourceTree = "<group>"; };
 		9D3D06102AC4CA5300EFE54D /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
 		9D3D06182AC4DE3D00EFE54D /* ThemeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProvider.swift; sourceTree = "<group>"; };
@@ -84,6 +122,87 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C5A100012D00000200000001 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				C5A100012D00000200000002 /* Colors */,
+				C5A100012D00000200000003 /* Typography */,
+				C5A100012D00000200000004 /* Layout */,
+				C5A100012D00000200000005 /* Components */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		C5A100012D00000200000002 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				C5A100012D00000100000001 /* CSColor.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		C5A100012D00000200000003 /* Typography */ = {
+			isa = PBXGroup;
+			children = (
+				C5A100012D00000100000003 /* CSFont.swift */,
+				C5A100012D00000100000005 /* CSTextStyle.swift */,
+			);
+			path = Typography;
+			sourceTree = "<group>";
+		};
+		C5A100012D00000200000004 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				C5A100012D00000100000007 /* CSSpacing.swift */,
+				C5A100012D00000100000009 /* CSRadius.swift */,
+				C5A100012D0000010000000B /* CSShadow.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		C5A100012D00000200000005 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C5A100012D0000010000000D /* CSAmountText.swift */,
+				C5A100012D0000010000000F /* CSButton.swift */,
+				C5A100012D00000100000011 /* CSCard.swift */,
+				C5A100012D00000100000013 /* CSCategoryPicker.swift */,
+				C5A100012D00000100000015 /* CSEmptyStateView.swift */,
+				C5A100012D00000100000017 /* CSProgressBar.swift */,
+				C5A100012D00000100000019 /* CSSectionHeader.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		C5A100012D00000200000006 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				C5A100012D00000200000007 /* Extensions */,
+				C5A100012D00000200000008 /* Utilities */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		C5A100012D00000200000007 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C5A100012D0000010000001B /* Color+Hex.swift */,
+				C5A100012D0000010000001D /* Date+Formatting.swift */,
+				C5A100012D0000010000001F /* Double+Currency.swift */,
+				C5A100012D00000100000021 /* View+Modifiers.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C5A100012D00000200000008 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C5A100012D00000100000023 /* AppDateFormatter.swift */,
+				C5A100012D00000100000025 /* CurrencyFormatter.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		9D57B02E2AC0CAF7005EEBC2 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +242,8 @@
 			isa = PBXGroup;
 			children = (
 				9DBBE9D22ABE19C3000F1565 /* CentSageApp.swift */,
+				C5A100012D00000200000006 /* Core */,
+				C5A100012D00000200000001 /* DesignSystem */,
 				9DBBE9F92ABE22BD000F1565 /* Model */,
 				9DBBE9FA2ABE22CD000F1565 /* Views */,
 				9D57B02E2AC0CAF7005EEBC2 /* ViewModels */,
@@ -288,6 +409,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5A100012D0000010000001C /* Color+Hex.swift in Sources */,
+				C5A100012D00000100000024 /* AppDateFormatter.swift in Sources */,
+				C5A100012D00000100000026 /* CurrencyFormatter.swift in Sources */,
+				C5A100012D00000100000002 /* CSColor.swift in Sources */,
+				C5A100012D00000100000004 /* CSFont.swift in Sources */,
+				C5A100012D00000100000008 /* CSSpacing.swift in Sources */,
+				C5A100012D0000010000000A /* CSRadius.swift in Sources */,
+				C5A100012D0000010000000C /* CSShadow.swift in Sources */,
+				C5A100012D0000010000000E /* CSAmountText.swift in Sources */,
+				C5A100012D00000100000010 /* CSButton.swift in Sources */,
+				C5A100012D00000100000012 /* CSCard.swift in Sources */,
+				C5A100012D00000100000014 /* CSCategoryPicker.swift in Sources */,
+				C5A100012D00000100000016 /* CSEmptyStateView.swift in Sources */,
+				C5A100012D00000100000018 /* CSProgressBar.swift in Sources */,
+				C5A100012D0000010000001A /* CSSectionHeader.swift in Sources */,
+				C5A100012D0000010000001E /* Date+Formatting.swift in Sources */,
+				C5A100012D00000100000020 /* Double+Currency.swift in Sources */,
+				C5A100012D00000100000022 /* View+Modifiers.swift in Sources */,
+				C5A100012D00000100000006 /* CSTextStyle.swift in Sources */,
 				9D3D06192AC4DE3D00EFE54D /* ThemeProvider.swift in Sources */,
 				9D57B0392AC1DFA1005EEBC2 /* OnboardingScreen.swift in Sources */,
 				9D57B0372AC1DCBC005EEBC2 /* SettingsView.swift in Sources */,

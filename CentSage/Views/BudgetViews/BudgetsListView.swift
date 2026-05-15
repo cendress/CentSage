@@ -19,13 +19,14 @@ struct BudgetsListView: View {
   
   var body: some View {
     NavigationView {
-        VStack {
-          if viewModel.budgets.isEmpty {
-            emptyBudgetsView
-          } else {
-            budgetsListView
-          }
+      VStack {
+        if viewModel.budgets.isEmpty {
+          emptyBudgetsView
+        } else {
+          budgetsListView
         }
+      }
+      .csScreenBackground()
       .navigationTitle("Budgets")
       .navigationBarItems(
         leading: EditButton(),
@@ -45,40 +46,34 @@ struct BudgetsListView: View {
         viewModel.fetchBudgets()
       }
     }
-    .accentColor(Color("CentSageGreen"))
+    .tint(CSColor.brandGreen)
   }
   
   var emptyBudgetsView: some View {
-    VStack {
-      Spacer()
-      
-      Image(systemName: "plus.circle.fill")
-        .resizable()
-        .scaledToFit()
-        .frame(width: 100, height: 100)
-        .foregroundColor(.gray)
-        .padding()
-      Text("No budgets yet!")
-        .font(.headline)
-        .padding(.bottom, 1)
-      Text("Tap on the + button to add a new budget.")
-        .font(.subheadline)
-        .foregroundColor(.gray)
-      
-      Spacer()
-    }
-    .padding()
+    CSEmptyStateView(
+      systemImage: "dollarsign.circle.fill",
+      title: "No budgets yet!",
+      message: "Tap the button to add a budget and keep spending on track.",
+      buttonTitle: "Add Budget",
+      buttonSystemImage: "plus",
+      action: {
+        isShowingNewBudgetView = true
+      }
+    )
   }
   
   var budgetsListView: some View {
     List {
       ForEach(viewModel.budgets, id: \.self) { budget in
         BudgetRow(budget: budget)
-          .listRowBackground(Color.clear)
+          .listRowInsets(EdgeInsets(top: CSSpacing.xs, leading: 0, bottom: CSSpacing.xs, trailing: 0))
+          .csListRowStyle()
       }
       .onDelete(perform: viewModel.deleteBudgets)
     }
-    .listStyle(InsetGroupedListStyle())
+    .listStyle(.plain)
+    .scrollContentBackground(.hidden)
+    .background(CSColor.background)
   }
 }
 

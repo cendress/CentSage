@@ -9,50 +9,48 @@ import SwiftUI
 
 struct TransactionRow: View {
   var transaction: Transaction
-  
-  let formatter: NumberFormatter = {
-    let formatter = NumberFormatter()
-    formatter.numberStyle = .currency
-    return formatter
-  }()
-  
+
   var body: some View {
-    HStack {
-      Image(systemName: icon(for: transaction.category))
-        .foregroundColor(color(for: transaction.category))
-        .frame(width: 30, height: 30)
-        .background(color(for: transaction.category).opacity(0.2))
-        .cornerRadius(8)
-      
-      VStack(alignment: .leading, spacing: 5) {
-        Text(transaction.name ?? "Unknown name")
+    CSCard(padding: CSSpacing.sm) {
+      HStack(spacing: CSSpacing.sm) {
+        Image(systemName: icon(for: transaction.category))
           .font(.headline)
-        Text(transaction.category ?? "Unknown category")
-          .font(.subheadline)
-          .foregroundColor(color(for: transaction.category))
-        if let date = transaction.date {
-          Text(DateFormatter.shortDate.string(from: date))
-            .font(.footnote)
-            .foregroundColor(.gray)
-        } else {
-          Text("Unknown date")
-            .font(.footnote)
-            .foregroundColor(.gray)
+          .foregroundStyle(color(for: transaction.category))
+          .frame(width: 38, height: 38)
+          .background(color(for: transaction.category).opacity(0.14))
+          .clipShape(RoundedRectangle(cornerRadius: CSRadius.medium, style: .continuous))
+
+        VStack(alignment: .leading, spacing: CSSpacing.xxs) {
+          Text(transaction.name ?? "Unknown name")
+            .font(CSFont.headline)
+            .foregroundStyle(CSColor.primaryText)
+
+          Text(transaction.category ?? "Unknown category")
+            .font(CSFont.subheadline)
+            .foregroundStyle(color(for: transaction.category))
+
+          if let date = transaction.date {
+            Text(date.csShortFormatted)
+              .font(CSFont.footnote)
+              .foregroundStyle(CSColor.tertiaryText)
+          } else {
+            Text("Unknown date")
+              .font(CSFont.footnote)
+              .foregroundStyle(CSColor.tertiaryText)
+          }
         }
+
+        Spacer()
+
+        CSAmountText(
+          amount: transaction.amount,
+          size: .small,
+          color: transaction.type == 0 ? CSColor.expense : CSColor.income
+        )
       }
-      
-      Spacer()
-      
-      Text(formatter.string(from: NSNumber(value: transaction.amount)) ?? "$0.00")
-        .font(.headline)
-        .foregroundColor(transaction.type == 0 ? .red : .green)
-        .font(amountFont(for: transaction.amount))
     }
-    .padding(10)
-    .cornerRadius(10)
-    .shadow(color: Color.black.opacity(0.05), radius: 3, x: 0, y: 2)
   }
-  
+
   func icon(for category: String?) -> String {
     switch category {
     case "Food":
@@ -79,15 +77,15 @@ struct TransactionRow: View {
       return "questionmark.circle.fill"
     }
   }
-  
+
   func color(for category: String?) -> Color {
     switch category {
     case "Food":
-      return .green
+      return CSColor.positive
     case "Home":
-      return .blue
+      return CSColor.info
     case "Work":
-      return .gray
+      return CSColor.secondaryText
     case "Transportation":
       return .orange
     case "Entertainment":
@@ -103,17 +101,7 @@ struct TransactionRow: View {
     case "Investment":
       return .indigo
     default:
-      return .secondary
-    }
-  }
-  
-  func amountFont(for amount: Double) -> Font {
-    if amount < 10 {
-      return .system(size: 14, weight: .regular)
-    } else if amount < 100 {
-      return .system(size: 16, weight: .medium)
-    } else {
-      return .system(size: 18, weight: .bold)
+      return CSColor.secondaryText
     }
   }
 }
@@ -123,4 +111,3 @@ struct TransactionRow: View {
 //  return TransactionRow(transaction: sampleTransaction)
 //    .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 //}
-

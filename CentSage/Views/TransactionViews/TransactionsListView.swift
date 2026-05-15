@@ -10,42 +10,34 @@ import CoreData
 
 struct TransactionsListView: View {
   @StateObject private var viewModel: TransactionsViewModel
-  
+
   @State private var isShowingNewTransactionView = false
-  
+
   init(context: NSManagedObjectContext) {
     _viewModel = StateObject(wrappedValue: TransactionsViewModel(context: context))
   }
-  
+
   var body: some View {
     NavigationView {
-      VStack {
-        Picker("Category", selection: $viewModel.selectedCategory) {
-          Text("All").tag("All")
-          Text("Food").tag("Food")
-          Text("Home").tag("Home")
-          Text("Work").tag("Work")
-          Text("Transportation").tag("Transportation")
-          Text("Entertainment").tag("Entertainment")
-          Text("Leisure").tag("Leisure")
-          Text("Health").tag("Health")
-          Text("Gift").tag("Gift")
-          Text("Shopping").tag("Shopping")
-          Text("Investment").tag("Investment")
-          Text("Other").tag("Other")
-        }
-        .pickerStyle(MenuPickerStyle())
-        .padding([.horizontal, .top])
-        
-        Spacer()
-        
+      VStack(spacing: 0) {
+        CSCategoryPicker(
+          title: "Category",
+          categories: CSCategoryPicker.transactionCategories,
+          selection: $viewModel.selectedCategory,
+          includesAllOption: true
+        )
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.horizontal, CSSpacing.md)
+        .padding(.top, CSSpacing.sm)
+
         if viewModel.transactions.isEmpty {
           emptyTransactionsView
         } else {
           transactionListView
         }
       }
-      .navigationViewStyle(StackNavigationViewStyle()) 
+      .csScreenBackground()
+      .navigationViewStyle(StackNavigationViewStyle())
       .navigationTitle("Transactions")
       .navigationBarItems(
         leading: EditButton(),
@@ -62,48 +54,58 @@ struct TransactionsListView: View {
         NewTransactionView()
       }
     }
+    .tint(CSColor.brandGreen)
   }
-  
+
   var emptyTransactionsView: some View {
-    VStack {
-      Spacer()
-      
-      Image(systemName: "plus.circle.fill")
-        .resizable()
-        .scaledToFit()
-        .frame(width: 100, height: 100)
-        .foregroundColor(.gray)
-        .padding()
-      Text("No transactions yet!")
-        .font(.headline)
-        .padding(.bottom, 1)
-      Text("Tap on the + button to add a new transaction.")
-        .font(.subheadline)
-        .foregroundColor(.gray)
-      
-      Spacer()
-    }
-    .padding()
+    CSEmptyStateView(
+      systemImage: "list.bullet.rectangle",
+      title: "No transactions yet!",
+      message: "Tap the button to add income or expenses as they happen.",
+      buttonTitle: "Add Transaction",
+      buttonSystemImage: "plus",
+      action: {
+        isShowingNewTransactionView = true
+      }
+    )
   }
-  
+
   var transactionListView: some View {
     List {
       if !viewModel.transactions.isEmpty {
-        Text("Total: \(viewModel.totalAmount < 0 ? "-" : "")$\((abs(viewModel.totalAmount)), specifier: "%.2f")")
-          .font(.headline)
-          .padding(5)
+        CSCard {
+          HStack {
+            Text("Total")
+              .font(CSFont.headline)
+              .foregroundStyle(CSColor.primaryText)
+
+            Spacer()
+
+            CSAmountText(
+              amount: viewModel.totalAmount,
+              size: .medium,
+              color: viewModel.totalAmount < 0 ? CSColor.expense : CSColor.income
+            )
+          }
+        }
+        .listRowInsets(EdgeInsets(top: CSSpacing.sm, leading: CSSpacing.md, bottom: CSSpacing.sm, trailing: CSSpacing.md))
+        .csListRowStyle()
       }
-      
+
       ForEach(viewModel.transactions, id: \.self) { transaction in
         TransactionRow(transaction: transaction)
+          .listRowInsets(EdgeInsets(top: CSSpacing.xs, leading: CSSpacing.md, bottom: CSSpacing.xs, trailing: CSSpacing.md))
+          .csListRowStyle()
       }
       .onDelete(perform: viewModel.deleteTransactions)
     }
+    .listStyle(.plain)
+    .scrollContentBackground(.hidden)
+    .background(CSColor.background)
   }
 }
 
 #Preview {
   TransactionsListView(context: PersistenceController.preview.container.viewContext)
 }
-
 

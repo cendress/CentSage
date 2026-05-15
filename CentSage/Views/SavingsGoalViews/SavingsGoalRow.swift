@@ -9,43 +9,72 @@ import SwiftUI
 
 struct SavingsGoalRow: View {
   @Binding var goal: SavingsGoal
-  
+
   var progress: Double {
+    guard goal.targetAmount > 0 else { return 0 }
     let rawProgress = goal.currentAmount / goal.targetAmount
     return max(0, min(rawProgress, 1))
   }
-  
+
+  var remainingAmount: Double {
+    max(goal.targetAmount - goal.currentAmount, 0)
+  }
+
   var body: some View {
-    VStack(alignment: .leading, spacing: 10) {
-      HStack {
-        Text(goal.goalName ?? "Unknown goal name")
-          .font(.headline)
-        Spacer()
-        if let dueDate = goal.dueDate {
-          Text("Due: \(DateFormatter.shortDate.string(from: dueDate))")
-            .font(.subheadline)
-            .foregroundColor(.gray)
+    CSCard {
+      VStack(alignment: .leading, spacing: CSSpacing.md) {
+        HStack(alignment: .top, spacing: CSSpacing.sm) {
+          Image(systemName: "star.fill")
+            .font(.title3)
+            .foregroundStyle(CSColor.savings)
+            .frame(width: 42, height: 42)
+            .background(CSColor.savings.opacity(0.14))
+            .clipShape(RoundedRectangle(cornerRadius: CSRadius.medium, style: .continuous))
+
+          VStack(alignment: .leading, spacing: CSSpacing.xxs) {
+            Text(goal.goalName ?? "Unknown goal name")
+              .font(CSFont.headline)
+              .foregroundStyle(CSColor.primaryText)
+
+            if let dueDate = goal.dueDate {
+              Text("Due: \(dueDate.csShortFormatted)")
+                .font(CSFont.footnote)
+                .foregroundStyle(CSColor.secondaryText)
+            }
+          }
+
+          Spacer()
+        }
+
+        CSProgressBar(progress: progress, tint: CSColor.savings)
+
+        HStack(alignment: .firstTextBaseline) {
+          VStack(alignment: .leading, spacing: CSSpacing.xxs) {
+            Text("Target")
+              .font(CSFont.caption)
+              .foregroundStyle(CSColor.secondaryText)
+
+            CSAmountText(amount: goal.targetAmount, size: .small)
+          }
+
+          Spacer()
+
+          VStack(alignment: .trailing, spacing: CSSpacing.xxs) {
+            Text("Current")
+              .font(CSFont.caption)
+              .foregroundStyle(CSColor.secondaryText)
+
+            CSAmountText(amount: goal.currentAmount, size: .small, color: CSColor.savings)
+          }
+        }
+
+        if remainingAmount > 0 {
+          Text("\(remainingAmount.currencyString) to go")
+            .font(CSFont.footnote)
+            .foregroundStyle(CSColor.tertiaryText)
         }
       }
-      
-      ProgressView(value: progress)
-        .progressViewStyle(CustomProgressView())
-        .frame(height: 20)
-        .padding(.vertical, 8)
-      
-      HStack {
-        Text(String(format: "Target: $%.2f", goal.targetAmount))
-        Spacer()
-        Text(String(format: "Current: $%.2f", goal.currentAmount))
-          .fontWeight(.bold)
-      }
-      .font(.subheadline)
-      
     }
-    .padding(15)
-    .background(Color(UIColor(named: "RowBackgroundColor") ?? .systemBackground))
-    .cornerRadius(15)
-    .shadow(color: .black.opacity(0.5), radius: 3, x: 0, y: 3)
   }
 }
 
@@ -53,4 +82,3 @@ struct SavingsGoalRow: View {
 //  SavingsGoalRow(goal: PersistenceController.preview.createSampleSavingsGoal())
 //    .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 //}
-
