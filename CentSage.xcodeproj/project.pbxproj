@@ -7,25 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C5A100012D00000100000002 /* CSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000001 /* CSColor.swift */; };
-		C5A100012D00000100000004 /* CSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000003 /* CSFont.swift */; };
-		C5A100012D00000100000006 /* CSTextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000005 /* CSTextStyle.swift */; };
-		C5A100012D00000100000008 /* CSSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000007 /* CSSpacing.swift */; };
-		C5A100012D0000010000000A /* CSRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000009 /* CSRadius.swift */; };
-		C5A100012D0000010000000C /* CSShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D0000010000000B /* CSShadow.swift */; };
-		C5A100012D0000010000000E /* CSAmountText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D0000010000000D /* CSAmountText.swift */; };
-		C5A100012D00000100000010 /* CSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D0000010000000F /* CSButton.swift */; };
-		C5A100012D00000100000012 /* CSCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000011 /* CSCard.swift */; };
-		C5A100012D00000100000014 /* CSCategoryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000013 /* CSCategoryPicker.swift */; };
-		C5A100012D00000100000016 /* CSEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000015 /* CSEmptyStateView.swift */; };
-		C5A100012D00000100000018 /* CSProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000017 /* CSProgressBar.swift */; };
-		C5A100012D0000010000001A /* CSSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000019 /* CSSectionHeader.swift */; };
-		C5A100012D0000010000001C /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D0000010000001B /* Color+Hex.swift */; };
-		C5A100012D0000010000001E /* Date+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D0000010000001D /* Date+Formatting.swift */; };
-		C5A100012D00000100000020 /* Double+Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D0000010000001F /* Double+Currency.swift */; };
-		C5A100012D00000100000022 /* View+Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000021 /* View+Modifiers.swift */; };
-		C5A100012D00000100000024 /* AppDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000023 /* AppDateFormatter.swift */; };
-		C5A100012D00000100000026 /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000025 /* CurrencyFormatter.swift */; };
 		9D3D060F2AC4C2B300EFE54D /* InputSpendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3D060E2AC4C2B300EFE54D /* InputSpendingView.swift */; };
 		9D3D06112AC4CA5300EFE54D /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3D06102AC4CA5300EFE54D /* CustomProgressView.swift */; };
 		9D3D06192AC4DE3D00EFE54D /* ThemeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3D06182AC4DE3D00EFE54D /* ThemeProvider.swift */; };
@@ -56,28 +37,28 @@
 		9DBBEA0B2ABF71E8000F1565 /* BudgetsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBEA0A2ABF71E8000F1565 /* BudgetsListView.swift */; };
 		9DBBEA0D2ABF7704000F1565 /* NewBudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBEA0C2ABF7704000F1565 /* NewBudgetView.swift */; };
 		9DBBEA122AC0BEF7000F1565 /* DashboardTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBEA112AC0BEF7000F1565 /* DashboardTabView.swift */; };
+		C5A100012D00000100000002 /* CSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000001 /* CSColor.swift */; };
+		C5A100012D00000100000004 /* CSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000003 /* CSFont.swift */; };
+		C5A100012D00000100000006 /* CSTextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000005 /* CSTextStyle.swift */; };
+		C5A100012D00000100000008 /* CSSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000007 /* CSSpacing.swift */; };
+		C5A100012D0000010000000A /* CSRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000009 /* CSRadius.swift */; };
+		C5A100012D0000010000000C /* CSShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D0000010000000B /* CSShadow.swift */; };
+		C5A100012D0000010000000E /* CSAmountText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D0000010000000D /* CSAmountText.swift */; };
+		C5A100012D00000100000010 /* CSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D0000010000000F /* CSButton.swift */; };
+		C5A100012D00000100000012 /* CSCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000011 /* CSCard.swift */; };
+		C5A100012D00000100000014 /* CSCategoryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000013 /* CSCategoryPicker.swift */; };
+		C5A100012D00000100000016 /* CSEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000015 /* CSEmptyStateView.swift */; };
+		C5A100012D00000100000018 /* CSProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000017 /* CSProgressBar.swift */; };
+		C5A100012D0000010000001A /* CSSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000019 /* CSSectionHeader.swift */; };
+		C5A100012D0000010000001C /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D0000010000001B /* Color+Hex.swift */; };
+		C5A100012D0000010000001E /* Date+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D0000010000001D /* Date+Formatting.swift */; };
+		C5A100012D00000100000020 /* Double+Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D0000010000001F /* Double+Currency.swift */; };
+		C5A100012D00000100000022 /* View+Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000021 /* View+Modifiers.swift */; };
+		C5A100012D00000100000024 /* AppDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000023 /* AppDateFormatter.swift */; };
+		C5A100012D00000100000026 /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000025 /* CurrencyFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C5A100012D00000100000001 /* CSColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSColor.swift; sourceTree = "<group>"; };
-		C5A100012D00000100000003 /* CSFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSFont.swift; sourceTree = "<group>"; };
-		C5A100012D00000100000005 /* CSTextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSTextStyle.swift; sourceTree = "<group>"; };
-		C5A100012D00000100000007 /* CSSpacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSSpacing.swift; sourceTree = "<group>"; };
-		C5A100012D00000100000009 /* CSRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSRadius.swift; sourceTree = "<group>"; };
-		C5A100012D0000010000000B /* CSShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSShadow.swift; sourceTree = "<group>"; };
-		C5A100012D0000010000000D /* CSAmountText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSAmountText.swift; sourceTree = "<group>"; };
-		C5A100012D0000010000000F /* CSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSButton.swift; sourceTree = "<group>"; };
-		C5A100012D00000100000011 /* CSCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSCard.swift; sourceTree = "<group>"; };
-		C5A100012D00000100000013 /* CSCategoryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSCategoryPicker.swift; sourceTree = "<group>"; };
-		C5A100012D00000100000015 /* CSEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSEmptyStateView.swift; sourceTree = "<group>"; };
-		C5A100012D00000100000017 /* CSProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSProgressBar.swift; sourceTree = "<group>"; };
-		C5A100012D00000100000019 /* CSSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSSectionHeader.swift; sourceTree = "<group>"; };
-		C5A100012D0000010000001B /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
-		C5A100012D0000010000001D /* Date+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatting.swift"; sourceTree = "<group>"; };
-		C5A100012D0000010000001F /* Double+Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Currency.swift"; sourceTree = "<group>"; };
-		C5A100012D00000100000021 /* View+Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Modifiers.swift"; sourceTree = "<group>"; };
-		C5A100012D00000100000023 /* AppDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDateFormatter.swift; sourceTree = "<group>"; };
-		C5A100012D00000100000025 /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
 		9D3D060E2AC4C2B300EFE54D /* InputSpendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputSpendingView.swift; sourceTree = "<group>"; };
 		9D3D06102AC4CA5300EFE54D /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
 		9D3D06182AC4DE3D00EFE54D /* ThemeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProvider.swift; sourceTree = "<group>"; };
@@ -109,6 +90,25 @@
 		9DBBEA0A2ABF71E8000F1565 /* BudgetsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetsListView.swift; sourceTree = "<group>"; };
 		9DBBEA0C2ABF7704000F1565 /* NewBudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBudgetView.swift; sourceTree = "<group>"; };
 		9DBBEA112AC0BEF7000F1565 /* DashboardTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabView.swift; sourceTree = "<group>"; };
+		C5A100012D00000100000001 /* CSColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSColor.swift; sourceTree = "<group>"; };
+		C5A100012D00000100000003 /* CSFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSFont.swift; sourceTree = "<group>"; };
+		C5A100012D00000100000005 /* CSTextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSTextStyle.swift; sourceTree = "<group>"; };
+		C5A100012D00000100000007 /* CSSpacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSSpacing.swift; sourceTree = "<group>"; };
+		C5A100012D00000100000009 /* CSRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSRadius.swift; sourceTree = "<group>"; };
+		C5A100012D0000010000000B /* CSShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSShadow.swift; sourceTree = "<group>"; };
+		C5A100012D0000010000000D /* CSAmountText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSAmountText.swift; sourceTree = "<group>"; };
+		C5A100012D0000010000000F /* CSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSButton.swift; sourceTree = "<group>"; };
+		C5A100012D00000100000011 /* CSCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSCard.swift; sourceTree = "<group>"; };
+		C5A100012D00000100000013 /* CSCategoryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSCategoryPicker.swift; sourceTree = "<group>"; };
+		C5A100012D00000100000015 /* CSEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSEmptyStateView.swift; sourceTree = "<group>"; };
+		C5A100012D00000100000017 /* CSProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSProgressBar.swift; sourceTree = "<group>"; };
+		C5A100012D00000100000019 /* CSSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSSectionHeader.swift; sourceTree = "<group>"; };
+		C5A100012D0000010000001B /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
+		C5A100012D0000010000001D /* Date+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatting.swift"; sourceTree = "<group>"; };
+		C5A100012D0000010000001F /* Double+Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Currency.swift"; sourceTree = "<group>"; };
+		C5A100012D00000100000021 /* View+Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Modifiers.swift"; sourceTree = "<group>"; };
+		C5A100012D00000100000023 /* AppDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDateFormatter.swift; sourceTree = "<group>"; };
+		C5A100012D00000100000025 /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,87 +122,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C5A100012D00000200000001 /* DesignSystem */ = {
-			isa = PBXGroup;
-			children = (
-				C5A100012D00000200000002 /* Colors */,
-				C5A100012D00000200000003 /* Typography */,
-				C5A100012D00000200000004 /* Layout */,
-				C5A100012D00000200000005 /* Components */,
-			);
-			path = DesignSystem;
-			sourceTree = "<group>";
-		};
-		C5A100012D00000200000002 /* Colors */ = {
-			isa = PBXGroup;
-			children = (
-				C5A100012D00000100000001 /* CSColor.swift */,
-			);
-			path = Colors;
-			sourceTree = "<group>";
-		};
-		C5A100012D00000200000003 /* Typography */ = {
-			isa = PBXGroup;
-			children = (
-				C5A100012D00000100000003 /* CSFont.swift */,
-				C5A100012D00000100000005 /* CSTextStyle.swift */,
-			);
-			path = Typography;
-			sourceTree = "<group>";
-		};
-		C5A100012D00000200000004 /* Layout */ = {
-			isa = PBXGroup;
-			children = (
-				C5A100012D00000100000007 /* CSSpacing.swift */,
-				C5A100012D00000100000009 /* CSRadius.swift */,
-				C5A100012D0000010000000B /* CSShadow.swift */,
-			);
-			path = Layout;
-			sourceTree = "<group>";
-		};
-		C5A100012D00000200000005 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				C5A100012D0000010000000D /* CSAmountText.swift */,
-				C5A100012D0000010000000F /* CSButton.swift */,
-				C5A100012D00000100000011 /* CSCard.swift */,
-				C5A100012D00000100000013 /* CSCategoryPicker.swift */,
-				C5A100012D00000100000015 /* CSEmptyStateView.swift */,
-				C5A100012D00000100000017 /* CSProgressBar.swift */,
-				C5A100012D00000100000019 /* CSSectionHeader.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		C5A100012D00000200000006 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				C5A100012D00000200000007 /* Extensions */,
-				C5A100012D00000200000008 /* Utilities */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		C5A100012D00000200000007 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				C5A100012D0000010000001B /* Color+Hex.swift */,
-				C5A100012D0000010000001D /* Date+Formatting.swift */,
-				C5A100012D0000010000001F /* Double+Currency.swift */,
-				C5A100012D00000100000021 /* View+Modifiers.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		C5A100012D00000200000008 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				C5A100012D00000100000023 /* AppDateFormatter.swift */,
-				C5A100012D00000100000025 /* CurrencyFormatter.swift */,
-			);
-			path = Utilities;
-			sourceTree = "<group>";
-		};
 		9D57B02E2AC0CAF7005EEBC2 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,6 +255,87 @@
 				9D3D060E2AC4C2B300EFE54D /* InputSpendingView.swift */,
 			);
 			path = BudgetViews;
+			sourceTree = "<group>";
+		};
+		C5A100012D00000200000001 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				C5A100012D00000200000002 /* Colors */,
+				C5A100012D00000200000003 /* Typography */,
+				C5A100012D00000200000004 /* Layout */,
+				C5A100012D00000200000005 /* Components */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		C5A100012D00000200000002 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				C5A100012D00000100000001 /* CSColor.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		C5A100012D00000200000003 /* Typography */ = {
+			isa = PBXGroup;
+			children = (
+				C5A100012D00000100000003 /* CSFont.swift */,
+				C5A100012D00000100000005 /* CSTextStyle.swift */,
+			);
+			path = Typography;
+			sourceTree = "<group>";
+		};
+		C5A100012D00000200000004 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				C5A100012D00000100000007 /* CSSpacing.swift */,
+				C5A100012D00000100000009 /* CSRadius.swift */,
+				C5A100012D0000010000000B /* CSShadow.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		C5A100012D00000200000005 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C5A100012D0000010000000D /* CSAmountText.swift */,
+				C5A100012D0000010000000F /* CSButton.swift */,
+				C5A100012D00000100000011 /* CSCard.swift */,
+				C5A100012D00000100000013 /* CSCategoryPicker.swift */,
+				C5A100012D00000100000015 /* CSEmptyStateView.swift */,
+				C5A100012D00000100000017 /* CSProgressBar.swift */,
+				C5A100012D00000100000019 /* CSSectionHeader.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		C5A100012D00000200000006 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				C5A100012D00000200000007 /* Extensions */,
+				C5A100012D00000200000008 /* Utilities */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		C5A100012D00000200000007 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C5A100012D0000010000001B /* Color+Hex.swift */,
+				C5A100012D0000010000001D /* Date+Formatting.swift */,
+				C5A100012D0000010000001F /* Double+Currency.swift */,
+				C5A100012D00000100000021 /* View+Modifiers.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C5A100012D00000200000008 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C5A100012D00000100000023 /* AppDateFormatter.swift */,
+				C5A100012D00000100000025 /* CurrencyFormatter.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -597,8 +597,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -633,8 +633,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
