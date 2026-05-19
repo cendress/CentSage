@@ -37,7 +37,7 @@ struct DashboardTabView: View {
             Text("Goals")
           }
 
-        ReportsView()
+        ReportsView(context: viewContext)
           .tabItem {
             Image(systemName: "chart.bar.xaxis")
             Text("Reports")

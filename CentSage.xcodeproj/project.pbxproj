@@ -76,6 +76,17 @@
 		C5C300012D00000100000012 /* NextBestActionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C300012D00000100000011 /* NextBestActionCard.swift */; };
 		C5C300012D00000100000014 /* QuickActionsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C300012D00000100000013 /* QuickActionsCard.swift */; };
 		C5C300012D00000100000016 /* ReportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C300012D00000100000015 /* ReportsView.swift */; };
+		C5D400012D00000100000002 /* ReportPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D400012D00000100000001 /* ReportPeriod.swift */; };
+		C5D400012D00000100000004 /* SavingsGoalPlanningService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D400012D00000100000003 /* SavingsGoalPlanningService.swift */; };
+		C5D400012D00000100000006 /* ReportsCalculationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D400012D00000100000005 /* ReportsCalculationService.swift */; };
+		C5D400012D00000100000008 /* SavingsPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D400012D00000100000007 /* SavingsPlan.swift */; };
+		C5D400012D0000010000000A /* GoalFormState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D400012D00000100000009 /* GoalFormState.swift */; };
+		C5D400012D0000010000000C /* GoalFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D400012D0000010000000B /* GoalFormView.swift */; };
+		C5D400012D0000010000000E /* SavingsPlanCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D400012D0000010000000D /* SavingsPlanCard.swift */; };
+		C5D400012D00000100000010 /* ReportsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D400012D0000010000000F /* ReportsViewModel.swift */; };
+		C5D400012D00000100000012 /* SpendingByCategorySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D400012D00000100000011 /* SpendingByCategorySection.swift */; };
+		C5D400012D00000100000014 /* MonthOverMonthSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D400012D00000100000013 /* MonthOverMonthSection.swift */; };
+		C5D400012D00000100000016 /* SavingsProgressSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D400012D00000100000015 /* SavingsProgressSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -149,6 +160,17 @@
 		C5C300012D00000100000011 /* NextBestActionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextBestActionCard.swift; sourceTree = "<group>"; };
 		C5C300012D00000100000013 /* QuickActionsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickActionsCard.swift; sourceTree = "<group>"; };
 		C5C300012D00000100000015 /* ReportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsView.swift; sourceTree = "<group>"; };
+		C5D400012D00000100000001 /* ReportPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPeriod.swift; sourceTree = "<group>"; };
+		C5D400012D00000100000003 /* SavingsGoalPlanningService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsGoalPlanningService.swift; sourceTree = "<group>"; };
+		C5D400012D00000100000005 /* ReportsCalculationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsCalculationService.swift; sourceTree = "<group>"; };
+		C5D400012D00000100000007 /* SavingsPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsPlan.swift; sourceTree = "<group>"; };
+		C5D400012D00000100000009 /* GoalFormState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalFormState.swift; sourceTree = "<group>"; };
+		C5D400012D0000010000000B /* GoalFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalFormView.swift; sourceTree = "<group>"; };
+		C5D400012D0000010000000D /* SavingsPlanCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsPlanCard.swift; sourceTree = "<group>"; };
+		C5D400012D0000010000000F /* ReportsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewModel.swift; sourceTree = "<group>"; };
+		C5D400012D00000100000011 /* SpendingByCategorySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingByCategorySection.swift; sourceTree = "<group>"; };
+		C5D400012D00000100000013 /* MonthOverMonthSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthOverMonthSection.swift; sourceTree = "<group>"; };
+		C5D400012D00000100000015 /* SavingsProgressSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsProgressSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -372,6 +394,7 @@
 				C5B200012D00000100000003 /* TransactionType.swift */,
 				C5B200012D00000100000001 /* EntrySource.swift */,
 				C5C300012D00000100000001 /* NextBestAction.swift */,
+				C5D400012D00000100000001 /* ReportPeriod.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -382,6 +405,8 @@
 				C5B200012D00000100000005 /* TransactionCreationService.swift */,
 				C5B200012D00000100000007 /* BudgetCalculationService.swift */,
 				C5C300012D00000100000003 /* OverviewCalculationService.swift */,
+				C5D400012D00000100000003 /* SavingsGoalPlanningService.swift */,
+				C5D400012D00000100000005 /* ReportsCalculationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -390,9 +415,21 @@
 			isa = PBXGroup;
 			children = (
 				C5C300012D00000200000002 /* Overview */,
+				C5D400012D00000200000001 /* Goals */,
 				C5C300012D00000200000003 /* Reports */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		C5D400012D00000200000001 /* Goals */ = {
+			isa = PBXGroup;
+			children = (
+				C5D400012D00000100000007 /* SavingsPlan.swift */,
+				C5D400012D00000100000009 /* GoalFormState.swift */,
+				C5D400012D0000010000000B /* GoalFormView.swift */,
+				C5D400012D0000010000000D /* SavingsPlanCard.swift */,
+			);
+			path = Goals;
 			sourceTree = "<group>";
 		};
 		C5C300012D00000200000002 /* Overview */ = {
@@ -414,6 +451,10 @@
 			isa = PBXGroup;
 			children = (
 				C5C300012D00000100000015 /* ReportsView.swift */,
+				C5D400012D0000010000000F /* ReportsViewModel.swift */,
+				C5D400012D00000100000011 /* SpendingByCategorySection.swift */,
+				C5D400012D00000100000013 /* MonthOverMonthSection.swift */,
+				C5D400012D00000100000015 /* SavingsProgressSection.swift */,
 			);
 			path = Reports;
 			sourceTree = "<group>";
@@ -534,6 +575,13 @@
 				C5B200012D00000100000008 /* BudgetCalculationService.swift in Sources */,
 				C5C300012D00000100000004 /* OverviewCalculationService.swift in Sources */,
 				C5C300012D00000100000002 /* NextBestAction.swift in Sources */,
+				C5D400012D00000100000002 /* ReportPeriod.swift in Sources */,
+				C5D400012D00000100000004 /* SavingsGoalPlanningService.swift in Sources */,
+				C5D400012D00000100000006 /* ReportsCalculationService.swift in Sources */,
+				C5D400012D00000100000008 /* SavingsPlan.swift in Sources */,
+				C5D400012D0000010000000A /* GoalFormState.swift in Sources */,
+				C5D400012D0000010000000C /* GoalFormView.swift in Sources */,
+				C5D400012D0000010000000E /* SavingsPlanCard.swift in Sources */,
 				C5B200012D0000010000000A /* TransactionFormState.swift in Sources */,
 				C5B200012D0000010000000C /* TransactionFormView.swift in Sources */,
 				C5B200012D0000010000000E /* BudgetFormState.swift in Sources */,
@@ -548,6 +596,10 @@
 				C5C300012D00000100000012 /* NextBestActionCard.swift in Sources */,
 				C5C300012D00000100000014 /* QuickActionsCard.swift in Sources */,
 				C5C300012D00000100000016 /* ReportsView.swift in Sources */,
+				C5D400012D00000100000010 /* ReportsViewModel.swift in Sources */,
+				C5D400012D00000100000012 /* SpendingByCategorySection.swift in Sources */,
+				C5D400012D00000100000014 /* MonthOverMonthSection.swift in Sources */,
+				C5D400012D00000100000016 /* SavingsProgressSection.swift in Sources */,
 				9D3D06192AC4DE3D00EFE54D /* ThemeProvider.swift in Sources */,
 				9D57B0392AC1DFA1005EEBC2 /* OnboardingScreen.swift in Sources */,
 				9D57B0372AC1DCBC005EEBC2 /* SettingsView.swift in Sources */,

@@ -30,7 +30,7 @@ struct SavingsGoalsListView: View {
         }
       }
       .csScreenBackground()
-      .navigationTitle("Savings Goals")
+      .navigationTitle("Goals")
       .navigationBarItems(
         leading: EditButton(),
         trailing: Button(action: {
@@ -43,7 +43,9 @@ struct SavingsGoalsListView: View {
         }
       )
       .sheet(isPresented: $showingNewGoalView) {
-        NewSavingsGoal()
+        NewSavingsGoal {
+          viewModel.fetchGoals()
+        }
       }
       .onAppear {
         viewModel.fetchGoals()
@@ -62,7 +64,7 @@ struct SavingsGoalsListView: View {
     CSEmptyStateView(
       systemImage: "star.fill",
       title: "No goals yet!",
-      message: "Tap the button to add a savings goal and track your progress.",
+      message: "Create a goal to see a weekly savings plan and track your progress.",
       buttonTitle: "Add Goal",
       buttonSystemImage: "plus",
       action: {

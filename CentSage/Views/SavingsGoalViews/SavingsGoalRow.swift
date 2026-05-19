@@ -10,14 +10,12 @@ import SwiftUI
 struct SavingsGoalRow: View {
   @Binding var goal: SavingsGoal
 
-  var progress: Double {
-    guard goal.targetAmount > 0 else { return 0 }
-    let rawProgress = goal.currentAmount / goal.targetAmount
-    return max(0, min(rawProgress, 1))
+  private var plan: SavingsPlan {
+    SavingsGoalPlanningService.plan(for: goal)
   }
 
-  var remainingAmount: Double {
-    max(goal.targetAmount - goal.currentAmount, 0)
+  private var progressPercent: Int {
+    Int((plan.progress * 100).rounded())
   }
 
   var body: some View {
@@ -37,44 +35,55 @@ struct SavingsGoalRow: View {
               .foregroundStyle(CSColor.primaryText)
 
             if let dueDate = goal.dueDate {
-              Text("Due: \(dueDate.csShortFormatted)")
+              Text("Target: \(dueDate.csShortFormatted)")
                 .font(CSFont.footnote)
                 .foregroundStyle(CSColor.secondaryText)
             }
           }
 
           Spacer()
+
+          Text("\(progressPercent)%")
+            .font(CSFont.caption)
+            .foregroundStyle(CSColor.savings)
         }
 
-        CSProgressBar(progress: progress, tint: CSColor.savings)
+        CSProgressBar(progress: plan.progress, tint: plan.targetDatePassed ? CSColor.warning : CSColor.savings)
 
         HStack(alignment: .firstTextBaseline) {
           VStack(alignment: .leading, spacing: CSSpacing.xxs) {
-            Text("Target")
-              .font(CSFont.caption)
-              .foregroundStyle(CSColor.secondaryText)
-
-            CSAmountText(amount: goal.targetAmount, size: .small)
-          }
-
-          Spacer()
-
-          VStack(alignment: .trailing, spacing: CSSpacing.xxs) {
             Text("Current")
               .font(CSFont.caption)
               .foregroundStyle(CSColor.secondaryText)
 
             CSAmountText(amount: goal.currentAmount, size: .small, color: CSColor.savings)
           }
+
+          Spacer()
+
+          VStack(alignment: .trailing, spacing: CSSpacing.xxs) {
+            Text("Target")
+              .font(CSFont.caption)
+              .foregroundStyle(CSColor.secondaryText)
+
+            CSAmountText(amount: goal.targetAmount, size: .small)
+          }
         }
 
-        if remainingAmount > 0 {
-          Text("\(remainingAmount.currencyString) to go")
-            .font(CSFont.footnote)
-            .foregroundStyle(CSColor.tertiaryText)
-        }
+        Text(rowMessage)
+          .font(CSFont.footnote)
+          .foregroundStyle(plan.targetDatePassed ? CSColor.warning : CSColor.tertiaryText)
+          .fixedSize(horizontal: false, vertical: true)
       }
     }
+  }
+
+  private var rowMessage: String {
+    if let weeklySavingsNeeded = plan.weeklySavingsNeeded {
+      return "\(weeklySavingsNeeded.currencyString)/week needed"
+    }
+
+    return plan.message
   }
 }
 
