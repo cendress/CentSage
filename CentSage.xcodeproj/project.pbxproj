@@ -65,6 +65,17 @@
 		C5B200012D0000010000000E /* BudgetFormState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B200012D0000010000000D /* BudgetFormState.swift */; };
 		C5B200012D00000100000010 /* BudgetFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B200012D0000010000000F /* BudgetFormView.swift */; };
 		C5B200012D00000100000012 /* BudgetProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B200012D00000100000011 /* BudgetProgressView.swift */; };
+		C5C300012D00000100000002 /* NextBestAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C300012D00000100000001 /* NextBestAction.swift */; };
+		C5C300012D00000100000004 /* OverviewCalculationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C300012D00000100000003 /* OverviewCalculationService.swift */; };
+		C5C300012D00000100000006 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C300012D00000100000005 /* OverviewView.swift */; };
+		C5C300012D00000100000008 /* OverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C300012D00000100000007 /* OverviewViewModel.swift */; };
+		C5C300012D0000010000000A /* MonthlySummaryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C300012D00000100000009 /* MonthlySummaryCard.swift */; };
+		C5C300012D0000010000000C /* GoalsSummaryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C300012D0000010000000B /* GoalsSummaryCard.swift */; };
+		C5C300012D0000010000000E /* BudgetSummaryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C300012D0000010000000D /* BudgetSummaryCard.swift */; };
+		C5C300012D00000100000010 /* RecentTransactionsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C300012D0000010000000F /* RecentTransactionsCard.swift */; };
+		C5C300012D00000100000012 /* NextBestActionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C300012D00000100000011 /* NextBestActionCard.swift */; };
+		C5C300012D00000100000014 /* QuickActionsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C300012D00000100000013 /* QuickActionsCard.swift */; };
+		C5C300012D00000100000016 /* ReportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C300012D00000100000015 /* ReportsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,6 +138,17 @@
 		C5B200012D0000010000000D /* BudgetFormState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetFormState.swift; sourceTree = "<group>"; };
 		C5B200012D0000010000000F /* BudgetFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetFormView.swift; sourceTree = "<group>"; };
 		C5B200012D00000100000011 /* BudgetProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetProgressView.swift; sourceTree = "<group>"; };
+		C5C300012D00000100000001 /* NextBestAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextBestAction.swift; sourceTree = "<group>"; };
+		C5C300012D00000100000003 /* OverviewCalculationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCalculationService.swift; sourceTree = "<group>"; };
+		C5C300012D00000100000005 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
+		C5C300012D00000100000007 /* OverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewModel.swift; sourceTree = "<group>"; };
+		C5C300012D00000100000009 /* MonthlySummaryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlySummaryCard.swift; sourceTree = "<group>"; };
+		C5C300012D0000010000000B /* GoalsSummaryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsSummaryCard.swift; sourceTree = "<group>"; };
+		C5C300012D0000010000000D /* BudgetSummaryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetSummaryCard.swift; sourceTree = "<group>"; };
+		C5C300012D0000010000000F /* RecentTransactionsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransactionsCard.swift; sourceTree = "<group>"; };
+		C5C300012D00000100000011 /* NextBestActionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextBestActionCard.swift; sourceTree = "<group>"; };
+		C5C300012D00000100000013 /* QuickActionsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickActionsCard.swift; sourceTree = "<group>"; };
+		C5C300012D00000100000015 /* ReportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +203,7 @@
 				9DBBE9D22ABE19C3000F1565 /* CentSageApp.swift */,
 				C5A100012D00000200000006 /* Core */,
 				C5A100012D00000200000001 /* DesignSystem */,
+				C5C300012D00000200000001 /* Features */,
 				9DBBE9F92ABE22BD000F1565 /* Model */,
 				9DBBE9FA2ABE22CD000F1565 /* Views */,
 				9D57B02E2AC0CAF7005EEBC2 /* ViewModels */,
@@ -348,6 +371,7 @@
 			children = (
 				C5B200012D00000100000003 /* TransactionType.swift */,
 				C5B200012D00000100000001 /* EntrySource.swift */,
+				C5C300012D00000100000001 /* NextBestAction.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -357,8 +381,41 @@
 			children = (
 				C5B200012D00000100000005 /* TransactionCreationService.swift */,
 				C5B200012D00000100000007 /* BudgetCalculationService.swift */,
+				C5C300012D00000100000003 /* OverviewCalculationService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		C5C300012D00000200000001 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				C5C300012D00000200000002 /* Overview */,
+				C5C300012D00000200000003 /* Reports */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		C5C300012D00000200000002 /* Overview */ = {
+			isa = PBXGroup;
+			children = (
+				C5C300012D00000100000005 /* OverviewView.swift */,
+				C5C300012D00000100000007 /* OverviewViewModel.swift */,
+				C5C300012D00000100000009 /* MonthlySummaryCard.swift */,
+				C5C300012D0000010000000B /* GoalsSummaryCard.swift */,
+				C5C300012D0000010000000D /* BudgetSummaryCard.swift */,
+				C5C300012D0000010000000F /* RecentTransactionsCard.swift */,
+				C5C300012D00000100000011 /* NextBestActionCard.swift */,
+				C5C300012D00000100000013 /* QuickActionsCard.swift */,
+			);
+			path = Overview;
+			sourceTree = "<group>";
+		};
+		C5C300012D00000200000003 /* Reports */ = {
+			isa = PBXGroup;
+			children = (
+				C5C300012D00000100000015 /* ReportsView.swift */,
+			);
+			path = Reports;
 			sourceTree = "<group>";
 		};
 		C5A100012D00000200000007 /* Extensions */ = {
@@ -475,11 +532,22 @@
 				C5B200012D00000100000004 /* TransactionType.swift in Sources */,
 				C5B200012D00000100000006 /* TransactionCreationService.swift in Sources */,
 				C5B200012D00000100000008 /* BudgetCalculationService.swift in Sources */,
+				C5C300012D00000100000004 /* OverviewCalculationService.swift in Sources */,
+				C5C300012D00000100000002 /* NextBestAction.swift in Sources */,
 				C5B200012D0000010000000A /* TransactionFormState.swift in Sources */,
 				C5B200012D0000010000000C /* TransactionFormView.swift in Sources */,
 				C5B200012D0000010000000E /* BudgetFormState.swift in Sources */,
 				C5B200012D00000100000010 /* BudgetFormView.swift in Sources */,
 				C5B200012D00000100000012 /* BudgetProgressView.swift in Sources */,
+				C5C300012D00000100000006 /* OverviewView.swift in Sources */,
+				C5C300012D00000100000008 /* OverviewViewModel.swift in Sources */,
+				C5C300012D0000010000000A /* MonthlySummaryCard.swift in Sources */,
+				C5C300012D0000010000000C /* GoalsSummaryCard.swift in Sources */,
+				C5C300012D0000010000000E /* BudgetSummaryCard.swift in Sources */,
+				C5C300012D00000100000010 /* RecentTransactionsCard.swift in Sources */,
+				C5C300012D00000100000012 /* NextBestActionCard.swift in Sources */,
+				C5C300012D00000100000014 /* QuickActionsCard.swift in Sources */,
+				C5C300012D00000100000016 /* ReportsView.swift in Sources */,
 				9D3D06192AC4DE3D00EFE54D /* ThemeProvider.swift in Sources */,
 				9D57B0392AC1DFA1005EEBC2 /* OnboardingScreen.swift in Sources */,
 				9D57B0372AC1DCBC005EEBC2 /* SettingsView.swift in Sources */,

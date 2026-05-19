@@ -13,28 +13,34 @@ struct DashboardTabView: View {
   
   var body: some View {
       TabView {
+        OverviewView(context: viewContext)
+          .tabItem {
+            Image(systemName: "house.fill")
+            Text("Overview")
+          }
+
         TransactionsListView(context: viewContext)
           .tabItem {
             Image(systemName: "list.dash")
             Text("Transactions")
           }
-        
-        SavingsGoalsListView(context: viewContext)
-          .tabItem {
-            Image(systemName: "star.fill")
-            Text("Savings Goals")
-          }
-        
+
         BudgetsListView(context: viewContext)
           .tabItem {
             Image(systemName: "dollarsign.circle.fill")
             Text("Budgets")
           }
-        
-        SettingsView()
+
+        SavingsGoalsListView(context: viewContext)
           .tabItem {
-            Image(systemName: "gearshape")
-            Text("Settings")
+            Image(systemName: "star.fill")
+            Text("Goals")
+          }
+
+        ReportsView()
+          .tabItem {
+            Image(systemName: "chart.bar.xaxis")
+            Text("Reports")
           }
       }
       .accentColor(Color("CentSageGreen"))
