@@ -14,8 +14,7 @@ enum BudgetCalculationService {
   ) -> Double {
     let transactionSpent = transactionSpentAmount(for: budget, in: context, monthContaining: date)
 
-    // TODO: Once legacy Budget.usedAmount data is migrated into transactions, remove this fallback.
-    return max(transactionSpent, budget.usedAmount)
+    return budget.usedAmount + transactionSpent
   }
 
   static func remainingAmount(
