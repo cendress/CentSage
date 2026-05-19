@@ -21,7 +21,7 @@ struct TransactionRow: View {
           .clipShape(RoundedRectangle(cornerRadius: CSRadius.medium, style: .continuous))
 
         VStack(alignment: .leading, spacing: CSSpacing.xxs) {
-          Text(transaction.name ?? "Unknown name")
+          Text(displayTitle)
             .font(CSFont.headline)
             .foregroundStyle(CSColor.primaryText)
 
@@ -38,6 +38,13 @@ struct TransactionRow: View {
               .font(CSFont.footnote)
               .foregroundStyle(CSColor.tertiaryText)
           }
+
+          if let note = transaction.note, !note.isEmpty {
+            Text(note)
+              .font(CSFont.footnote)
+              .foregroundStyle(CSColor.secondaryText)
+              .lineLimit(2)
+          }
         }
 
         Spacer()
@@ -49,6 +56,20 @@ struct TransactionRow: View {
         )
       }
     }
+  }
+
+  private var displayTitle: String {
+    let name = transaction.name?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+    if !name.isEmpty {
+      return name
+    }
+
+    let category = transaction.category?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+    if !category.isEmpty && category != TransactionCreationService.uncategorizedCategory {
+      return "\(category) spending"
+    }
+
+    return "Quick entry"
   }
 
   func icon(for category: String?) -> String {

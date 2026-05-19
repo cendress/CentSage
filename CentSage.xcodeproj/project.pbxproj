@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9D3D060F2AC4C2B300EFE54D /* InputSpendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3D060E2AC4C2B300EFE54D /* InputSpendingView.swift */; };
+		9D3D060F2AC4C2B300EFE54D /* QuickSpendingEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3D060E2AC4C2B300EFE54D /* QuickSpendingEntryView.swift */; };
 		9D3D06112AC4CA5300EFE54D /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3D06102AC4CA5300EFE54D /* CustomProgressView.swift */; };
 		9D3D06192AC4DE3D00EFE54D /* ThemeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3D06182AC4DE3D00EFE54D /* ThemeProvider.swift */; };
 		9D57B02D2AC0CAEE005EEBC2 /* TransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57B02C2AC0CAED005EEBC2 /* TransactionsViewModel.swift */; };
@@ -56,10 +56,19 @@
 		C5A100012D00000100000022 /* View+Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000021 /* View+Modifiers.swift */; };
 		C5A100012D00000100000024 /* AppDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000023 /* AppDateFormatter.swift */; };
 		C5A100012D00000100000026 /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A100012D00000100000025 /* CurrencyFormatter.swift */; };
+		C5B200012D00000100000002 /* EntrySource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B200012D00000100000001 /* EntrySource.swift */; };
+		C5B200012D00000100000004 /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B200012D00000100000003 /* TransactionType.swift */; };
+		C5B200012D00000100000006 /* TransactionCreationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B200012D00000100000005 /* TransactionCreationService.swift */; };
+		C5B200012D00000100000008 /* BudgetCalculationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B200012D00000100000007 /* BudgetCalculationService.swift */; };
+		C5B200012D0000010000000A /* TransactionFormState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B200012D00000100000009 /* TransactionFormState.swift */; };
+		C5B200012D0000010000000C /* TransactionFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B200012D0000010000000B /* TransactionFormView.swift */; };
+		C5B200012D0000010000000E /* BudgetFormState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B200012D0000010000000D /* BudgetFormState.swift */; };
+		C5B200012D00000100000010 /* BudgetFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B200012D0000010000000F /* BudgetFormView.swift */; };
+		C5B200012D00000100000012 /* BudgetProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B200012D00000100000011 /* BudgetProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9D3D060E2AC4C2B300EFE54D /* InputSpendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputSpendingView.swift; sourceTree = "<group>"; };
+		9D3D060E2AC4C2B300EFE54D /* QuickSpendingEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSpendingEntryView.swift; sourceTree = "<group>"; };
 		9D3D06102AC4CA5300EFE54D /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
 		9D3D06182AC4DE3D00EFE54D /* ThemeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProvider.swift; sourceTree = "<group>"; };
 		9D57B02C2AC0CAED005EEBC2 /* TransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModel.swift; sourceTree = "<group>"; };
@@ -109,6 +118,15 @@
 		C5A100012D00000100000021 /* View+Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Modifiers.swift"; sourceTree = "<group>"; };
 		C5A100012D00000100000023 /* AppDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDateFormatter.swift; sourceTree = "<group>"; };
 		C5A100012D00000100000025 /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
+		C5B200012D00000100000001 /* EntrySource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntrySource.swift; sourceTree = "<group>"; };
+		C5B200012D00000100000003 /* TransactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
+		C5B200012D00000100000005 /* TransactionCreationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCreationService.swift; sourceTree = "<group>"; };
+		C5B200012D00000100000007 /* BudgetCalculationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetCalculationService.swift; sourceTree = "<group>"; };
+		C5B200012D00000100000009 /* TransactionFormState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionFormState.swift; sourceTree = "<group>"; };
+		C5B200012D0000010000000B /* TransactionFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionFormView.swift; sourceTree = "<group>"; };
+		C5B200012D0000010000000D /* BudgetFormState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetFormState.swift; sourceTree = "<group>"; };
+		C5B200012D0000010000000F /* BudgetFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetFormView.swift; sourceTree = "<group>"; };
+		C5B200012D00000100000011 /* BudgetProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +248,8 @@
 			children = (
 				9DBBE9F52ABE2236000F1565 /* TransactionsListView.swift */,
 				9DBBEA002ABE3161000F1565 /* TransactionRow.swift */,
+				C5B200012D0000010000000B /* TransactionFormView.swift */,
+				C5B200012D00000100000009 /* TransactionFormState.swift */,
 				9DBBE9F72ABE226A000F1565 /* NewTransactionView.swift */,
 			);
 			path = TransactionViews;
@@ -251,8 +271,11 @@
 			children = (
 				9DBBEA082ABF6FFF000F1565 /* BudgetRow.swift */,
 				9DBBEA0A2ABF71E8000F1565 /* BudgetsListView.swift */,
+				C5B200012D0000010000000F /* BudgetFormView.swift */,
+				C5B200012D0000010000000D /* BudgetFormState.swift */,
+				C5B200012D00000100000011 /* BudgetProgressView.swift */,
 				9DBBEA0C2ABF7704000F1565 /* NewBudgetView.swift */,
-				9D3D060E2AC4C2B300EFE54D /* InputSpendingView.swift */,
+				9D3D060E2AC4C2B300EFE54D /* QuickSpendingEntryView.swift */,
 			);
 			path = BudgetViews;
 			sourceTree = "<group>";
@@ -312,10 +335,30 @@
 		C5A100012D00000200000006 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				C5B200012D00000200000001 /* Models */,
+				C5B200012D00000200000002 /* Services */,
 				C5A100012D00000200000007 /* Extensions */,
 				C5A100012D00000200000008 /* Utilities */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		C5B200012D00000200000001 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C5B200012D00000100000003 /* TransactionType.swift */,
+				C5B200012D00000100000001 /* EntrySource.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C5B200012D00000200000002 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C5B200012D00000100000005 /* TransactionCreationService.swift */,
+				C5B200012D00000100000007 /* BudgetCalculationService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		C5A100012D00000200000007 /* Extensions */ = {
@@ -428,6 +471,15 @@
 				C5A100012D00000100000020 /* Double+Currency.swift in Sources */,
 				C5A100012D00000100000022 /* View+Modifiers.swift in Sources */,
 				C5A100012D00000100000006 /* CSTextStyle.swift in Sources */,
+				C5B200012D00000100000002 /* EntrySource.swift in Sources */,
+				C5B200012D00000100000004 /* TransactionType.swift in Sources */,
+				C5B200012D00000100000006 /* TransactionCreationService.swift in Sources */,
+				C5B200012D00000100000008 /* BudgetCalculationService.swift in Sources */,
+				C5B200012D0000010000000A /* TransactionFormState.swift in Sources */,
+				C5B200012D0000010000000C /* TransactionFormView.swift in Sources */,
+				C5B200012D0000010000000E /* BudgetFormState.swift in Sources */,
+				C5B200012D00000100000010 /* BudgetFormView.swift in Sources */,
+				C5B200012D00000100000012 /* BudgetProgressView.swift in Sources */,
 				9D3D06192AC4DE3D00EFE54D /* ThemeProvider.swift in Sources */,
 				9D57B0392AC1DFA1005EEBC2 /* OnboardingScreen.swift in Sources */,
 				9D57B0372AC1DCBC005EEBC2 /* SettingsView.swift in Sources */,
@@ -437,7 +489,7 @@
 				9D777A252AC630DD00AB402D /* UpdateSavingsView.swift in Sources */,
 				9DBBE9F62ABE2236000F1565 /* TransactionsListView.swift in Sources */,
 				9DBBEA092ABF6FFF000F1565 /* BudgetRow.swift in Sources */,
-				9D3D060F2AC4C2B300EFE54D /* InputSpendingView.swift in Sources */,
+				9D3D060F2AC4C2B300EFE54D /* QuickSpendingEntryView.swift in Sources */,
 				9DBBE9D52ABE19C3000F1565 /* ContentView.swift in Sources */,
 				9D3D06112AC4CA5300EFE54D /* CustomProgressView.swift in Sources */,
 				9D57B0352AC0CFFC005EEBC2 /* BudgetsViewModel.swift in Sources */,

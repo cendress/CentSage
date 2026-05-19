@@ -12,6 +12,7 @@ struct TransactionsListView: View {
   @StateObject private var viewModel: TransactionsViewModel
 
   @State private var isShowingNewTransactionView = false
+  @State private var selectedTransaction: Transaction?
 
   init(context: NSManagedObjectContext) {
     _viewModel = StateObject(wrappedValue: TransactionsViewModel(context: context))
@@ -51,7 +52,16 @@ struct TransactionsListView: View {
         }
       )
       .sheet(isPresented: $isShowingNewTransactionView) {
-        NewTransactionView()
+        TransactionFormView {
+          viewModel.refreshTransactions()
+        }
+      }
+      .sheet(item: $selectedTransaction, onDismiss: {
+        viewModel.refreshTransactions()
+      }) { transaction in
+        TransactionFormView(transaction: transaction) {
+          viewModel.refreshTransactions()
+        }
       }
     }
     .tint(CSColor.brandGreen)
@@ -93,9 +103,14 @@ struct TransactionsListView: View {
       }
 
       ForEach(viewModel.transactions, id: \.self) { transaction in
-        TransactionRow(transaction: transaction)
-          .listRowInsets(EdgeInsets(top: CSSpacing.xs, leading: CSSpacing.md, bottom: CSSpacing.xs, trailing: CSSpacing.md))
-          .csListRowStyle()
+        Button {
+          selectedTransaction = transaction
+        } label: {
+          TransactionRow(transaction: transaction)
+        }
+        .buttonStyle(.plain)
+        .listRowInsets(EdgeInsets(top: CSSpacing.xs, leading: CSSpacing.md, bottom: CSSpacing.xs, trailing: CSSpacing.md))
+        .csListRowStyle()
       }
       .onDelete(perform: viewModel.deleteTransactions)
     }
@@ -108,4 +123,3 @@ struct TransactionsListView: View {
 #Preview {
   TransactionsListView(context: PersistenceController.preview.container.viewContext)
 }
-

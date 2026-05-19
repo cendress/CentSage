@@ -11,29 +11,23 @@ struct BudgetRow: View {
   @Environment(\.managedObjectContext) private var viewContext
   var budget: Budget
 
-  @State private var usedAmount: Double
   @State private var showingInputSheet = false
+  @State private var refreshToken = UUID()
 
   init(budget: Budget) {
     self.budget = budget
-    self._usedAmount = State(initialValue: budget.usedAmount)
   }
 
-  var remainingAmount: Double {
-    budget.amount - usedAmount
+  private var category: String {
+    BudgetCalculationService.category(for: budget)
   }
 
-  var isOverBudget: Bool {
-    remainingAmount < 0
+  private var spentAmount: Double {
+    BudgetCalculationService.spentAmount(for: budget, in: viewContext)
   }
 
-  var progress: Double {
-    guard budget.amount > 0 else { return 0 }
-    return usedAmount / budget.amount
-  }
-
-  var remainingAmountString: String {
-    "Remaining: \(remainingAmount.currencyString)"
+  private var remainingAmount: Double {
+    budget.amount - spentAmount
   }
 
   var body: some View {
@@ -52,6 +46,10 @@ struct BudgetRow: View {
               .font(CSFont.headline)
               .foregroundStyle(CSColor.primaryText)
 
+            Text(category)
+              .font(CSFont.subheadline)
+              .foregroundStyle(CSColor.budget)
+
             dateRangeView
           }
 
@@ -65,33 +63,7 @@ struct BudgetRow: View {
         Divider()
           .background(CSColor.divider)
 
-        VStack(alignment: .leading, spacing: CSSpacing.sm) {
-          HStack(alignment: .firstTextBaseline) {
-            VStack(alignment: .leading, spacing: CSSpacing.xxs) {
-              Text("Total Budget")
-                .font(CSFont.caption)
-                .foregroundStyle(CSColor.secondaryText)
-
-              CSAmountText(amount: budget.amount, size: .small)
-            }
-
-            Spacer()
-
-            VStack(alignment: .trailing, spacing: CSSpacing.xxs) {
-              Text("Spent")
-                .font(CSFont.caption)
-                .foregroundStyle(CSColor.secondaryText)
-
-              CSAmountText(amount: usedAmount, size: .small, color: isOverBudget ? CSColor.negative : CSColor.primaryText)
-            }
-          }
-
-          CSProgressBar(progress: progress, tint: isOverBudget ? CSColor.negative : CSColor.brandGreen)
-
-          Text(remainingAmountString)
-            .font(CSFont.subheadline)
-            .foregroundStyle(isOverBudget ? CSColor.negative : CSColor.secondaryText)
-        }
+        BudgetProgressView(limit: budget.amount, spent: spentAmount, remaining: remainingAmount)
       }
     }
     .contentShape(Rectangle())
@@ -99,7 +71,9 @@ struct BudgetRow: View {
       showingInputSheet = true
     }
     .sheet(isPresented: $showingInputSheet) {
-      InputSpendingView(usedAmount: $usedAmount, onSave: saveChanges)
+      QuickSpendingEntryView(budget: budget) {
+        refreshToken = UUID()
+      }
     }
     .padding(.horizontal)
     .padding(.vertical, CSSpacing.xs)
@@ -122,14 +96,6 @@ struct BudgetRow: View {
     }
   }
 
-  func saveChanges() {
-    budget.usedAmount = usedAmount
-    do {
-      try viewContext.save()
-    } catch {
-      print("Failed to save updated used amount: \(error)")
-    }
-  }
 }
 
 #Preview {

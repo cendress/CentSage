@@ -58,6 +58,10 @@ class TransactionsViewModel: NSObject, ObservableObject, NSFetchedResultsControl
       print("Failed to fetch transactions: \(error)")
     }
   }
+
+  func refreshTransactions() {
+    fetchTransactions()
+  }
   
   func deleteTransactions(at offsets: IndexSet) {
     for index in offsets {
@@ -77,4 +81,3 @@ class TransactionsViewModel: NSObject, ObservableObject, NSFetchedResultsControl
     transactions = updatedTransactions
   }
 }
-
