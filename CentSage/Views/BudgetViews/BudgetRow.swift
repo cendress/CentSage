@@ -5,6 +5,7 @@
 //  Created by Christopher Endress on 9/23/23.
 //
 
+import CoreData
 import SwiftUI
 
 struct BudgetRow: View {
@@ -23,7 +24,8 @@ struct BudgetRow: View {
   }
 
   private var spentAmount: Double {
-    BudgetCalculationService.spentAmount(for: budget, in: viewContext)
+    _ = refreshToken
+    return BudgetCalculationService.spentAmount(for: budget, in: viewContext)
   }
 
   private var remainingAmount: Double {
@@ -75,6 +77,10 @@ struct BudgetRow: View {
         refreshToken = UUID()
       }
     }
+    .onReceive(NotificationCenter.default.publisher(for: .NSManagedObjectContextDidSave, object: viewContext)) { notification in
+      guard Self.notificationContainsTransactionChange(notification) else { return }
+      refreshToken = UUID()
+    }
     .padding(.horizontal)
     .padding(.vertical, CSSpacing.xs)
   }
@@ -96,6 +102,17 @@ struct BudgetRow: View {
     }
   }
 
+  private static func notificationContainsTransactionChange(_ notification: Notification) -> Bool {
+    let keys = [NSInsertedObjectsKey, NSUpdatedObjectsKey, NSDeletedObjectsKey]
+
+    return keys.contains { key in
+      guard let objects = notification.userInfo?[key] as? Set<NSManagedObject> else {
+        return false
+      }
+
+      return objects.contains { $0 is Transaction }
+    }
+  }
 }
 
 #Preview {
