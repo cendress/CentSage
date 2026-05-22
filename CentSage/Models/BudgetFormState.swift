@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct BudgetFormState {
   var name = ""
