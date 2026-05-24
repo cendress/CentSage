@@ -42,8 +42,6 @@ struct NextBestActionCard: View {
       return CSColor.negative
     case .budget:
       return CSColor.warning
-    case .savings:
-      return CSColor.savings
     case .empty:
       return CSColor.info
     case .positive:

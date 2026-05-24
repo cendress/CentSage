@@ -44,16 +44,6 @@ extension PersistenceController {
     return transaction
   }
   
-  func createSampleSavingsGoal() -> SavingsGoal {
-    let goal = SavingsGoal(context: container.viewContext)
-    goal.goalName = "Sample Goal"
-    goal.currentAmount = 200.0
-    goal.targetAmount = 1000.0
-    goal.dueDate = Date()
-    goal.id = UUID()
-    return goal
-  }
-  
   func createSampleBudget() -> Budget {
     let budget = Budget(context: container.viewContext)
     budget.category = "Groceries"

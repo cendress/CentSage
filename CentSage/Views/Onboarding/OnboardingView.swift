@@ -27,12 +27,6 @@ struct OnboardingView: View {
       image: Image(systemName: "dollarsign.circle.fill")
     ),
     OnboardingScreen(
-      title: "Achieve Goals",
-      isColoredTitle: false,
-      description: "Save money for your goals.",
-      image: Image(systemName: "star.fill")
-    ),
-    OnboardingScreen(
       title: "Set Budgets",
       isColoredTitle: false,
       description: "Set budgets to avoid overspending.",

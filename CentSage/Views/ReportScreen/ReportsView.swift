@@ -22,7 +22,6 @@ struct ReportsView: View {
           incomeExpensesCard(viewModel.snapshot.incomeExpense)
           SpendingByCategorySection(categories: viewModel.snapshot.categories)
           MonthOverMonthSection(report: viewModel.snapshot.monthOverMonth)
-          SavingsProgressSection(report: viewModel.snapshot.savingsProgress)
         }
         .padding(CSSpacing.md)
       }

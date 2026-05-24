@@ -29,6 +29,5 @@ enum CSColor {
   
   static let income = Color.dynamic(light: "58B248", dark: "6FD35E")
   static let expense = Color.dynamic(light: "D94D4D", dark: "FF6B6B")
-  static let savings = Color.dynamic(light: "3E8ED0", dark: "64B5F6")
   static let budget = Color.dynamic(light: "A66DD4", dark: "C58AF9")
 }

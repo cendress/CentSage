@@ -12,14 +12,12 @@
 		9D3D06192AC4DE3D00EFE54D /* ThemeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3D06182AC4DE3D00EFE54D /* ThemeProvider.swift */; };
 		9D57B02D2AC0CAEE005EEBC2 /* TransactionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57B02C2AC0CAED005EEBC2 /* TransactionsViewModel.swift */; };
 		9D57B0302AC0CB55005EEBC2 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57B02F2AC0CB55005EEBC2 /* DateFormatter.swift */; };
-		9D57B0332AC0CDE6005EEBC2 /* SavingsGoalsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57B0322AC0CDE6005EEBC2 /* SavingsGoalsViewModel.swift */; };
 		9D57B0352AC0CFFC005EEBC2 /* BudgetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57B0342AC0CFFC005EEBC2 /* BudgetsViewModel.swift */; };
 		9D57B0372AC1DCBC005EEBC2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57B0362AC1DCBC005EEBC2 /* SettingsView.swift */; };
 		9D57B0392AC1DFA1005EEBC2 /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57B0382AC1DFA1005EEBC2 /* OnboardingScreen.swift */; };
 		9D57B03D2AC1ED31005EEBC2 /* DotsIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57B03C2AC1ED31005EEBC2 /* DotsIndicator.swift */; };
 		9D57B0432AC229F9005EEBC2 /* ColoredTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57B0422AC229F9005EEBC2 /* ColoredTitleView.swift */; };
 		9D57B0452AC23128005EEBC2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D57B0442AC23128005EEBC2 /* LaunchScreen.storyboard */; };
-		9D777A252AC630DD00AB402D /* UpdateSavingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D777A242AC630DD00AB402D /* UpdateSavingsView.swift */; };
 		9DBBE9D32ABE19C3000F1565 /* CentSageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBE9D22ABE19C3000F1565 /* CentSageApp.swift */; };
 		9DBBE9D52ABE19C3000F1565 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBE9D42ABE19C3000F1565 /* ContentView.swift */; };
 		9DBBE9D72ABE19C5000F1565 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DBBE9D62ABE19C5000F1565 /* Assets.xcassets */; };
@@ -30,9 +28,6 @@
 		9DBBE9F62ABE2236000F1565 /* TransactionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBE9F52ABE2236000F1565 /* TransactionsListView.swift */; };
 		9DBBE9F82ABE226A000F1565 /* NewTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBE9F72ABE226A000F1565 /* NewTransactionView.swift */; };
 		9DBBEA012ABE3161000F1565 /* TransactionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBEA002ABE3161000F1565 /* TransactionRow.swift */; };
-		9DBBEA032ABE36D6000F1565 /* NewSavingsGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBEA022ABE36D6000F1565 /* NewSavingsGoal.swift */; };
-		9DBBEA052ABF6742000F1565 /* SavingsGoalsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBEA042ABF6742000F1565 /* SavingsGoalsListView.swift */; };
-		9DBBEA072ABF68AA000F1565 /* SavingsGoalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBEA062ABF68AA000F1565 /* SavingsGoalRow.swift */; };
 		9DBBEA092ABF6FFF000F1565 /* BudgetRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBEA082ABF6FFF000F1565 /* BudgetRow.swift */; };
 		9DBBEA0B2ABF71E8000F1565 /* BudgetsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBEA0A2ABF71E8000F1565 /* BudgetsListView.swift */; };
 		9DBBEA0D2ABF7704000F1565 /* NewBudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBBEA0C2ABF7704000F1565 /* NewBudgetView.swift */; };
@@ -70,23 +65,16 @@
 		C5C300012D00000100000006 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C300012D00000100000005 /* OverviewView.swift */; };
 		C5C300012D00000100000008 /* OverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C300012D00000100000007 /* OverviewViewModel.swift */; };
 		C5C300012D0000010000000A /* MonthlySummaryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C300012D00000100000009 /* MonthlySummaryCard.swift */; };
-		C5C300012D0000010000000C /* GoalsSummaryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C300012D0000010000000B /* GoalsSummaryCard.swift */; };
 		C5C300012D0000010000000E /* BudgetSummaryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C300012D0000010000000D /* BudgetSummaryCard.swift */; };
 		C5C300012D00000100000010 /* RecentTransactionsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C300012D0000010000000F /* RecentTransactionsCard.swift */; };
 		C5C300012D00000100000012 /* NextBestActionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C300012D00000100000011 /* NextBestActionCard.swift */; };
 		C5C300012D00000100000014 /* QuickActionsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C300012D00000100000013 /* QuickActionsCard.swift */; };
 		C5C300012D00000100000016 /* ReportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C300012D00000100000015 /* ReportsView.swift */; };
 		C5D400012D00000100000002 /* ReportPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D400012D00000100000001 /* ReportPeriod.swift */; };
-		C5D400012D00000100000004 /* SavingsGoalPlanningService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D400012D00000100000003 /* SavingsGoalPlanningService.swift */; };
 		C5D400012D00000100000006 /* ReportsCalculationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D400012D00000100000005 /* ReportsCalculationService.swift */; };
-		C5D400012D00000100000008 /* SavingsPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D400012D00000100000007 /* SavingsPlan.swift */; };
-		C5D400012D0000010000000A /* GoalFormState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D400012D00000100000009 /* GoalFormState.swift */; };
-		C5D400012D0000010000000C /* GoalFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D400012D0000010000000B /* GoalFormView.swift */; };
-		C5D400012D0000010000000E /* SavingsPlanCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D400012D0000010000000D /* SavingsPlanCard.swift */; };
 		C5D400012D00000100000010 /* ReportsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D400012D0000010000000F /* ReportsViewModel.swift */; };
 		C5D400012D00000100000012 /* SpendingByCategorySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D400012D00000100000011 /* SpendingByCategorySection.swift */; };
 		C5D400012D00000100000014 /* MonthOverMonthSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D400012D00000100000013 /* MonthOverMonthSection.swift */; };
-		C5D400012D00000100000016 /* SavingsProgressSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D400012D00000100000015 /* SavingsProgressSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,14 +83,12 @@
 		9D3D06182AC4DE3D00EFE54D /* ThemeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProvider.swift; sourceTree = "<group>"; };
 		9D57B02C2AC0CAED005EEBC2 /* TransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModel.swift; sourceTree = "<group>"; };
 		9D57B02F2AC0CB55005EEBC2 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
-		9D57B0322AC0CDE6005EEBC2 /* SavingsGoalsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsGoalsViewModel.swift; sourceTree = "<group>"; };
 		9D57B0342AC0CFFC005EEBC2 /* BudgetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetsViewModel.swift; sourceTree = "<group>"; };
 		9D57B0362AC1DCBC005EEBC2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9D57B0382AC1DFA1005EEBC2 /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 		9D57B03C2AC1ED31005EEBC2 /* DotsIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotsIndicator.swift; sourceTree = "<group>"; };
 		9D57B0422AC229F9005EEBC2 /* ColoredTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredTitleView.swift; sourceTree = "<group>"; };
 		9D57B0442AC23128005EEBC2 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9D777A242AC630DD00AB402D /* UpdateSavingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateSavingsView.swift; sourceTree = "<group>"; };
 		9DBBE9CF2ABE19C3000F1565 /* CentSage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CentSage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DBBE9D22ABE19C3000F1565 /* CentSageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CentSageApp.swift; sourceTree = "<group>"; };
 		9DBBE9D42ABE19C3000F1565 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -114,9 +100,6 @@
 		9DBBE9F52ABE2236000F1565 /* TransactionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsListView.swift; sourceTree = "<group>"; };
 		9DBBE9F72ABE226A000F1565 /* NewTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionView.swift; sourceTree = "<group>"; };
 		9DBBEA002ABE3161000F1565 /* TransactionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRow.swift; sourceTree = "<group>"; };
-		9DBBEA022ABE36D6000F1565 /* NewSavingsGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSavingsGoal.swift; sourceTree = "<group>"; };
-		9DBBEA042ABF6742000F1565 /* SavingsGoalsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsGoalsListView.swift; sourceTree = "<group>"; };
-		9DBBEA062ABF68AA000F1565 /* SavingsGoalRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsGoalRow.swift; sourceTree = "<group>"; };
 		9DBBEA082ABF6FFF000F1565 /* BudgetRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetRow.swift; sourceTree = "<group>"; };
 		9DBBEA0A2ABF71E8000F1565 /* BudgetsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetsListView.swift; sourceTree = "<group>"; };
 		9DBBEA0C2ABF7704000F1565 /* NewBudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBudgetView.swift; sourceTree = "<group>"; };
@@ -154,23 +137,16 @@
 		C5C300012D00000100000005 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
 		C5C300012D00000100000007 /* OverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewModel.swift; sourceTree = "<group>"; };
 		C5C300012D00000100000009 /* MonthlySummaryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlySummaryCard.swift; sourceTree = "<group>"; };
-		C5C300012D0000010000000B /* GoalsSummaryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsSummaryCard.swift; sourceTree = "<group>"; };
 		C5C300012D0000010000000D /* BudgetSummaryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetSummaryCard.swift; sourceTree = "<group>"; };
 		C5C300012D0000010000000F /* RecentTransactionsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransactionsCard.swift; sourceTree = "<group>"; };
 		C5C300012D00000100000011 /* NextBestActionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextBestActionCard.swift; sourceTree = "<group>"; };
 		C5C300012D00000100000013 /* QuickActionsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickActionsCard.swift; sourceTree = "<group>"; };
 		C5C300012D00000100000015 /* ReportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsView.swift; sourceTree = "<group>"; };
 		C5D400012D00000100000001 /* ReportPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPeriod.swift; sourceTree = "<group>"; };
-		C5D400012D00000100000003 /* SavingsGoalPlanningService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsGoalPlanningService.swift; sourceTree = "<group>"; };
 		C5D400012D00000100000005 /* ReportsCalculationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsCalculationService.swift; sourceTree = "<group>"; };
-		C5D400012D00000100000007 /* SavingsPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsPlan.swift; sourceTree = "<group>"; };
-		C5D400012D00000100000009 /* GoalFormState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalFormState.swift; sourceTree = "<group>"; };
-		C5D400012D0000010000000B /* GoalFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalFormView.swift; sourceTree = "<group>"; };
-		C5D400012D0000010000000D /* SavingsPlanCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsPlanCard.swift; sourceTree = "<group>"; };
 		C5D400012D0000010000000F /* ReportsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewModel.swift; sourceTree = "<group>"; };
 		C5D400012D00000100000011 /* SpendingByCategorySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingByCategorySection.swift; sourceTree = "<group>"; };
 		C5D400012D00000100000013 /* MonthOverMonthSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthOverMonthSection.swift; sourceTree = "<group>"; };
-		C5D400012D00000100000015 /* SavingsProgressSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsProgressSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,7 +165,6 @@
 			children = (
 				C5D400012D00000100000011 /* SpendingByCategorySection.swift */,
 				C5D400012D00000100000013 /* MonthOverMonthSection.swift */,
-				C5D400012D00000100000015 /* SavingsProgressSection.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -222,18 +197,6 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		9D47E86E2FC0D00A008EF975 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				C5D400012D0000010000000B /* GoalFormView.swift */,
-				C5D400012D0000010000000D /* SavingsPlanCard.swift */,
-				9DBBEA022ABE36D6000F1565 /* NewSavingsGoal.swift */,
-				9DBBEA062ABF68AA000F1565 /* SavingsGoalRow.swift */,
-				9D777A242AC630DD00AB402D /* UpdateSavingsView.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
 		9D47E86F2FC0D157008EF975 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,22 +213,12 @@
 			isa = PBXGroup;
 			children = (
 				C5C300012D00000100000009 /* MonthlySummaryCard.swift */,
-				C5C300012D0000010000000B /* GoalsSummaryCard.swift */,
 				C5C300012D0000010000000D /* BudgetSummaryCard.swift */,
 				C5C300012D0000010000000F /* RecentTransactionsCard.swift */,
 				C5C300012D00000100000011 /* NextBestActionCard.swift */,
 				C5C300012D00000100000013 /* QuickActionsCard.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		9D47E8712FC0D1E3008EF975 /* SavingsGoalsModels */ = {
-			isa = PBXGroup;
-			children = (
-				C5D400012D00000100000007 /* SavingsPlan.swift */,
-				C5D400012D00000100000009 /* GoalFormState.swift */,
-			);
-			path = SavingsGoalsModels;
 			sourceTree = "<group>";
 		};
 		9D47E8722FC0D208008EF975 /* TransactionModels */ = {
@@ -325,7 +278,6 @@
 				9D47E86B2FC0CCF6008EF975 /* Onboarding */,
 				9D57B03C2AC1ED31005EEBC2 /* DotsIndicator.swift */,
 				9DBBEA0E2AC0BDAB000F1565 /* TransactionScreen */,
-				9DBBEA0F2AC0BDC2000F1565 /* SavingsGoalsScreen */,
 				9DBBEA102AC0BDD9000F1565 /* BudgetScreen */,
 				9D57B0362AC1DCBC005EEBC2 /* SettingsView.swift */,
 				C5C300012D00000200000002 /* OverviewScreen */,
@@ -341,7 +293,6 @@
 				C5B200012D00000100000005 /* TransactionCreationService.swift */,
 				C5B200012D00000100000007 /* BudgetCalculationService.swift */,
 				C5C300012D00000100000003 /* OverviewCalculationService.swift */,
-				C5D400012D00000100000003 /* SavingsGoalPlanningService.swift */,
 				C5D400012D00000100000005 /* ReportsCalculationService.swift */,
 			);
 			path = Services;
@@ -364,16 +315,6 @@
 				9D57B02C2AC0CAED005EEBC2 /* TransactionsViewModel.swift */,
 			);
 			path = TransactionScreen;
-			sourceTree = "<group>";
-		};
-		9DBBEA0F2AC0BDC2000F1565 /* SavingsGoalsScreen */ = {
-			isa = PBXGroup;
-			children = (
-				9D47E86E2FC0D00A008EF975 /* Components */,
-				9DBBEA042ABF6742000F1565 /* SavingsGoalsListView.swift */,
-				9D57B0322AC0CDE6005EEBC2 /* SavingsGoalsViewModel.swift */,
-			);
-			path = SavingsGoalsScreen;
 			sourceTree = "<group>";
 		};
 		9DBBEA102AC0BDD9000F1565 /* BudgetScreen */ = {
@@ -463,7 +404,6 @@
 		C5B200012D00000200000001 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				9D47E8712FC0D1E3008EF975 /* SavingsGoalsModels */,
 				9D47E8722FC0D208008EF975 /* TransactionModels */,
 				C5B200012D00000100000001 /* EntrySource.swift */,
 				C5C300012D00000100000001 /* NextBestAction.swift */,
@@ -592,12 +532,7 @@
 				C5C300012D00000100000004 /* OverviewCalculationService.swift in Sources */,
 				C5C300012D00000100000002 /* NextBestAction.swift in Sources */,
 				C5D400012D00000100000002 /* ReportPeriod.swift in Sources */,
-				C5D400012D00000100000004 /* SavingsGoalPlanningService.swift in Sources */,
 				C5D400012D00000100000006 /* ReportsCalculationService.swift in Sources */,
-				C5D400012D00000100000008 /* SavingsPlan.swift in Sources */,
-				C5D400012D0000010000000A /* GoalFormState.swift in Sources */,
-				C5D400012D0000010000000C /* GoalFormView.swift in Sources */,
-				C5D400012D0000010000000E /* SavingsPlanCard.swift in Sources */,
 				C5B200012D0000010000000A /* TransactionFormState.swift in Sources */,
 				C5B200012D0000010000000C /* TransactionFormView.swift in Sources */,
 				C5B200012D0000010000000E /* BudgetFormState.swift in Sources */,
@@ -606,7 +541,6 @@
 				C5C300012D00000100000006 /* OverviewView.swift in Sources */,
 				C5C300012D00000100000008 /* OverviewViewModel.swift in Sources */,
 				C5C300012D0000010000000A /* MonthlySummaryCard.swift in Sources */,
-				C5C300012D0000010000000C /* GoalsSummaryCard.swift in Sources */,
 				C5C300012D0000010000000E /* BudgetSummaryCard.swift in Sources */,
 				C5C300012D00000100000010 /* RecentTransactionsCard.swift in Sources */,
 				C5C300012D00000100000012 /* NextBestActionCard.swift in Sources */,
@@ -615,14 +549,11 @@
 				C5D400012D00000100000010 /* ReportsViewModel.swift in Sources */,
 				C5D400012D00000100000012 /* SpendingByCategorySection.swift in Sources */,
 				C5D400012D00000100000014 /* MonthOverMonthSection.swift in Sources */,
-				C5D400012D00000100000016 /* SavingsProgressSection.swift in Sources */,
 				9D3D06192AC4DE3D00EFE54D /* ThemeProvider.swift in Sources */,
 				9D57B0392AC1DFA1005EEBC2 /* OnboardingScreen.swift in Sources */,
 				9D57B0372AC1DCBC005EEBC2 /* SettingsView.swift in Sources */,
 				9D57B0302AC0CB55005EEBC2 /* DateFormatter.swift in Sources */,
 				9DBBE9DC2ABE19C5000F1565 /* Persistence.swift in Sources */,
-				9DBBEA052ABF6742000F1565 /* SavingsGoalsListView.swift in Sources */,
-				9D777A252AC630DD00AB402D /* UpdateSavingsView.swift in Sources */,
 				9DBBE9F62ABE2236000F1565 /* TransactionsListView.swift in Sources */,
 				9DBBEA092ABF6FFF000F1565 /* BudgetRow.swift in Sources */,
 				9D3D060F2AC4C2B300EFE54D /* QuickSpendingEntryView.swift in Sources */,
@@ -632,17 +563,14 @@
 				9DBBE9F42ABE2204000F1565 /* OnboardingView.swift in Sources */,
 				9D57B02D2AC0CAEE005EEBC2 /* TransactionsViewModel.swift in Sources */,
 				9D57B03D2AC1ED31005EEBC2 /* DotsIndicator.swift in Sources */,
-				9DBBEA032ABE36D6000F1565 /* NewSavingsGoal.swift in Sources */,
 				9D57B0432AC229F9005EEBC2 /* ColoredTitleView.swift in Sources */,
 				9DBBEA012ABE3161000F1565 /* TransactionRow.swift in Sources */,
 				9DBBEA0B2ABF71E8000F1565 /* BudgetsListView.swift in Sources */,
-				9DBBEA072ABF68AA000F1565 /* SavingsGoalRow.swift in Sources */,
 				9DBBEA122AC0BEF7000F1565 /* DashboardTabView.swift in Sources */,
 				9DBBE9D32ABE19C3000F1565 /* CentSageApp.swift in Sources */,
 				9DBBE9F82ABE226A000F1565 /* NewTransactionView.swift in Sources */,
 				9DBBEA0D2ABF7704000F1565 /* NewBudgetView.swift in Sources */,
 				9DBBE9DF2ABE19C5000F1565 /* CentSage.xcdatamodeld in Sources */,
-				9D57B0332AC0CDE6005EEBC2 /* SavingsGoalsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

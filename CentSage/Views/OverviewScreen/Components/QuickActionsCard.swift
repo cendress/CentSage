@@ -9,7 +9,6 @@ struct QuickActionsCard: View {
   let addSpending: () -> Void
   let addTransaction: () -> Void
   let addBudget: () -> Void
-  let addGoal: () -> Void
 
   private let columns = [
     GridItem(.flexible(), spacing: CSSpacing.sm),
@@ -43,14 +42,6 @@ struct QuickActionsCard: View {
             variant: .secondary,
             isFullWidth: true,
             action: addBudget
-          )
-
-          CSButton(
-            title: "Add Goal",
-            systemImage: "star.fill",
-            variant: .secondary,
-            isFullWidth: true,
-            action: addGoal
           )
         }
       }

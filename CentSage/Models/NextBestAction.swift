@@ -9,7 +9,6 @@ struct NextBestAction {
   enum Priority {
     case warning
     case budget
-    case savings
     case empty
     case positive
   }

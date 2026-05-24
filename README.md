@@ -1,19 +1,17 @@
 # 💰 CentSage
 
-CentSage is a personal finance management app designed to assist users in managing their savings goals efficiently.
+CentSage is a personal finance management app for tracking spending, budgets, transactions, and monthly trends.
 
 ## 🚀 Features
 
-- Create and manage savings goals
-- Update your progress as you save towards your goals
-- View a list of all your savings goals
-- Easily see your progress towards each goal
-- Customize your savings goals with names, target amounts, current savings, and due dates
+- Track income and expenses
+- Create budgets by category
+- Add quick spending entries from a budget
+- Review spending reports and month-over-month trends
 
 ## 📸 Screenshots
 
 ![transactionPic](https://github.com/cendress/CentSage/assets/95492688/37f4cecd-fd82-4e03-af64-4ee2244766c6)
-![savingsGoalPic](https://github.com/cendress/CentSage/assets/95492688/d466337f-5a16-4888-a11b-349ff6c27000)
 ![budgetPic](https://github.com/cendress/CentSage/assets/95492688/879a80d1-863f-4ab9-a5b3-fa230c5d9cc0)
 
 ## 🛠 Installation
@@ -29,7 +27,7 @@ CentSage is a personal finance management app designed to assist users in managi
 
 ## 🎉 Usage
 
-Simply use the toolbar to navigate through the app. Press on a savings goal or budget to input savings or spending amounts.
+Simply use the toolbar to navigate through the app. Press on a budget to input spending amounts.
 
 ## 👥 Contribute
 
@@ -40,5 +38,4 @@ I would love for you to contribute to **CentSage**. Feel free to open an issue o
 Christopher Endress – [centsageapp@gmail.com](mailto:centsageapp@gmail.com)
 
 [https://github.com/cendress/CentSage](https://github.com/cendress/CentSage)
-
 

@@ -31,12 +31,6 @@ struct DashboardTabView: View {
             Text("Budgets")
           }
 
-        SavingsGoalsListView(context: viewContext)
-          .tabItem {
-            Image(systemName: "star.fill")
-            Text("Goals")
-          }
-
         ReportsView(context: viewContext)
           .tabItem {
             Image(systemName: "chart.bar.xaxis")

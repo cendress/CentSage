@@ -22,14 +22,12 @@ struct OverviewView: View {
 
           MonthlySummaryCard(summary: viewModel.monthlySummary)
           NextBestActionCard(action: viewModel.nextBestAction)
-          GoalsSummaryCard(summary: viewModel.goalsSummary)
           BudgetSummaryCard(summary: viewModel.budgetSummary)
           RecentTransactionsCard(transactions: viewModel.recentTransactions)
           QuickActionsCard(
             addSpending: startQuickSpending,
             addTransaction: { activeSheet = .transaction },
-            addBudget: { activeSheet = .budget },
-            addGoal: { activeSheet = .goal }
+            addBudget: { activeSheet = .budget }
           )
         }
         .padding(CSSpacing.md)
@@ -103,8 +101,6 @@ struct OverviewView: View {
       BudgetFormView {
         viewModel.refresh()
       }
-    case .goal:
-      NewSavingsGoal()
     }
   }
 
@@ -131,7 +127,6 @@ private enum OverviewSheet: Identifiable {
   case quickSpending(Budget)
   case transaction
   case budget
-  case goal
 
   var id: String {
     switch self {
@@ -145,8 +140,6 @@ private enum OverviewSheet: Identifiable {
       return "transaction"
     case .budget:
       return "budget"
-    case .goal:
-      return "goal"
     }
   }
 }

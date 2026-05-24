@@ -37,23 +37,6 @@ struct BudgetOverviewSummary {
   let attentionItems: [BudgetOverviewItem]
 }
 
-struct GoalOverviewItem: Identifiable {
-  let id: NSManagedObjectID
-  let title: String
-  let currentAmount: Double
-  let targetAmount: Double
-  let remainingAmount: Double
-  let dueDate: Date?
-  let progress: Double
-  let weeklySavingsNeeded: Double?
-}
-
-struct GoalOverviewSummary {
-  let totalSaved: Double
-  let activeGoalCount: Int
-  let spotlightGoal: GoalOverviewItem?
-}
-
 enum OverviewCalculationService {
   private static let monthFormatter: DateFormatter = {
     let formatter = DateFormatter()
@@ -124,50 +107,6 @@ enum OverviewCalculationService {
     )
   }
 
-  static func goalsSummary(
-    from goals: [SavingsGoal],
-    today: Date = Date()
-  ) -> GoalOverviewSummary {
-    let items = goals.map { goal in
-      let target = goal.targetAmount
-      let current = goal.currentAmount
-      let remaining = max(target - current, 0)
-      let progress = target > 0 ? min(max(current / target, 0), 1) : 0
-      let weeklySavings = weeklySavingsNeeded(toSave: remaining, by: goal.dueDate, today: today)
-
-      return GoalOverviewItem(
-        id: goal.objectID,
-        title: goal.goalName?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty == false ? goal.goalName ?? "Savings goal" : "Savings goal",
-        currentAmount: current,
-        targetAmount: target,
-        remainingAmount: remaining,
-        dueDate: goal.dueDate,
-        progress: progress,
-        weeklySavingsNeeded: weeklySavings
-      )
-    }
-
-    let activeItems = items.filter { $0.remainingAmount > 0 }
-    let spotlight = activeItems.sorted {
-      switch ($0.weeklySavingsNeeded, $1.weeklySavingsNeeded) {
-      case let (left?, right?):
-        return left > right
-      case (.some, .none):
-        return true
-      case (.none, .some):
-        return false
-      case (.none, .none):
-        return $0.progress > $1.progress
-      }
-    }.first
-
-    return GoalOverviewSummary(
-      totalSaved: goals.reduce(0) { $0 + $1.currentAmount },
-      activeGoalCount: activeItems.count,
-      spotlightGoal: spotlight
-    )
-  }
-
   static func recentTransactions(
     from transactions: [Transaction],
     limit: Int = 5
@@ -180,12 +119,10 @@ enum OverviewCalculationService {
   static func nextBestAction(
     transactions: [Transaction],
     budgets: [Budget],
-    goals: [SavingsGoal],
     context: NSManagedObjectContext,
     today: Date = Date()
   ) -> NextBestAction {
     let budgetSummary = budgetSummary(from: budgets, context: context, monthContaining: today)
-    let goalsSummary = goalsSummary(from: goals, today: today)
 
     if let overBudget = budgetSummary.attentionItems.first(where: { $0.isOverBudget }) {
       return NextBestAction(
@@ -203,16 +140,6 @@ enum OverviewCalculationService {
         message: "You have \(closeBudget.remaining.currencyString) left for the month.",
         systemImage: "chart.pie.fill",
         priority: .budget
-      )
-    }
-
-    if let goal = goalsSummary.spotlightGoal, let weeklySavings = goal.weeklySavingsNeeded {
-      let dueText = goal.dueDate.map { " by \($0.csMonthDayFormatted)" } ?? ""
-      return NextBestAction(
-        title: "Keep \(goal.title) moving",
-        message: "Save \(weeklySavings.currencyString)/week\(dueText).",
-        systemImage: "star.fill",
-        priority: .savings
       )
     }
 
@@ -234,36 +161,11 @@ enum OverviewCalculationService {
       )
     }
 
-    if goals.isEmpty {
-      return NextBestAction(
-        title: "Add a savings goal",
-        message: "A simple goal gives your leftover money a job.",
-        systemImage: "star.fill",
-        priority: .empty
-      )
-    }
-
     return NextBestAction(
       title: "You're on track",
       message: "Your month looks steady. Keep logging the small stuff.",
       systemImage: "checkmark.circle.fill",
       priority: .positive
     )
-  }
-
-  private static func weeklySavingsNeeded(
-    toSave remainingAmount: Double,
-    by dueDate: Date?,
-    today: Date
-  ) -> Double? {
-    guard remainingAmount > 0, let dueDate else { return nil }
-
-    let calendar = Calendar.current
-    let start = calendar.startOfDay(for: today)
-    let end = calendar.startOfDay(for: dueDate)
-    let days = max(calendar.dateComponents([.day], from: start, to: end).day ?? 0, 0)
-    let weeks = max(Double(days) / 7, 1)
-
-    return remainingAmount / weeks
   }
 }

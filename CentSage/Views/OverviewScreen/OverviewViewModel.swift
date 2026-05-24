@@ -9,7 +9,6 @@ import Foundation
 final class OverviewViewModel: ObservableObject {
   @Published private(set) var transactions: [Transaction] = []
   @Published private(set) var budgets: [Budget] = []
-  @Published private(set) var goals: [SavingsGoal] = []
 
   private let context: NSManagedObjectContext
   private var contextObserver: NSObjectProtocol?
@@ -45,10 +44,6 @@ final class OverviewViewModel: ObservableObject {
     OverviewCalculationService.budgetSummary(from: budgets, context: context)
   }
 
-  var goalsSummary: GoalOverviewSummary {
-    OverviewCalculationService.goalsSummary(from: goals)
-  }
-
   var recentTransactions: [Transaction] {
     OverviewCalculationService.recentTransactions(from: transactions)
   }
@@ -57,7 +52,6 @@ final class OverviewViewModel: ObservableObject {
     OverviewCalculationService.nextBestAction(
       transactions: transactions,
       budgets: budgets,
-      goals: goals,
       context: context
     )
   }
@@ -65,7 +59,6 @@ final class OverviewViewModel: ObservableObject {
   func refresh() {
     transactions = fetchTransactions()
     budgets = fetchBudgets()
-    goals = fetchGoals()
   }
 
   private func fetchTransactions() -> [Transaction] {
@@ -95,18 +88,4 @@ final class OverviewViewModel: ObservableObject {
     }
   }
 
-  private func fetchGoals() -> [SavingsGoal] {
-    let request: NSFetchRequest<SavingsGoal> = SavingsGoal.fetchRequest()
-    request.sortDescriptors = [
-      NSSortDescriptor(keyPath: \SavingsGoal.dueDate, ascending: true),
-      NSSortDescriptor(keyPath: \SavingsGoal.goalName, ascending: true)
-    ]
-
-    do {
-      return try context.fetch(request)
-    } catch {
-      print("Failed to fetch overview goals: \(error)")
-      return []
-    }
-  }
 }

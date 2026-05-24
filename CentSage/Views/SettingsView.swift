@@ -81,7 +81,7 @@ struct SettingsView: View {
   }
   
   func deleteUserData() {
-    let entities = ["Budget", "SavingsGoal", "Transaction"]
+    let entities = ["Budget", "Transaction"]
     
     for entity in entities {
       let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)

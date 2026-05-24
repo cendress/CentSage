@@ -48,27 +48,11 @@ struct MonthOverMonthReport {
   }
 }
 
-struct SavingsProgressReport {
-  let totalSaved: Double
-  let totalTarget: Double
-  let activeGoalCount: Int
-
-  var progress: Double {
-    guard totalTarget > 0 else { return 0 }
-    return min(max(totalSaved / totalTarget, 0), 1)
-  }
-
-  var hasGoals: Bool {
-    totalTarget > 0
-  }
-}
-
 struct ReportsSnapshot {
   let period: ReportPeriod
   let categories: [CategorySpendingReport]
   let incomeExpense: IncomeExpenseReport
   let monthOverMonth: MonthOverMonthReport
-  let savingsProgress: SavingsProgressReport
 }
 
 enum ReportsCalculationService {
@@ -80,7 +64,6 @@ enum ReportsCalculationService {
 
   static func snapshot(
     transactions: [Transaction],
-    goals: [SavingsGoal],
     period: ReportPeriod,
     referenceDate: Date = Date()
   ) -> ReportsSnapshot {
@@ -96,14 +79,12 @@ enum ReportsCalculationService {
       period: period,
       referenceDate: referenceDate
     )
-    let savings = savingsProgress(from: goals)
 
     return ReportsSnapshot(
       period: period,
       categories: categories,
       incomeExpense: incomeExpense,
-      monthOverMonth: comparison,
-      savingsProgress: savings
+      monthOverMonth: comparison
     )
   }
 
@@ -182,13 +163,5 @@ enum ReportsCalculationService {
 
       return total + transaction.amount
     }
-  }
-
-  private static func savingsProgress(from goals: [SavingsGoal]) -> SavingsProgressReport {
-    SavingsProgressReport(
-      totalSaved: goals.reduce(0) { $0 + $1.currentAmount },
-      totalTarget: goals.reduce(0) { $0 + $1.targetAmount },
-      activeGoalCount: goals.filter { $0.currentAmount < $0.targetAmount }.count
-    )
   }
 }
