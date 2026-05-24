@@ -53,7 +53,7 @@ enum BudgetCalculationService {
     let calendar = Calendar.current
 
     guard
-      let monthInterval = calendar.dateInterval(of: .month, for: date)
+      let dateInterval = transactionDateInterval(for: budget, monthContaining: date, calendar: calendar)
     else {
       return 0
     }
@@ -63,8 +63,8 @@ enum BudgetCalculationService {
       format: "type == %d AND category == %@ AND date >= %@ AND date < %@",
       TransactionType.expense.rawValue,
       category,
-      monthInterval.start as NSDate,
-      monthInterval.end as NSDate
+      dateInterval.start as NSDate,
+      dateInterval.end as NSDate
     )
 
     do {
@@ -74,5 +74,44 @@ enum BudgetCalculationService {
       print("Failed to calculate budget spending: \(error)")
       return 0
     }
+  }
+
+  private static func transactionDateInterval(
+    for budget: Budget,
+    monthContaining date: Date,
+    calendar: Calendar
+  ) -> DateInterval? {
+    guard let monthInterval = calendar.dateInterval(of: .month, for: date) else {
+      return nil
+    }
+
+    let startBoundary = transactionStartBoundary(for: budget, calendar: calendar)
+    let start = max(monthInterval.start, startBoundary ?? monthInterval.start)
+    let end = min(monthInterval.end, inclusiveEndBoundary(for: budget, calendar: calendar) ?? monthInterval.end)
+
+    guard start < end else { return nil }
+    return DateInterval(start: start, end: end)
+  }
+
+  private static func transactionStartBoundary(for budget: Budget, calendar: Calendar) -> Date? {
+    guard let startDate = budget.startDate else {
+      return budget.createdAt
+    }
+
+    let selectedDayStart = calendar.startOfDay(for: startDate)
+
+    guard
+      let createdAt = budget.createdAt,
+      calendar.isDate(startDate, inSameDayAs: createdAt)
+    else {
+      return selectedDayStart
+    }
+
+    return max(selectedDayStart, createdAt)
+  }
+
+  private static func inclusiveEndBoundary(for budget: Budget, calendar: Calendar) -> Date? {
+    guard let endDate = budget.endDate else { return nil }
+    return calendar.date(byAdding: .day, value: 1, to: calendar.startOfDay(for: endDate))
   }
 }

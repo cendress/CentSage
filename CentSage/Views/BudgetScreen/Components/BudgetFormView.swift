@@ -88,9 +88,14 @@ struct BudgetFormView: View {
       return
     }
 
+    let isNewBudget = budget == nil
     let savedBudget = budget ?? Budget(context: viewContext)
     let trimmedName = state.name.trimmingCharacters(in: .whitespacesAndNewlines)
     let trimmedCategory = state.category.trimmingCharacters(in: .whitespacesAndNewlines)
+
+    if isNewBudget {
+      savedBudget.createdAt = Date()
+    }
 
     savedBudget.name = trimmedName.isEmpty ? (trimmedCategory.isEmpty ? "Budget" : trimmedCategory) : trimmedName
     savedBudget.category = trimmedCategory.isEmpty ? nil : trimmedCategory
