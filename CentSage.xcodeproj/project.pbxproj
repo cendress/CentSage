@@ -162,8 +162,8 @@
 		9D47E86B2FC0CCF6008EF975 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				9DBBE9F32ABE2204000F1565 /* OnboardingView.swift */,
 				9D47E86C2FC0CD06008EF975 /* Components */,
+				9DBBE9F32ABE2204000F1565 /* OnboardingView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -171,8 +171,8 @@
 		9D47E86C2FC0CD06008EF975 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				9DBBEA112AC0BEF7000F1565 /* DashboardTabView.swift */,
 				9D57B0422AC229F9005EEBC2 /* ColoredTitleView.swift */,
+				9D57B03C2AC1ED31005EEBC2 /* DotsIndicator.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -262,9 +262,9 @@
 			isa = PBXGroup;
 			children = (
 				C5C300012D00000200000003 /* ReportScreen */,
+				9DBBEA112AC0BEF7000F1565 /* DashboardTabView.swift */,
 				9DBBE9D42ABE19C3000F1565 /* ContentView.swift */,
 				9D47E86B2FC0CCF6008EF975 /* Onboarding */,
-				9D57B03C2AC1ED31005EEBC2 /* DotsIndicator.swift */,
 				9DBBEA0E2AC0BDAB000F1565 /* TransactionScreen */,
 				9DBBEA102AC0BDD9000F1565 /* BudgetScreen */,
 				9D57B0362AC1DCBC005EEBC2 /* SettingsView.swift */,

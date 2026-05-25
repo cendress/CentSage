@@ -9,106 +9,319 @@ import SwiftUI
 
 struct OnboardingView: View {
   var onCompletion: () -> Void
-  
-  @Namespace private var animation
+
   @State private var selectedPage = 0
-  
-  let onboardingScreens = [
+
+  private let onboardingScreens = [
     OnboardingScreen(
-      title: "Welcome to CentSage",
-      isColoredTitle: true,
-      description: "Wisdom in every cent.",
-      image: Image("Screenshot")
+      title: "Understand Your Month",
+      description: "See income, spending, and what is left at a glance.",
+      visual: .monthlySummary
     ),
     OnboardingScreen(
-      title: "Track Expenses",
-      isColoredTitle: false,
-      description: "Keep track of your spending easily.",
-      image: Image(systemName: "dollarsign.circle.fill")
+      title: "Log Spending Fast",
+      description: "Add everyday spending in seconds without a long form.",
+      visual: .quickSpending
     ),
     OnboardingScreen(
-      title: "Set Budgets",
-      isColoredTitle: false,
-      description: "Set budgets to avoid overspending.",
-      image: Image(systemName: "chart.bar.fill")
+      title: "Plan Ahead",
+      description: "Use budgets to stay on track calmly.",
+      visual: .planning
     )
   ]
-  
+
+  private var isLastPage: Bool {
+    selectedPage == onboardingScreens.count - 1
+  }
+
   var body: some View {
-    VStack {
-      HStack {
-        if selectedPage < onboardingScreens.count - 1 {
-          Button(action: {
-            withAnimation {
-              selectedPage += 1
-            }
-          }) {
-            Text("Next")
-              .foregroundStyle(Color("CentSageGreen"))
-          }
-          
-          Spacer()
-          
-          Button(action: onCompletion) {
-            Text("Skip")
-              .foregroundStyle(Color("CentSageGreen"))
-          }
-        } else {
-          Spacer()
-        }
-      }
-      .padding()
-      
-      Spacer()
-      
+    VStack(spacing: 0) {
       TabView(selection: $selectedPage) {
-        ForEach(0..<onboardingScreens.count, id: \.self) { index in
-          let screen = onboardingScreens[index]
-          VStack {
-            screen.image
-              .resizable()
-              .scaledToFit()
-              .frame(width: UIScreen.main.bounds.width * 0.50)
-            if screen.isColoredTitle {
-              ColoredTitleView()
-            } else {
-              Text(screen.title)
-                .font(.largeTitle)
-                .bold()
-            }
-            Text(screen.description)
-              .multilineTextAlignment(.center)
-              .padding()
-          }
-          .tag(index)
+        ForEach(onboardingScreens.indices, id: \.self) { index in
+          OnboardingPageView(screen: onboardingScreens[index])
+            .tag(index)
         }
       }
-      .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-      
-      DotsIndicator(numberOfPages: onboardingScreens.count, currentPage: selectedPage)
-        .padding(.bottom)
-        .opacity(selectedPage == onboardingScreens.count - 1 ? 0 : 1)
-      
-      if selectedPage == onboardingScreens.count - 1 {
-        Button("Get Started", action: onCompletion)
-          .padding()
-          .background(Capsule().fill(Color("CentSageGreen")))
-          .foregroundColor(.white)
-          .padding()
-          .transition(.slide)
-          .matchedGeometryEffect(id: "getStartedButton", in: animation)
-      }
-      
-      Spacer()
+      .tabViewStyle(.page(indexDisplayMode: .never))
+
+      bottomActions
     }
-    .padding()
-    .background(Color(UIColor.systemBackground).ignoresSafeArea())
+    .csScreenBackground()
+  }
+
+  private var bottomActions: some View {
+    VStack(spacing: CSSpacing.sm) {
+      DotsIndicator(numberOfPages: onboardingScreens.count, currentPage: selectedPage)
+        .padding(.bottom, CSSpacing.xs)
+
+      CSButton(
+        title: isLastPage ? "Get Started" : "Next",
+        systemImage: isLastPage ? "checkmark" : "arrow.right",
+        action: primaryAction
+      )
+
+      Button("Skip", action: onCompletion)
+        .font(CSFont.callout)
+        .foregroundStyle(CSColor.secondaryText)
+        .opacity(isLastPage ? 0 : 1)
+        .accessibilityHidden(isLastPage)
+    }
+    .padding(.horizontal, CSSpacing.md)
+    .padding(.top, CSSpacing.sm)
+    .padding(.bottom, CSSpacing.lg)
+    .background(CSColor.background)
+  }
+
+  private func primaryAction() {
+    if isLastPage {
+      onCompletion()
+    } else {
+      withAnimation(.spring(response: 0.35, dampingFraction: 0.85)) {
+        selectedPage += 1
+      }
+    }
+  }
+}
+
+private struct OnboardingPageView: View {
+  let screen: OnboardingScreen
+
+  var body: some View {
+    VStack(spacing: CSSpacing.lg) {
+      Spacer(minLength: CSSpacing.lg)
+
+      OnboardingPreview(visual: screen.visual)
+        .padding(.horizontal, CSSpacing.md)
+
+      VStack(spacing: CSSpacing.sm) {
+        if screen.visual == .monthlySummary {
+          HStack(spacing: CSSpacing.xs) {
+            Text("Welcome to")
+            Text("CentSage")
+              .foregroundStyle(CSColor.brandGreen)
+          }
+          .font(CSFont.largeTitle)
+          .foregroundStyle(CSColor.primaryText)
+          .multilineTextAlignment(.center)
+
+          Text(screen.title)
+            .font(CSFont.title3)
+            .foregroundStyle(CSColor.secondaryText)
+        } else {
+          Text(screen.title)
+            .font(CSFont.largeTitle)
+            .foregroundStyle(CSColor.primaryText)
+            .multilineTextAlignment(.center)
+        }
+
+        Text(screen.description)
+          .font(CSFont.body)
+          .foregroundStyle(CSColor.secondaryText)
+          .multilineTextAlignment(.center)
+          .lineSpacing(3)
+          .padding(.horizontal, CSSpacing.md)
+      }
+
+      Spacer(minLength: CSSpacing.lg)
+    }
+    .padding(.horizontal, CSSpacing.md)
+  }
+}
+
+private struct OnboardingPreview: View {
+  let visual: OnboardingVisual
+
+  var body: some View {
+    VStack(spacing: CSSpacing.md) {
+      switch visual {
+      case .monthlySummary:
+        MonthlyPreview()
+      case .quickSpending:
+        QuickSpendingPreview()
+      case .planning:
+        PlanningPreview()
+      }
+    }
+    .padding(CSSpacing.lg)
+    .frame(maxWidth: .infinity)
+    .frame(height: 280)
+    .background(
+      RoundedRectangle(cornerRadius: CSRadius.large, style: .continuous)
+        .fill(CSColor.cardBackground)
+    )
+    .overlay {
+      RoundedRectangle(cornerRadius: CSRadius.large, style: .continuous)
+        .stroke(CSColor.border, lineWidth: 1)
+    }
+    .csCardShadow()
+  }
+}
+
+private struct MonthlyPreview: View {
+  var body: some View {
+    VStack(alignment: .leading, spacing: CSSpacing.md) {
+      HStack {
+        VStack(alignment: .leading, spacing: CSSpacing.xxs) {
+          Text("May 2026")
+            .font(CSFont.caption)
+            .foregroundStyle(CSColor.secondaryText)
+
+          Text("Leftover")
+            .font(CSFont.headline)
+            .foregroundStyle(CSColor.primaryText)
+        }
+
+        Spacer()
+
+        Image(systemName: "leaf.fill")
+          .font(.headline)
+          .foregroundStyle(CSColor.brandGreen)
+          .frame(width: 34, height: 34)
+          .background(CSColor.brandGreen.opacity(0.14))
+          .clipShape(RoundedRectangle(cornerRadius: CSRadius.medium, style: .continuous))
+      }
+
+      CSAmountText(amount: 842, size: .large, color: CSColor.income)
+
+      VStack(spacing: CSSpacing.sm) {
+        previewRow(title: "Income", amount: 3200, color: CSColor.income)
+        previewRow(title: "Spending", amount: 2358, color: CSColor.expense)
+      }
+    }
+  }
+
+  private func previewRow(title: String, amount: Double, color: Color) -> some View {
+    HStack {
+      Circle()
+        .fill(color)
+        .frame(width: 9, height: 9)
+
+      Text(title)
+        .font(CSFont.subheadline)
+        .foregroundStyle(CSColor.secondaryText)
+
+      Spacer()
+
+      CSAmountText(amount: amount, size: .small, color: CSColor.primaryText)
+    }
+  }
+}
+
+private struct QuickSpendingPreview: View {
+  var body: some View {
+    VStack(alignment: .leading, spacing: CSSpacing.md) {
+      HStack {
+        VStack(alignment: .leading, spacing: CSSpacing.xxs) {
+          Text("Food")
+            .font(CSFont.title3)
+            .foregroundStyle(CSColor.primaryText)
+
+          Text("$90 left this month")
+            .font(CSFont.subheadline)
+            .foregroundStyle(CSColor.secondaryText)
+        }
+
+        Spacer()
+
+        Image(systemName: "bolt.fill")
+          .font(.headline)
+          .foregroundStyle(CSColor.brandGreen)
+      }
+
+      VStack(alignment: .leading, spacing: CSSpacing.xs) {
+        Text("Amount")
+          .font(CSFont.caption)
+          .foregroundStyle(CSColor.secondaryText)
+
+        HStack {
+          Text("$")
+            .font(CSFont.amountMedium)
+            .foregroundStyle(CSColor.secondaryText)
+
+          Text("24.50")
+            .font(CSFont.amountMedium)
+            .foregroundStyle(CSColor.primaryText)
+
+          Spacer()
+        }
+        .padding(CSSpacing.md)
+        .background(CSColor.secondaryBackground)
+        .clipShape(RoundedRectangle(cornerRadius: CSRadius.medium, style: .continuous))
+      }
+
+      HStack {
+        Image(systemName: "checkmark")
+        Text("Save Spending")
+      }
+      .font(CSFont.headline)
+      .foregroundStyle(.white)
+      .frame(maxWidth: .infinity)
+      .padding(.vertical, CSSpacing.sm)
+      .background(CSColor.brandGreen)
+      .clipShape(RoundedRectangle(cornerRadius: CSRadius.medium, style: .continuous))
+    }
+  }
+}
+
+private struct PlanningPreview: View {
+  var body: some View {
+    VStack(alignment: .leading, spacing: CSSpacing.md) {
+      HStack {
+        VStack(alignment: .leading, spacing: CSSpacing.xxs) {
+          Text("Vacation Fund")
+            .font(CSFont.title3)
+            .foregroundStyle(CSColor.primaryText)
+
+          Text("Target: Jul 12")
+            .font(CSFont.subheadline)
+            .foregroundStyle(CSColor.secondaryText)
+        }
+
+        Spacer()
+
+        Text("68%")
+          .font(CSFont.caption)
+          .foregroundStyle(CSColor.info)
+          .padding(.horizontal, CSSpacing.sm)
+          .padding(.vertical, CSSpacing.xs)
+          .background(CSColor.info.opacity(0.14))
+          .clipShape(Capsule())
+      }
+
+      CSProgressBar(progress: 0.68, tint: CSColor.info)
+
+      HStack(alignment: .firstTextBaseline) {
+        VStack(alignment: .leading, spacing: CSSpacing.xxs) {
+          Text("Saved")
+            .font(CSFont.caption)
+            .foregroundStyle(CSColor.secondaryText)
+
+          CSAmountText(amount: 680, size: .small, color: CSColor.info)
+        }
+
+        Spacer()
+
+        VStack(alignment: .trailing, spacing: CSSpacing.xxs) {
+          Text("Plan")
+            .font(CSFont.caption)
+            .foregroundStyle(CSColor.secondaryText)
+
+          Text("$42/week")
+            .font(CSFont.amountSmall)
+            .foregroundStyle(CSColor.primaryText)
+        }
+      }
+
+      Text("A clear weekly pace, not a guess.")
+        .font(CSFont.footnote)
+        .foregroundStyle(CSColor.tertiaryText)
+    }
   }
 }
 
 #Preview {
   OnboardingView {
-    print("Login action performed.")
+    print("Onboarding completed.")
   }
   .preferredColorScheme(.dark)
 }

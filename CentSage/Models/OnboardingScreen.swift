@@ -6,11 +6,15 @@
 //
 
 import Foundation
-import SwiftUI
 
 struct OnboardingScreen {
-  var title: String
-  var isColoredTitle: Bool
-  var description: String
-  var image: Image
+  let title: String
+  let description: String
+  let visual: OnboardingVisual
+}
+
+enum OnboardingVisual: Equatable {
+  case monthlySummary
+  case quickSpending
+  case planning
 }
