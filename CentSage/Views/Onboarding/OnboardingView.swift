@@ -158,7 +158,7 @@ private struct MonthlyPreview: View {
     VStack(alignment: .leading, spacing: CSSpacing.md) {
       HStack {
         VStack(alignment: .leading, spacing: CSSpacing.xxs) {
-          Text("May 2026")
+          Text("May")
             .font(CSFont.caption)
             .foregroundStyle(CSColor.secondaryText)
 
