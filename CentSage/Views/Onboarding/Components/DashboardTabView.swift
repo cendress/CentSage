@@ -9,7 +9,6 @@ import SwiftUI
 
 struct DashboardTabView: View {
   @Environment(\.managedObjectContext) private var viewContext
-  var logoutAction: () -> Void
   
   var body: some View {
       TabView {
@@ -42,7 +41,5 @@ struct DashboardTabView: View {
 }
 
 #Preview {
-  DashboardTabView {
-    print("Logout action performed")
-  }
+  DashboardTabView()
 }

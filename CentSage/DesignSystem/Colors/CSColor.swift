@@ -9,7 +9,6 @@ import UIKit
 enum CSColor {
   static let brandGreen = Color(hex: "58B248")
   static let brandGreenLight = Color(hex: "EAF7E7")
-  static let brandGreenDark = Color(hex: "3F8F35")
   
   static let background = Color.dynamic(light: "F8FAF7", dark: "0F1510")
   static let secondaryBackground = Color.dynamic(light: "F1F5EF", dark: "171F18")

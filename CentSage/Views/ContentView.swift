@@ -15,9 +15,7 @@ struct ContentView: View {
   var body: some View {
     Group {
       if hasCompletedOnboarding {
-        DashboardTabView {
-          hasCompletedOnboarding = false
-        }
+        DashboardTabView()
       } else {
         OnboardingView {
           UserDefaults.standard.set(true, forKey: "HasCompletedOnboarding")

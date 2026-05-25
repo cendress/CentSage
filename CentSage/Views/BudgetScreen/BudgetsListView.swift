@@ -40,7 +40,7 @@ struct BudgetsListView: View {
         }
       )
       .sheet(isPresented: $isShowingNewBudgetView) {
-        NewBudgetView()
+        BudgetFormView()
       }
       .onAppear {
         viewModel.fetchBudgets()

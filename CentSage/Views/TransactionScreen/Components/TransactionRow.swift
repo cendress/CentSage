@@ -126,9 +126,3 @@ struct TransactionRow: View {
     }
   }
 }
-
-//#Preview {
-//  let sampleTransaction = PersistenceController.preview.createSampleTransaction(context: NSManagedObjectContext)
-//  return TransactionRow(transaction: sampleTransaction)
-//    .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-//}
