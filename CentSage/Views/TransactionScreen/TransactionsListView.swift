@@ -27,7 +27,7 @@ struct TransactionsListView: View {
           selection: $viewModel.selectedCategory,
           includesAllOption: true
         )
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(maxWidth: .infinity, alignment: .center)
         .padding(.horizontal, CSSpacing.md)
         .padding(.top, CSSpacing.sm)
 
