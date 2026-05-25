@@ -32,93 +32,91 @@ struct QuickSpendingEntryView: View {
 
   var body: some View {
     NavigationView {
-      VStack(alignment: .leading, spacing: CSSpacing.lg) {
-        CSCard {
-          VStack(alignment: .leading, spacing: CSSpacing.sm) {
-            Text(category)
-              .font(CSFont.title2)
-              .foregroundStyle(CSColor.primaryText)
+      VStack(spacing: 0) {
+        ScrollView {
+          VStack(alignment: .leading, spacing: CSSpacing.lg) {
+            CSCard {
+              VStack(alignment: .leading, spacing: CSSpacing.sm) {
+                Text(category)
+                  .font(CSFont.title2)
+                  .foregroundStyle(CSColor.primaryText)
 
-            Text(budget.name ?? "Budget")
-              .font(CSFont.subheadline)
-              .foregroundStyle(CSColor.secondaryText)
-
-            HStack {
-              VStack(alignment: .leading, spacing: CSSpacing.xxs) {
-                Text("Remaining")
-                  .font(CSFont.caption)
+                Text(budget.name ?? "Budget")
+                  .font(CSFont.subheadline)
                   .foregroundStyle(CSColor.secondaryText)
 
-                CSAmountText(
-                  amount: remainingAmount,
-                  size: .medium,
-                  color: remainingAmount < 0 ? CSColor.negative : CSColor.primaryText
-                )
-              }
+                HStack {
+                  VStack(alignment: .leading, spacing: CSSpacing.xxs) {
+                    Text("Remaining")
+                      .font(CSFont.caption)
+                      .foregroundStyle(CSColor.secondaryText)
 
-              Spacer()
+                    CSAmountText(
+                      amount: remainingAmount,
+                      size: .medium,
+                      color: remainingAmount < 0 ? CSColor.negative : CSColor.primaryText
+                    )
+                  }
 
-              VStack(alignment: .trailing, spacing: CSSpacing.xxs) {
-                Text("Spent")
-                  .font(CSFont.caption)
-                  .foregroundStyle(CSColor.secondaryText)
+                  Spacer()
 
-                CSAmountText(amount: spentAmount, size: .small)
+                  VStack(alignment: .trailing, spacing: CSSpacing.xxs) {
+                    Text("Spent")
+                      .font(CSFont.caption)
+                      .foregroundStyle(CSColor.secondaryText)
+
+                    CSAmountText(amount: spentAmount, size: .small)
+                  }
+                }
               }
             }
-          }
-        }
 
-        VStack(alignment: .leading, spacing: CSSpacing.sm) {
-          Text("Amount")
-            .font(CSFont.caption)
-            .foregroundStyle(CSColor.secondaryText)
+            VStack(alignment: .leading, spacing: CSSpacing.sm) {
+              Text("Amount")
+                .font(CSFont.caption)
+                .foregroundStyle(CSColor.secondaryText)
 
-          HStack {
-            Text("$")
-              .font(CSFont.amountMedium)
-              .foregroundStyle(CSColor.secondaryText)
+              HStack {
+                Text("$")
+                  .font(CSFont.amountMedium)
+                  .foregroundStyle(CSColor.secondaryText)
 
-            TextField("0.00", text: $amount)
-              .font(CSFont.amountMedium)
-              .keyboardType(.decimalPad)
-              .textInputAutocapitalization(.never)
+                TextField("0.00", text: $amount)
+                  .font(CSFont.amountMedium)
+                  .keyboardType(.decimalPad)
+                  .textInputAutocapitalization(.never)
+              }
+              .padding(CSSpacing.md)
+              .background(CSColor.cardBackground)
+              .clipShape(RoundedRectangle(cornerRadius: CSRadius.large, style: .continuous))
+              .overlay {
+                RoundedRectangle(cornerRadius: CSRadius.large, style: .continuous)
+                  .stroke(CSColor.border, lineWidth: 1)
+              }
+
+              TextField("Note (optional)", text: $note)
+                .font(CSFont.body)
+                .padding(CSSpacing.md)
+                .background(CSColor.cardBackground)
+                .clipShape(RoundedRectangle(cornerRadius: CSRadius.large, style: .continuous))
+                .overlay {
+                  RoundedRectangle(cornerRadius: CSRadius.large, style: .continuous)
+                    .stroke(CSColor.border, lineWidth: 1)
+                }
+            }
           }
           .padding(CSSpacing.md)
-          .background(CSColor.cardBackground)
-          .clipShape(RoundedRectangle(cornerRadius: CSRadius.large, style: .continuous))
-          .overlay {
-            RoundedRectangle(cornerRadius: CSRadius.large, style: .continuous)
-              .stroke(CSColor.border, lineWidth: 1)
-          }
-
-          TextField("Note (optional)", text: $note)
-            .font(CSFont.body)
-            .padding(CSSpacing.md)
-            .background(CSColor.cardBackground)
-            .clipShape(RoundedRectangle(cornerRadius: CSRadius.large, style: .continuous))
-            .overlay {
-              RoundedRectangle(cornerRadius: CSRadius.large, style: .continuous)
-                .stroke(CSColor.border, lineWidth: 1)
-            }
         }
 
         CSButton(title: "Save Spending", systemImage: "checkmark", action: saveSpending)
-
-        Spacer()
+          .padding(.horizontal, CSSpacing.md)
+          .padding(.top, CSSpacing.sm)
+          .padding(.bottom, CSSpacing.lg)
+          .background(CSColor.background)
       }
-      .padding(CSSpacing.md)
       .csScreenBackground()
       .navigationTitle("Quick Spending")
       .navigationBarTitleDisplayMode(.inline)
-      .toolbar {
-        ToolbarItem(placement: .topBarLeading) {
-          Button("Exit") {
-            dismiss()
-          }
-          .foregroundStyle(CSColor.negative)
-        }
-      }
       .alert(isPresented: $showingAlert) {
         Alert(title: Text("Invalid Input"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
       }

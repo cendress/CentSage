@@ -25,55 +25,50 @@ struct TransactionFormView: View {
 
   var body: some View {
     NavigationView {
-      Form {
-        Section {
-          HStack {
-            Text("$")
-            TextField("Amount", text: $state.amount)
-              .keyboardType(.decimalPad)
-          }
-
-          Picker("Type", selection: $state.type) {
-            ForEach(TransactionType.allCases) { type in
-              Text(type.title).tag(type)
+      VStack(spacing: 0) {
+        Form {
+          Section {
+            HStack {
+              Text("$")
+              TextField("Amount", text: $state.amount)
+                .keyboardType(.decimalPad)
             }
-          }
-          .pickerStyle(.segmented)
-        }
 
-        Section {
-          Picker("Category", selection: $state.category) {
-            Text("None").tag("")
-            ForEach(CSCategoryPicker.transactionCategories, id: \.self) { category in
-              Text(category).tag(category)
+            Picker("Type", selection: $state.type) {
+              ForEach(TransactionType.allCases) { type in
+                Text(type.title).tag(type)
+              }
             }
-            Text(TransactionCreationService.uncategorizedCategory)
-              .tag(TransactionCreationService.uncategorizedCategory)
+            .pickerStyle(.segmented)
           }
 
-          DatePicker("Date", selection: $state.date, displayedComponents: .date)
+          Section {
+            Picker("Category", selection: $state.category) {
+              Text("None").tag("")
+              ForEach(CSCategoryPicker.transactionCategories, id: \.self) { category in
+                Text(category).tag(category)
+              }
+              Text(TransactionCreationService.uncategorizedCategory)
+                .tag(TransactionCreationService.uncategorizedCategory)
+            }
 
-          TextField("Note (optional)", text: $state.note)
+            DatePicker("Date", selection: $state.date, displayedComponents: .date)
+
+            TextField("Note (optional)", text: $state.note)
+          }
         }
+        .scrollContentBackground(.hidden)
+        .background(CSColor.background)
+
+        CSButton(title: saveButtonTitle, systemImage: "checkmark", action: saveTransaction)
+          .padding(.horizontal, CSSpacing.md)
+          .padding(.top, CSSpacing.sm)
+          .padding(.bottom, CSSpacing.lg)
+          .background(CSColor.background)
       }
-      .scrollContentBackground(.hidden)
       .background(CSColor.background)
       .navigationTitle(transaction == nil ? "Add Transaction" : "Edit Transaction")
-      .toolbar {
-        ToolbarItem(placement: .topBarLeading) {
-          Button("Exit") {
-            dismiss()
-          }
-          .foregroundStyle(CSColor.negative)
-        }
-
-        ToolbarItem(placement: .navigationBarTrailing) {
-          Button("Save") {
-            saveTransaction()
-          }
-          .foregroundStyle(CSColor.brandGreen)
-        }
-      }
+      .navigationBarTitleDisplayMode(.inline)
       .alert(isPresented: $showErrorAlert) {
         Alert(
           title: Text("Saving Error"),
@@ -83,6 +78,10 @@ struct TransactionFormView: View {
       }
     }
     .colorScheme(themeProvider.isDarkMode ? .dark : .light)
+  }
+
+  private var saveButtonTitle: String {
+    transaction == nil ? "Save Transaction" : "Update Transaction"
   }
 
   private func saveTransaction() {

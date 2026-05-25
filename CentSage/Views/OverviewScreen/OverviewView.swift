@@ -145,8 +145,6 @@ private enum OverviewSheet: Identifiable {
 }
 
 private struct BudgetSelectionSheet: View {
-  @Environment(\.dismiss) private var dismiss
-
   let budgets: [Budget]
   let onSelectBudget: (Budget) -> Void
   let onAddBudget: () -> Void
@@ -205,14 +203,6 @@ private struct BudgetSelectionSheet: View {
       .csScreenBackground()
       .navigationTitle("Add Spending")
       .navigationBarTitleDisplayMode(.inline)
-      .toolbar {
-        ToolbarItem(placement: .topBarLeading) {
-          Button("Exit") {
-            dismiss()
-          }
-          .foregroundStyle(CSColor.negative)
-        }
-      }
     }
   }
 }

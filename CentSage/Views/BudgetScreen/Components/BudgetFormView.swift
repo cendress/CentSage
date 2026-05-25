@@ -25,51 +25,46 @@ struct BudgetFormView: View {
 
   var body: some View {
     NavigationView {
-      Form {
-        Section {
-          TextField("Name", text: $state.name)
+      VStack(spacing: 0) {
+        Form {
+          Section {
+            TextField("Name", text: $state.name)
 
-          Picker("Category", selection: $state.category) {
-            Text("Same as name").tag("")
-            ForEach(CSCategoryPicker.transactionCategories, id: \.self) { category in
-              Text(category).tag(category)
+            Picker("Category", selection: $state.category) {
+              Text("Same as name").tag("")
+              ForEach(CSCategoryPicker.transactionCategories, id: \.self) { category in
+                Text(category).tag(category)
+              }
+            }
+
+            HStack {
+              Text("$")
+              TextField("Monthly Limit", text: $state.amount)
+                .keyboardType(.decimalPad)
             }
           }
 
-          HStack {
-            Text("$")
-            TextField("Monthly Limit", text: $state.amount)
-              .keyboardType(.decimalPad)
+          Section {
+            Toggle("Include Dates", isOn: $state.includeDates)
+
+            if state.includeDates {
+              DatePicker("Start Date", selection: $state.startDate, displayedComponents: .date)
+              DatePicker("End Date", selection: $state.endDate, displayedComponents: .date)
+            }
           }
         }
+        .scrollContentBackground(.hidden)
+        .background(CSColor.background)
 
-        Section {
-          Toggle("Include Dates", isOn: $state.includeDates)
-
-          if state.includeDates {
-            DatePicker("Start Date", selection: $state.startDate, displayedComponents: .date)
-            DatePicker("End Date", selection: $state.endDate, displayedComponents: .date)
-          }
-        }
+        CSButton(title: saveButtonTitle, systemImage: "checkmark", action: saveBudget)
+          .padding(.horizontal, CSSpacing.md)
+          .padding(.top, CSSpacing.sm)
+          .padding(.bottom, CSSpacing.lg)
+          .background(CSColor.background)
       }
-      .scrollContentBackground(.hidden)
       .background(CSColor.background)
       .navigationTitle(budget == nil ? "Add Budget" : "Edit Budget")
-      .toolbar {
-        ToolbarItem(placement: .topBarLeading) {
-          Button("Exit") {
-            dismiss()
-          }
-          .foregroundStyle(CSColor.negative)
-        }
-
-        ToolbarItem(placement: .navigationBarTrailing) {
-          Button("Save") {
-            saveBudget()
-          }
-          .foregroundStyle(CSColor.brandGreen)
-        }
-      }
+      .navigationBarTitleDisplayMode(.inline)
       .alert(isPresented: $showErrorAlert) {
         Alert(
           title: Text("Saving Error"),
@@ -79,6 +74,10 @@ struct BudgetFormView: View {
       }
     }
     .colorScheme(themeProvider.isDarkMode ? .dark : .light)
+  }
+
+  private var saveButtonTitle: String {
+    budget == nil ? "Save Budget" : "Update Budget"
   }
 
   private func saveBudget() {
