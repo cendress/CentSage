@@ -28,6 +28,22 @@ struct TransactionFormState {
   }
 
   var parsedAmount: Double? {
-    Double(amount)
+    Double(Self.sanitizedAmountInput(amount))
+  }
+
+  static func sanitizedAmountInput(_ input: String) -> String {
+    var sanitized = ""
+    var hasDecimalSeparator = false
+
+    for character in input {
+      if let digit = character.wholeNumberValue {
+        sanitized.append(String(digit))
+      } else if (character == "." || character == ",") && !hasDecimalSeparator {
+        sanitized.append(".")
+        hasDecimalSeparator = true
+      }
+    }
+
+    return sanitized
   }
 }

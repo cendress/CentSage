@@ -32,6 +32,13 @@ struct TransactionFormView: View {
               Text("$")
               TextField("Amount", text: $state.amount)
                 .keyboardType(.decimalPad)
+                .textInputAutocapitalization(.never)
+                .onChange(of: state.amount) { oldValue, newValue in
+                  let sanitizedAmount = TransactionFormState.sanitizedAmountInput(newValue)
+                  if sanitizedAmount != newValue {
+                    state.amount = sanitizedAmount
+                  }
+                }
             }
 
             Picker("Type", selection: $state.type) {
