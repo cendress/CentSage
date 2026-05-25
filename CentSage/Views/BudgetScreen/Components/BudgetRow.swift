@@ -51,15 +51,11 @@ struct BudgetRow: View {
             Text(category)
               .font(CSFont.subheadline)
               .foregroundStyle(CSColor.budget)
-
-            dateRangeView
           }
 
           Spacer()
 
-          Image(systemName: "plus.circle.fill")
-            .font(.title3)
-            .foregroundStyle(CSColor.brandGreen)
+            dateRangeView
         }
 
         Divider()
