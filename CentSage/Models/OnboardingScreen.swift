@@ -16,5 +16,5 @@ struct OnboardingScreen {
 enum OnboardingVisual: Equatable {
   case monthlySummary
   case quickSpending
-  case planning
+  case budgetAwareness
 }

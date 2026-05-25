@@ -14,7 +14,7 @@ struct OnboardingView: View {
 
   private let onboardingScreens = [
     OnboardingScreen(
-      title: "Understand Your Month",
+      title: "See Your Month",
       description: "See income, spending, and what is left at a glance.",
       visual: .monthlySummary
     ),
@@ -24,9 +24,9 @@ struct OnboardingView: View {
       visual: .quickSpending
     ),
     OnboardingScreen(
-      title: "Plan Ahead",
-      description: "Use budgets to stay on track calmly.",
-      visual: .planning
+      title: "Stay on Budget",
+      description: "See what is spent, what remains, and when a category needs attention.",
+      visual: .budgetAwareness
     )
   ]
 
@@ -89,30 +89,26 @@ private struct OnboardingPageView: View {
   var body: some View {
     VStack(spacing: CSSpacing.lg) {
       Spacer(minLength: CSSpacing.lg)
+        
+        if screen.visual == .monthlySummary {
+            HStack(spacing: CSSpacing.xs) {
+                Text("Welcome to")
+                Text("CentSage")
+                    .foregroundStyle(CSColor.brandGreen)
+            }
+            .font(CSFont.largeTitle)
+            .foregroundStyle(CSColor.primaryText)
+            .multilineTextAlignment(.center)
+        }
 
       OnboardingPreview(visual: screen.visual)
         .padding(.horizontal, CSSpacing.md)
 
       VStack(spacing: CSSpacing.sm) {
-        if screen.visual == .monthlySummary {
-          HStack(spacing: CSSpacing.xs) {
-            Text("Welcome to")
-            Text("CentSage")
-              .foregroundStyle(CSColor.brandGreen)
-          }
-          .font(CSFont.largeTitle)
-          .foregroundStyle(CSColor.primaryText)
-          .multilineTextAlignment(.center)
-
-          Text(screen.title)
-            .font(CSFont.title3)
-            .foregroundStyle(CSColor.secondaryText)
-        } else {
           Text(screen.title)
             .font(CSFont.largeTitle)
             .foregroundStyle(CSColor.primaryText)
             .multilineTextAlignment(.center)
-        }
 
         Text(screen.description)
           .font(CSFont.body)
@@ -138,8 +134,8 @@ private struct OnboardingPreview: View {
         MonthlyPreview()
       case .quickSpending:
         QuickSpendingPreview()
-      case .planning:
-        PlanningPreview()
+      case .budgetAwareness:
+        BudgetAwarenessPreview()
       }
     }
     .padding(CSSpacing.lg)
@@ -263,56 +259,54 @@ private struct QuickSpendingPreview: View {
   }
 }
 
-private struct PlanningPreview: View {
+private struct BudgetAwarenessPreview: View {
   var body: some View {
     VStack(alignment: .leading, spacing: CSSpacing.md) {
       HStack {
         VStack(alignment: .leading, spacing: CSSpacing.xxs) {
-          Text("Vacation Fund")
+          Text("Food Budget")
             .font(CSFont.title3)
             .foregroundStyle(CSColor.primaryText)
 
-          Text("Target: Jul 12")
+          Text("$90 remaining")
             .font(CSFont.subheadline)
             .foregroundStyle(CSColor.secondaryText)
         }
 
         Spacer()
 
-        Text("68%")
+        Text("72%")
           .font(CSFont.caption)
-          .foregroundStyle(CSColor.info)
+          .foregroundStyle(CSColor.brandGreen)
           .padding(.horizontal, CSSpacing.sm)
           .padding(.vertical, CSSpacing.xs)
-          .background(CSColor.info.opacity(0.14))
+          .background(CSColor.brandGreen.opacity(0.14))
           .clipShape(Capsule())
       }
 
-      CSProgressBar(progress: 0.68, tint: CSColor.info)
+      CSProgressBar(progress: 0.72, tint: CSColor.brandGreen)
 
       HStack(alignment: .firstTextBaseline) {
         VStack(alignment: .leading, spacing: CSSpacing.xxs) {
-          Text("Saved")
+          Text("Spent")
             .font(CSFont.caption)
             .foregroundStyle(CSColor.secondaryText)
 
-          CSAmountText(amount: 680, size: .small, color: CSColor.info)
+          CSAmountText(amount: 260, size: .small, color: CSColor.expense)
         }
 
         Spacer()
 
         VStack(alignment: .trailing, spacing: CSSpacing.xxs) {
-          Text("Plan")
+          Text("Limit")
             .font(CSFont.caption)
             .foregroundStyle(CSColor.secondaryText)
 
-          Text("$42/week")
-            .font(CSFont.amountSmall)
-            .foregroundStyle(CSColor.primaryText)
+          CSAmountText(amount: 350, size: .small, color: CSColor.primaryText)
         }
       }
 
-      Text("A clear weekly pace, not a guess.")
+      Text("Know when to slow down before the month gets tight.")
         .font(CSFont.footnote)
         .foregroundStyle(CSColor.tertiaryText)
     }
