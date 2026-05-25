@@ -18,9 +18,6 @@ struct CSEmptyStateView: View {
       Image(systemName: systemImage)
         .font(.system(size: 52, weight: .semibold))
         .foregroundStyle(CSColor.brandGreen)
-        .frame(width: 88, height: 88)
-        .background(CSColor.brandGreenLight)
-        .clipShape(Circle())
       
       VStack(spacing: CSSpacing.xs) {
         Text(title)
