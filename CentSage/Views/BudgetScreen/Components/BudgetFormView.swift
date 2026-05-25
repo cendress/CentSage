@@ -39,7 +39,7 @@ struct BudgetFormView: View {
 
             HStack {
               Text("$")
-              TextField("Monthly Limit", text: $state.amount)
+              TextField("Limit", text: $state.amount)
                 .keyboardType(.decimalPad)
             }
           }
@@ -82,7 +82,7 @@ struct BudgetFormView: View {
 
   private func saveBudget() {
     guard let amount = state.parsedAmount, amount > 0 else {
-      errorMessage = "Please enter a valid positive monthly limit."
+      errorMessage = "Please enter a valid positive limit."
       showErrorAlert = true
       return
     }
