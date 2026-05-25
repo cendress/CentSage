@@ -11,7 +11,7 @@ struct TransactionRow: View {
   var transaction: Transaction
 
   var body: some View {
-    CSCard(padding: CSSpacing.sm) {
+    CSCard(padding: CSSpacing.sm, shadowStyle: CSShadow.transactionCard) {
       HStack(spacing: CSSpacing.sm) {
         Image(systemName: icon(for: transaction.category))
           .font(.headline)

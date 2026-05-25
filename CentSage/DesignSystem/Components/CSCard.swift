@@ -7,10 +7,16 @@ import SwiftUI
 
 struct CSCard<Content: View>: View {
   private let padding: CGFloat
+  private let shadowStyle: CSShadowStyle
   private let content: Content
   
-  init(padding: CGFloat = CSSpacing.md, @ViewBuilder content: () -> Content) {
+  init(
+    padding: CGFloat = CSSpacing.md,
+    shadowStyle: CSShadowStyle = CSShadow.card,
+    @ViewBuilder content: () -> Content
+  ) {
     self.padding = padding
+    self.shadowStyle = shadowStyle
     self.content = content()
   }
   
@@ -23,6 +29,6 @@ struct CSCard<Content: View>: View {
         RoundedRectangle(cornerRadius: CSRadius.large, style: .continuous)
           .stroke(CSColor.border, lineWidth: 1)
       }
-      .csCardShadow()
+      .csCardShadow(shadowStyle)
   }
 }
