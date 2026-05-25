@@ -33,7 +33,7 @@ struct QuickSpendingEntryView: View {
   var body: some View {
     NavigationView {
       VStack(spacing: 0) {
-        ScrollView {
+          ScrollView(showsIndicators: false) {
           VStack(alignment: .leading, spacing: CSSpacing.lg) {
             CSCard {
               VStack(alignment: .leading, spacing: CSSpacing.sm) {
